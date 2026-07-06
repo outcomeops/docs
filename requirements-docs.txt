@@ -1,3 +1,11 @@
+# Note: pymdownx.superfences is broken in the versions we tested against
+# (fence detection fails, treating triple-backticks as inline code). Using
+# the standard python-markdown fenced_code + codehilite instead. If you
+# swap in superfences later, verify a code fence with blank lines + a
+# `# comment` inside it renders as <pre><code>, not <p>.
+
 mkdocs==1.6.1
 mkdocs-material==9.5.44
+Markdown==3.7
 pymdown-extensions==10.11.2
+Pygments>=2.18

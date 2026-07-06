@@ -66,21 +66,18 @@ markdown_extensions:
   - admonition
   - attr_list
   - def_list
+  - fenced_code
   - footnotes
   - md_in_html
   - tables
   - toc:
       permalink: true
+  - codehilite:
+      guess_lang: false
   - pymdownx.details
-  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -91,8 +88,13 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/outcomeops
+      name: OutcomeOps on GitHub
     - icon: fontawesome/solid/globe
       link: https://outcomeops.ai
+      name: outcomeops.ai
+    - icon: fontawesome/solid/life-ring
+      link: https://outcomeops.atlassian.net/servicedesk/customer/portal/1
+      name: Support Portal
 
 # Navigation. Add pages under docs/ then reference here.
 nav:
@@ -120,4 +122,8 @@ nav:
       - Integration Gating: administration/integration-gating.md
       - Global Workspaces: administration/global-workspaces.md
       - PII Redaction: administration/pii-redaction.md
+      - Model Selection: administration/model-selection.md
+      - High Availability: administration/high-availability.md
+      - SIEM Audit Stream: administration/audit-stream-export.md
+      - Security Scanner Endpoint: administration/security-scanner.md
   - FAQ: faq.md
