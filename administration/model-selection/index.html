@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Make one team's content queryable across the whole org, without maintaining membership lists.">
+        <meta name="description" content="Swap Claude for GPT-5.5, update pricing tfvars, and rotate Mantle API keys for OpenAI-on-Bedrock.">
       
       
         <meta name="author" content="OutcomeOps">
       
       
-        <link rel="canonical" href="https://docs.outcomeops.ai/administration/global-workspaces/">
+        <link rel="canonical" href="https://docs.outcomeops.ai/administration/model-selection/">
       
       
-        <link rel="prev" href="../integration-gating/">
+        <link rel="prev" href="../pii-redaction/">
       
       
-        <link rel="next" href="../pii-redaction/">
+        <link rel="next" href="../high-availability/">
       
       
       <link rel="icon" href="../../assets/logo.svg">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Global Workspaces - OutcomeOps AI Assist Docs</title>
+        <title>Model Selection - OutcomeOps AI Assist Docs</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#global-workspaces" class="md-skip">
+        <a href="#model-selection" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Global Workspaces
+              Model Selection
             
           </span>
         </div>
@@ -975,30 +975,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Global Workspaces
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../global-workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1007,131 +987,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-a-global-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      When to use a global workspace
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-they-behave" class="md-nav__link">
-    <span class="md-ellipsis">
-      How they behave
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-global-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a global workspace
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#naming-conventions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Naming conventions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example patterns
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Example patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#security-standards-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security Standards workspace
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#architecture-decision-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Architecture Decision workspace
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#outcomeops-help-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      OutcomeOps Help workspace
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interaction-with-other-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Interaction with other features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-gotchas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common gotchas
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related" class="md-nav__link">
-    <span class="md-ellipsis">
-      Related
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1162,10 +1017,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../model-selection/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Model Selection
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1174,6 +1049,200 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why swap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swapping-to-gpt-55-advanced-gpt-54-basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swapping to GPT-5.5 (advanced) + GPT-5.4 (basic)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Swapping to GPT-5.5 (advanced) + GPT-5.4 (basic)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-confirm-region-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Confirm region availability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-update-the-model-tfvars" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Update the model tfvars
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-update-the-pricing-tfvars" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Update the pricing tfvars
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-set-the-default-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Set the default backend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-cohere-rerank-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Cohere Rerank availability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Apply
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-verify" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Verify
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mantle-api-key-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mantle API key rotation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mantle API key rotation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-a-mantle-api-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting a Mantle API key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storing-it-in-ssm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storing it in SSM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotation-cadence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotation cadence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bedrock-api-key-alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bedrock API key alternative
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switching-back-to-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      Switching back to Claude
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-not-to-swap-without-care" class="md-nav__link">
+    <span class="md-ellipsis">
+      What NOT to swap without care
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-analytics-after-a-swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost analytics after a swap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1296,73 +1365,82 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-a-global-workspace" class="md-nav__link">
+  <a href="#why-swap" class="md-nav__link">
     <span class="md-ellipsis">
-      When to use a global workspace
+      Why swap
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-they-behave" class="md-nav__link">
+  <a href="#swapping-to-gpt-55-advanced-gpt-54-basic" class="md-nav__link">
     <span class="md-ellipsis">
-      How they behave
+      Swapping to GPT-5.5 (advanced) + GPT-5.4 (basic)
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-global-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a global workspace
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#naming-conventions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Naming conventions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example patterns
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Example patterns">
+    <nav class="md-nav" aria-label="Swapping to GPT-5.5 (advanced) + GPT-5.4 (basic)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#security-standards-workspace" class="md-nav__link">
+  <a href="#step-1-confirm-region-availability" class="md-nav__link">
     <span class="md-ellipsis">
-      Security Standards workspace
+      Step 1: Confirm region availability
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#architecture-decision-workspace" class="md-nav__link">
+  <a href="#step-2-update-the-model-tfvars" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture Decision workspace
+      Step 2: Update the model tfvars
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#outcomeops-help-workspace" class="md-nav__link">
+  <a href="#step-3-update-the-pricing-tfvars" class="md-nav__link">
     <span class="md-ellipsis">
-      OutcomeOps Help workspace
+      Step 3: Update the pricing tfvars
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-set-the-default-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Set the default backend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-cohere-rerank-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Cohere Rerank availability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Apply
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-verify" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Verify
     </span>
   </a>
   
@@ -1374,18 +1452,78 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interaction-with-other-features" class="md-nav__link">
+  <a href="#mantle-api-key-rotation" class="md-nav__link">
     <span class="md-ellipsis">
-      Interaction with other features
+      Mantle API key rotation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mantle API key rotation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-a-mantle-api-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting a Mantle API key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storing-it-in-ssm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storing it in SSM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotation-cadence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotation cadence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bedrock-api-key-alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bedrock API key alternative
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switching-back-to-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      Switching back to Claude
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-gotchas" class="md-nav__link">
+  <a href="#what-not-to-swap-without-care" class="md-nav__link">
     <span class="md-ellipsis">
-      Common gotchas
+      What NOT to swap without care
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-analytics-after-a-swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost analytics after a swap
     </span>
   </a>
   
@@ -1415,7 +1553,7 @@
                   
 
   
-    <a href="https://github.com/outcomeops/docs/edit/main/docs/administration/global-workspaces.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/outcomeops/docs/edit/main/docs/administration/model-selection.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1423,84 +1561,167 @@
   
 
 
-<h1 id="global-workspaces">Global Workspaces<a class="headerlink" href="#global-workspaces" title="Permanent link">&para;</a></h1>
-<p>A <strong>global workspace</strong> is a public workspace that appears in every authenticated user's workspace picker by default. One team owns the content; everyone in the deploy can query it.</p>
-<p>Use global workspaces for content that isn't team-specific but that some team has to own and maintain --- security standards, architecture decisions, onboarding guides, compliance policies. Instead of manually adding every engineer to a "Security" workspace and re-doing that every time someone joins or leaves, you flip the workspace to global and the org membership problem goes away.</p>
-<h2 id="when-to-use-a-global-workspace">When to use a global workspace<a class="headerlink" href="#when-to-use-a-global-workspace" title="Permanent link">&para;</a></h2>
-<p><strong>Good fits:</strong></p>
+<h1 id="model-selection">Model Selection<a class="headerlink" href="#model-selection" title="Permanent link">&para;</a></h1>
+<p>OutcomeOps AI Assist uses <strong>two Bedrock models</strong> per chat turn:</p>
 <ul>
-<li><strong>Security standards</strong> owned by SecOps but queryable by every engineer.</li>
-<li><strong>Architecture decision records</strong> owned by the platform team but queryable across product engineering.</li>
-<li><strong>Compliance policies</strong> owned by GRC but queryable when any engineer wonders "can I do X?"</li>
-<li><strong>Onboarding content</strong> --- how to file expenses, request access, deploy code, get to the incident channel.</li>
-<li><strong>OutcomeOps Help</strong> --- an internal instance of the OutcomeOps documentation itself, so users can chat with the docs.</li>
+<li><strong>Advanced model</strong> --- runs the synthesis step that produces the streamed answer, plus code generation and PR analysis. Higher-cost, higher-quality.</li>
+<li><strong>Basic model</strong> --- runs auxiliary steps: query rewriting for retrieval, conversation summarization, code-map extraction during ingest. Cheaper, faster.</li>
 </ul>
-<p><strong>Bad fits:</strong></p>
+<p>Defaults:</p>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Default</th>
+<th>Provider</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Advanced</td>
+<td>Claude Sonnet 4.6</td>
+<td>Anthropic on Bedrock</td>
+</tr>
+<tr>
+<td>Basic</td>
+<td>Claude Haiku 4.5</td>
+<td>Anthropic on Bedrock</td>
+</tr>
+<tr>
+<td>Embedding</td>
+<td>Titan Embed Text v2</td>
+<td>Amazon on Bedrock</td>
+</tr>
+<tr>
+<td>Rerank</td>
+<td>Cohere Rerank v3.5 (optional)</td>
+<td>Cohere on Bedrock</td>
+</tr>
+</tbody>
+</table>
+<p>All swappable via tfvars. This page covers the common swaps: <strong>OpenAI GPT-5.5 as advanced</strong>, <strong>GPT-5.4 as basic</strong>, and the pricing tfvars that keep cost analytics accurate.</p>
+<h2 id="why-swap">Why swap<a class="headerlink" href="#why-swap" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Team-specific runbooks that only that team's on-call rotation needs. Keep those in the team's own private workspace.</li>
-<li>Draft content, WIP standards, anything half-cooked. Global means everyone sees it; use a private workspace to iterate.</li>
-<li>Content that has to have different views for different audiences. If eng needs one framing and legal needs another, ship two workspaces (one global, one private).</li>
+<li><strong>Compliance-approved model.</strong> Your organization has vetted one model family and needs the platform to use it exclusively.</li>
+<li><strong>Regional availability.</strong> Bedrock doesn't offer Claude in the region you deploy to, but does offer GPT-5.5.</li>
+<li><strong>Cost.</strong> Different model families have different token pricing; a workspace with heavy usage patterns may cost less on one family than another.</li>
+<li><strong>Quality on your workload.</strong> Some codebases + languages perform better on one model family than another. Test with a small workspace before rolling out.</li>
 </ul>
-<h2 id="how-they-behave">How they behave<a class="headerlink" href="#how-they-behave" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Discoverability.</strong> Global workspaces show up at the top of every user's workspace picker, tagged <strong>(Global)</strong>, above the user's own team workspaces.</li>
-<li><strong>Membership isn't tracked.</strong> Users don't join or leave --- they just select the workspace in their picker when they want its content in their chat.</li>
-<li><strong>Content ownership stays with one team.</strong> The workspace has a normal admin + members list; only they can add integrations, repos, spaces, or edit the system prompt. Everyone else is a read-only consumer.</li>
-<li><strong>Chat is per-user.</strong> Two users querying the same global workspace have independent conversations. No shared threads.</li>
-<li><strong>Global workspaces respect PII redaction settings.</strong> If org-level redaction is enabled, redaction runs at ingest time --- so what's in the workspace is already redacted before any user queries it.</li>
-</ul>
-<h2 id="creating-a-global-workspace">Creating a global workspace<a class="headerlink" href="#creating-a-global-workspace" title="Permanent link">&para;</a></h2>
-<p>Only <strong>org admins</strong> can flip a workspace to global.</p>
+<h2 id="swapping-to-gpt-55-advanced-gpt-54-basic">Swapping to GPT-5.5 (advanced) + GPT-5.4 (basic)<a class="headerlink" href="#swapping-to-gpt-55-advanced-gpt-54-basic" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-confirm-region-availability">Step 1: Confirm region availability<a class="headerlink" href="#step-1-confirm-region-availability" title="Permanent link">&para;</a></h3>
+<p>OpenAI on Bedrock is currently <strong>us-east-2 only</strong> at time of writing. Verify:</p>
+<div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>bedrock<span class="w"> </span>list-foundation-models<span class="w"> </span>--region<span class="w"> </span>us-east-2<span class="w"> </span>--by-provider<span class="w"> </span>openai<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;modelSummaries[].modelId&#39;</span>
+</code></pre></div>
+
+<p>You should see <code>openai.gpt-5.5</code> and <code>openai.gpt-5.4</code> in the output. If your deploy is in a different region and OpenAI isn't available there, either move the deploy or stay on Claude.</p>
+<h3 id="step-2-update-the-model-tfvars">Step 2: Update the model tfvars<a class="headerlink" href="#step-2-update-the-model-tfvars" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="na">bedrock_advanced_model_id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;openai.gpt-5.5&quot;</span>
+<span class="na">bedrock_basic_model_id</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;openai.gpt-5.4&quot;</span>
+</code></pre></div>
+
+<h3 id="step-3-update-the-pricing-tfvars">Step 3: Update the pricing tfvars<a class="headerlink" href="#step-3-update-the-pricing-tfvars" title="Permanent link">&para;</a></h3>
+<p>Cost analytics multiply token counts by these prices. Wrong prices = wrong cost dashboards. Update per the current Bedrock us-east-2 rates:</p>
+<div class="codehilite"><pre><span></span><code><span class="na">bedrock_advanced_input_price</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nv">5.50</span><span class="c1">   # openai.gpt-5.5 input per million tokens</span>
+<span class="na">bedrock_advanced_output_price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">33.00</span><span class="c1">  # openai.gpt-5.5 output per million tokens</span>
+<span class="na">bedrock_basic_input_price</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nv">2.75</span><span class="c1">   # openai.gpt-5.4 input per million tokens</span>
+<span class="na">bedrock_basic_output_price</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nv">16.50</span><span class="c1">  # openai.gpt-5.4 output per million tokens</span>
+</code></pre></div>
+
+<p>Verify current rates at <a href="https://aws.amazon.com/bedrock/pricing/">aws.amazon.com/bedrock/pricing</a> --- Bedrock rates do change, and stale tfvars mean stale cost dashboards.</p>
+<h3 id="step-4-set-the-default-backend">Step 4: Set the default backend<a class="headerlink" href="#step-4-set-the-default-backend" title="Permanent link">&para;</a></h3>
+<p>OpenAI on Bedrock uses the <code>/v1/responses</code> API surface, not the Converse API that Claude uses. The shared model client abstraction picks a backend based on the model prefix, but you can pin it explicitly:</p>
+<div class="codehilite"><pre><span></span><code><span class="na">bedrock_default_backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;responses&quot;</span>
+</code></pre></div>
+
+<p>For Claude deployments, this stays <code>converse</code> (the default). For OpenAI, <code>responses</code> is required.</p>
+<h3 id="step-5-cohere-rerank-availability">Step 5: Cohere Rerank availability<a class="headerlink" href="#step-5-cohere-rerank-availability" title="Permanent link">&para;</a></h3>
+<p>Cohere Rerank v3.5 is <strong>not available in us-east-2</strong>. If you're moving a deploy to us-east-2 for OpenAI, disable rerank:</p>
+<div class="codehilite"><pre><span></span><code><span class="na">bedrock_rerank_enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">false</span>
+</code></pre></div>
+
+<p>The <a href="../../features/chat/#retrieval-in-one-paragraph">dual-channel retrieval</a> still works without rerank --- you just lose the cross-lane balancing pass. Answer quality is slightly worse but not dramatically so.</p>
+<h3 id="step-6-apply">Step 6: Apply<a class="headerlink" href="#step-6-apply" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>terraform
+terraform<span class="w"> </span>workspace<span class="w"> </span><span class="k">select</span><span class="w"> </span>prd
+terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span class="o">=</span>prd.tfvars
+</code></pre></div>
+
+<p>The apply updates Lambda env vars in place; no artifact rebuild needed.</p>
+<h3 id="step-7-verify">Step 7: Verify<a class="headerlink" href="#step-7-verify" title="Permanent link">&para;</a></h3>
+<p>Ask a chat question and watch the audit table. The model_id column should show <code>openai.gpt-5.5</code> for synthesis and <code>openai.gpt-5.4</code> for query rewriting. The cost dashboard should compute costs at the new prices.</p>
+<h2 id="mantle-api-key-rotation">Mantle API key rotation<a class="headerlink" href="#mantle-api-key-rotation" title="Permanent link">&para;</a></h2>
+<p>GPT-5.5, GPT-5.4, and Codex on Bedrock are accessed via <strong>Mantle</strong>, a Bedrock-adjacent inference service. Mantle requires a long-lived API key for authentication --- unlike Claude on Bedrock, which uses standard AWS IAM.</p>
+<p><strong>This is compliance friction for regulated customers.</strong> The Mantle API key is a long-lived credential that lives in SSM SecureString. It's not tied to short-lived IAM tokens. If your compliance regime requires all credentials to have &lt; 24-hour lifetimes, Mantle-backed OpenAI models don't fit.</p>
+<h3 id="getting-a-mantle-api-key">Getting a Mantle API key<a class="headerlink" href="#getting-a-mantle-api-key" title="Permanent link">&para;</a></h3>
+<p>Follow the AWS Bedrock console instructions to enable OpenAI on Bedrock --- the enablement flow provisions a Mantle API key visible in the console. Copy it and hand it to your platform operator via a secure channel.</p>
+<h3 id="storing-it-in-ssm">Storing it in SSM<a class="headerlink" href="#storing-it-in-ssm" title="Permanent link">&para;</a></h3>
+<p>The operator creates the SSM SecureString:</p>
+<div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/mantle/api-key&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;&lt;the Mantle API key&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--type<span class="w"> </span>SecureString<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--key-id<span class="w"> </span>alias/aws/ssm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--region<span class="w"> </span>us-east-2
+</code></pre></div>
+
+<p>Tfvars reference the parameter name (not the value):</p>
+<div class="codehilite"><pre><span></span><code><span class="na">mantle_api_key_ssm_param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/mantle/api-key&quot;</span>
+</code></pre></div>
+
+<p>The Lambdas that call OpenAI-on-Bedrock read the key at cold start and cache it in memory.</p>
+<h3 id="rotation-cadence">Rotation cadence<a class="headerlink" href="#rotation-cadence" title="Permanent link">&para;</a></h3>
+<p>Rotate the Mantle API key at least quarterly, and any time you suspect it's been exposed. Rotation procedure:</p>
 <ol>
-<li>Create the workspace as normal (New Workspace → name → private/public → create).</li>
-<li>Connect the integrations the workspace should ingest --- typically one Confluence space, one repo of policy markdown, or a set of Jira issues.</li>
-<li>Add the team that owns the content as workspace admins.</li>
-<li>Sign in as an <strong>org admin</strong>.</li>
-<li>Navigate to <strong>Admin → Workspaces</strong> → find the workspace → <strong>Make global</strong>.</li>
-<li>Confirm. Every user's picker now shows this workspace with a <strong>(Global)</strong> tag.</li>
+<li><strong>In the Bedrock console</strong>, generate a new Mantle API key. Don't revoke the old one yet --- you'll need overlap.</li>
+<li>
+<p><strong>Update SSM</strong> with the new value:</p>
+<p><code>bash
+aws ssm put-parameter \
+  --name "/prd/outcome-ops-ai-assist/mantle/api-key" \
+  --value "&lt;new key&gt;" \
+  --type SecureString \
+  --overwrite \
+  --region us-east-2</code></p>
+</li>
+<li>
+<p><strong>Wait ~15 minutes</strong> for existing warm Lambdas to age out via cold start (or force a redeploy by touching an env var in Terraform).</p>
+</li>
+<li><strong>Verify the new key works</strong> --- ask a chat question, confirm the response streams normally.</li>
+<li><strong>Revoke the old key</strong> in the Bedrock console.</li>
 </ol>
-<p>Reversing the flag (Admin → Workspaces → <strong>Remove global</strong>) hides it again --- the workspace stays intact with its members and content, just no longer visible to non-members.</p>
-<h2 id="naming-conventions">Naming conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h2>
-<p>Because global workspaces appear in every user's picker, naming matters:</p>
+<p>Don't revoke the old key before confirming the new one works. Worst case during rotation: SSM updates between two Lambda invocations and you see a few seconds of "old cached key" --- harmless because both keys are valid until the old one is revoked.</p>
+<h3 id="bedrock-api-key-alternative">Bedrock API key alternative<a class="headerlink" href="#bedrock-api-key-alternative" title="Permanent link">&para;</a></h3>
+<p>For some deployments, Bedrock accepts a long-lived API key directly (not going through Mantle). If your account is eligible, the same rotation procedure applies --- the SSM parameter path just holds a Bedrock API key instead of a Mantle key.</p>
+<h2 id="switching-back-to-claude">Switching back to Claude<a class="headerlink" href="#switching-back-to-claude" title="Permanent link">&para;</a></h2>
+<p>Reverse the tfvars:</p>
+<div class="codehilite"><pre><span></span><code><span class="na">bedrock_advanced_model_id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;us.anthropic.claude-sonnet-4-6&quot;</span>
+<span class="na">bedrock_basic_model_id</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;us.anthropic.claude-haiku-4-5-20251001-v1:0&quot;</span>
+<span class="na">bedrock_default_backend</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;converse&quot;</span>
+
+<span class="na">bedrock_advanced_input_price</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nv">3.00</span>
+<span class="na">bedrock_advanced_output_price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">15.00</span>
+<span class="na">bedrock_basic_input_price</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nv">1.25</span>
+<span class="na">bedrock_basic_output_price</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nv">2.50</span>
+
+<span class="na">bedrock_rerank_enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="c1">   # if your region supports Cohere Rerank</span>
+</code></pre></div>
+
+<p>Apply and verify. If you had a Mantle key in SSM, you can leave the parameter --- it's ignored when the Claude backend is active. Or delete it as part of cleanup.</p>
+<h2 id="what-not-to-swap-without-care">What NOT to swap without care<a class="headerlink" href="#what-not-to-swap-without-care" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Lead with the category</strong> so pickers sort alphabetically into groups: <code>Global: Security Standards</code>, <code>Global: Architecture Decisions</code>, <code>Global: Compliance Policies</code>.</li>
-<li><strong>Keep names short</strong> --- 30 characters or less. The picker sidebar truncates long names.</li>
-<li><strong>Avoid team-of-origin in the name</strong> unless the team ownership is the point --- <code>Global: SecOps Runbook</code> is fine if the team boundary is meaningful; <code>Global: Security Standards</code> is better if the content is the point.</li>
+<li><strong><code>bedrock_embedding_model_id</code></strong> --- changing the embedding model requires <strong>re-embedding every ingested document</strong>. The existing S3 Vectors index becomes incompatible. This is an architectural swap, not a tfvars change; contact your account team.</li>
+<li><strong>Swapping mid-deploy without a plan.</strong> Users mid-conversation get inconsistent model behavior across turns. Announce swaps ahead of time to your users if the change is user-visible.</li>
 </ul>
-<h2 id="example-patterns">Example patterns<a class="headerlink" href="#example-patterns" title="Permanent link">&para;</a></h2>
-<h3 id="security-standards-workspace">Security Standards workspace<a class="headerlink" href="#security-standards-workspace" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Content:</strong> a <code>github.com/yourcompany/security-standards</code> repo of Markdown standards, connected via the GitHub integration.</li>
-<li><strong>Owned by:</strong> SecOps team as workspace admins.</li>
-<li><strong>Global.</strong> Every engineer can chat "what's our secret-management standard?" and get an answer grounded in the actual doc.</li>
-<li><strong>System prompt:</strong> "Always cite the specific standard you're pulling from. If the question is about an exception, note that exceptions must be approved by SecOps."</li>
-</ul>
-<h3 id="architecture-decision-workspace">Architecture Decision workspace<a class="headerlink" href="#architecture-decision-workspace" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Content:</strong> the ADR folder from your platform monorepo (or a dedicated <code>adrs</code> repo).</li>
-<li><strong>Owned by:</strong> platform architecture team.</li>
-<li><strong>Global.</strong> New engineers can chat "why do we use Terraform workspaces instead of separate accounts?" and get the ADR that made the call.</li>
-<li><strong>System prompt:</strong> "Answer based on the ADR content. If an ADR supersedes another, cite both and note which is current."</li>
-</ul>
-<h3 id="outcomeops-help-workspace">OutcomeOps Help workspace<a class="headerlink" href="#outcomeops-help-workspace" title="Permanent link">&para;</a></h3>
-<p>Once your deploy is running, seed a global workspace from the public <a href="https://docs.outcomeops.ai">docs.outcomeops.ai</a> content. Users can chat with the docs directly instead of navigating them.</p>
-<h2 id="interaction-with-other-features">Interaction with other features<a class="headerlink" href="#interaction-with-other-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong><a href="../../features/mcp-servers/">MCP servers</a></strong> attached to a global workspace are usable by every user in chat. Great for a company-wide read-only tool (like an internal API browser); risky for a tool that mutates external state (approve carefully).</li>
-<li><strong><a href="../../features/code-generation/">Code generation</a></strong> doesn't fire from global workspaces --- only from workspaces where a team has explicit ticket → repo mapping. Global workspaces are read-only in practice.</li>
-<li><strong><a href="../pii-redaction/">PII redaction</a></strong> runs at ingest, so global workspaces inherit whatever redaction posture the org has set. Global doesn't override org-level rules.</li>
-</ul>
-<h2 id="common-gotchas">Common gotchas<a class="headerlink" href="#common-gotchas" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Picker fatigue.</strong> If you have 15 global workspaces, users stop reading them and just click their team's workspace. Aim for 2-5 global workspaces max, at least in year one.</li>
-<li><strong>Stale content.</strong> Global workspaces attract "set it and forget it" thinking. Assign an owner + a review cadence (quarterly is reasonable) so the content stays fresh.</li>
-<li><strong>Cross-team ownership drift.</strong> If two teams try to co-own a global workspace, the system prompt ends up muddled. Pick one owner; other teams contribute via PRs to the underlying repo/space.</li>
-</ul>
+<h2 id="cost-analytics-after-a-swap">Cost analytics after a swap<a class="headerlink" href="#cost-analytics-after-a-swap" title="Permanent link">&para;</a></h2>
+<p>The Admin → Cost dashboard sources token counts from the audit table and multiplies by the prices in your tfvars. Prices are captured at query time, not model-invocation time, so <strong>historical cost data doesn't update retroactively</strong> when you change prices. New rows use the new prices; old rows retain whatever prices were in effect when they were written.</p>
+<p>This is intentional --- if you change models in the middle of a month, the dashboard shows the actual cost mix accurately (not "here's what it would have cost if the whole month used the new model").</p>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../../features/workspaces/">Workspaces</a> --- workspace basics, membership, roles.</li>
-<li><a href="../integration-gating/">Integration Gating</a> --- what integrations are provisioned deploy-wide.</li>
-<li><a href="../pii-redaction/">PII Redaction</a> --- how content is redacted at ingest, including for global workspaces.</li>
+<li><a href="../../getting-started/deploy/">Deploy</a> --- the model tfvars are set at deploy time and can be updated by re-applying.</li>
+<li><a href="../../features/chat/#model-selection">Chat</a> --- brief user-facing mention of the two-model architecture.</li>
+<li>Bedrock pricing: <a href="https://aws.amazon.com/bedrock/pricing/">aws.amazon.com/bedrock/pricing</a></li>
+<li>Bedrock model access: enable in the AWS Bedrock console per region + per model.</li>
 </ul>
 
 

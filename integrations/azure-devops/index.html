@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation for OutcomeOps AI Assist -- self-hosted, regulated-grade AI code assistant.">
+        <meta name="description" content="Connect Azure DevOps Repos and Boards to OutcomeOps AI Assist via Microsoft Entra ID OAuth.">
       
       
         <meta name="author" content="OutcomeOps">
@@ -625,6 +625,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Azure DevOps
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -634,6 +645,175 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-and-isnt-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is and isn't supported
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-register-an-entra-id-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Register an Entra ID application
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-grant-the-azure-devops-api-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Grant the Azure DevOps API permission
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-create-a-client-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Create a client secret
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-handoff-to-the-platform-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Handoff to the platform operator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-verify-from-the-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Verify from the UI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-boards-on-an-existing-repos-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enabling Boards on an existing Repos integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enabling Boards on an existing Repos integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-the-vsowork-api-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add the vso.work API permission
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-second-redirect-uri" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add the second redirect URI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-the-boards-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable the Boards flag
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-boards-syncs-vs-doesnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Boards syncs vs. doesn't
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-post-pr-check-results-from-an-azure-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: post PR-check results from an Azure Pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common problems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotating-the-client-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotating the client secret
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disconnecting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disconnecting
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -907,6 +1087,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1015,6 +1203,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/model-selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model Selection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/high-availability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    High Availability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/audit-stream-export/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SIEM Audit Stream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/security-scanner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security Scanner Endpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1062,6 +1334,164 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-and-isnt-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is and isn't supported
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-register-an-entra-id-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Register an Entra ID application
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-grant-the-azure-devops-api-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Grant the Azure DevOps API permission
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-create-a-client-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Create a client secret
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-handoff-to-the-platform-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Handoff to the platform operator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-verify-from-the-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Verify from the UI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-boards-on-an-existing-repos-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enabling Boards on an existing Repos integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enabling Boards on an existing Repos integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-the-vsowork-api-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add the vso.work API permission
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-second-redirect-uri" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add the second redirect URI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-the-boards-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable the Boards flag
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-boards-syncs-vs-doesnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Boards syncs vs. doesn't
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-post-pr-check-results-from-an-azure-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: post PR-check results from an Azure Pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common problems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotating-the-client-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotating the client secret
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disconnecting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disconnecting
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1083,14 +1513,291 @@
   
 
 
-<h1 id="azure-devops">Azure Devops<a class="headerlink" href="#azure-devops" title="Permanent link">&para;</a></h1>
-<p><em>Placeholder -- content coming soon.</em></p>
+<h1 id="azure-devops">Azure DevOps<a class="headerlink" href="#azure-devops" title="Permanent link">&para;</a></h1>
+<p>OutcomeOps AI Assist connects to Azure DevOps via Microsoft Entra ID OAuth. Two integrations ship independently but share the same Entra ID app registration:</p>
+<ul>
+<li><strong>Azure DevOps (Repos)</strong> --- ingests source code from repos in your ADO organizations. Enables chat with grounded citations across your ADO codebases and posts PR-check results back as thread comments.</li>
+<li><strong>Azure DevOps (Boards)</strong> --- ingests work items (User Stories, Bugs, Tasks, Epics, Features) as retrievable chat context.</li>
+</ul>
+<p>Time budget: <strong>~30 minutes</strong> for an admin who has done one Entra ID app registration before, plus <strong>~15 minutes</strong> if you also want Boards.</p>
+<h2 id="what-is-and-isnt-supported">What is and isn't supported<a class="headerlink" href="#what-is-and-isnt-supported" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Cloud-hosted <code>dev.azure.com/{org}</code> only.</strong> Azure DevOps Server (on-prem TFS) is not supported.</li>
+<li><strong>Polling + manual triggers only.</strong> The platform does not subscribe to ADO Service Hooks. Sync runs hourly, plus manual "Sync now" from the UI.</li>
+<li><strong>Repos + Boards.</strong> ADO Wiki, Test Plans, and Pipelines are not ingested (except for the optional PR-check pipeline integration described below).</li>
+</ul>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Azure tenant admin access.</strong> You need to register an app and grant admin consent in your Entra ID directory.</li>
+<li><strong>Azure DevOps organization access.</strong> To validate the end-to-end connection, you need read access to at least one project + repo in the ADO org you want the platform to see.</li>
+<li><strong>Coordination with the operator who runs <code>terraform apply</code>.</strong> They need the tenant ID, client ID, redirect URI, and client secret from you.</li>
+</ul>
+<h2 id="step-1-register-an-entra-id-application">Step 1: Register an Entra ID application<a class="headerlink" href="#step-1-register-an-entra-id-application" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Sign in to the <strong><a href="https://entra.microsoft.com">Microsoft Entra admin center</a></strong> with an account that has <code>Application Administrator</code> or <code>Cloud Application Administrator</code> role.</li>
+<li>Navigate to <strong>Applications → App registrations → New registration</strong>.</li>
+<li><strong>Name:</strong> <code>OutcomeOps AI Assist - Azure DevOps</code> (the exact name doesn't matter --- this is just how you'll find it later).</li>
+<li><strong>Supported account types:</strong> <code>Accounts in this organizational directory only (Single tenant)</code>. <strong>Do not pick multi-tenant</strong> --- the integration serves your users only.</li>
+<li>
+<p><strong>Redirect URI:</strong></p>
+<ul>
+<li>Platform: <strong>Web</strong></li>
+<li>Value: <code>https://{your-app-fqdn}/api/azure-devops/callback</code></li>
+</ul>
+<p>Replace <code>{your-app-fqdn}</code> with the FQDN of your OutcomeOps deploy. The path is exactly <code>/api/azure-devops/callback</code> --- no trailing slash, no query string. Entra ID does an exact-match validation on this URL during the OAuth callback; a trailing slash, <code>http://</code> instead of <code>https://</code>, or a host typo all produce a <code>redirect_uri mismatch</code> error.
+6. Click <strong>Register</strong>.
+7. On the resulting Overview page, copy these two values:
+- <strong>Application (client) ID</strong> --- a UUID
+- <strong>Directory (tenant) ID</strong> --- a UUID</p>
+</li>
+</ol>
+<h2 id="step-2-grant-the-azure-devops-api-permission">Step 2: Grant the Azure DevOps API permission<a class="headerlink" href="#step-2-grant-the-azure-devops-api-permission" title="Permanent link">&para;</a></h2>
+<p>The platform calls Azure DevOps REST APIs on the connected user's behalf. This requires the <code>user_impersonation</code> delegated permission on the Azure DevOps resource (<strong>not</strong> Microsoft Graph --- they're separate permission surfaces).</p>
+<ol>
+<li>In your app registration, navigate to <strong>API permissions → Add a permission</strong>.</li>
+<li>Click the <strong>APIs my organization uses</strong> tab.</li>
+<li>
+<p>Search for <code>Azure DevOps</code>. You're looking for the entry with the exact name <strong>Azure DevOps</strong> and resource ID <code>499b84ac-1321-427f-aa17-267ca6975798</code>. This is Microsoft's well-known resource ID; it's the same value across every Entra ID tenant.</p>
+<p>If the "Azure DevOps" entry doesn't appear, someone in your tenant needs to sign in to Azure DevOps once for the service principal to provision in your tenant. A one-time visit to <code>https://dev.azure.com/{any-org-your-tenant-has}</code> from any account in your tenant resolves it.</p>
+</li>
+<li>
+<p>Select <strong>Delegated permissions</strong> → check <strong><code>user_impersonation</code></strong> → click <strong>Add permissions</strong>.</p>
+</li>
+<li>Back on the API permissions list, click <strong>Grant admin consent for {tenant name}</strong> and confirm. The status column for <code>user_impersonation</code> should now read <strong>Granted for {tenant name}</strong>.</li>
+</ol>
+<p>Without admin consent, users hitting the "Connect Azure DevOps" flow will see a consent prompt they cannot satisfy themselves --- they'd have to ask an admin, and that's per-user friction the integration is designed to avoid.</p>
+<h2 id="step-3-create-a-client-secret">Step 3: Create a client secret<a class="headerlink" href="#step-3-create-a-client-secret" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Navigate to <strong>Certificates &amp; secrets → Client secrets → New client secret</strong>.</li>
+<li><strong>Description:</strong> <code>OutcomeOps AI Assist</code>.</li>
+<li><strong>Expires:</strong> pick a value per your tenant's secret-rotation policy. Default Entra options are 6, 12, or 24 months. The platform reads the secret from SSM at request time; if the secret expires the integration stops working until you generate a new one, so <strong>longer = fewer interruptions, shorter = more secure</strong>. A 24-month secret with a calendar reminder at month 22 is a reasonable default.</li>
+<li>Click <strong>Add</strong>.</li>
+<li><strong>Immediately copy the Value column</strong> --- not the Secret ID. Entra ID only shows the value once on this page; reload and it's gone forever.</li>
+<li>Hand the value off to your platform operator via a secure channel (shared 1Password / Bitwarden item, sealed-secrets workflow). <strong>Never email or DM the secret value.</strong></li>
+</ol>
+<h2 id="step-4-handoff-to-the-platform-operator">Step 4: Handoff to the platform operator<a class="headerlink" href="#step-4-handoff-to-the-platform-operator" title="Permanent link">&para;</a></h2>
+<p>The operator needs four values from you:</p>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>From step</th>
+<th>Goes into</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tenant ID</td>
+<td>1.7</td>
+<td><code>azure_devops_tenant_id</code> in tfvars</td>
+</tr>
+<tr>
+<td>Client ID</td>
+<td>1.7</td>
+<td><code>azure_devops_client_id</code> in tfvars</td>
+</tr>
+<tr>
+<td>Redirect URI</td>
+<td>1.5</td>
+<td><code>azure_devops_redirect_uri</code> in tfvars</td>
+</tr>
+<tr>
+<td>Client secret value</td>
+<td>3.5</td>
+<td>SSM SecureString (see below)</td>
+</tr>
+</tbody>
+</table>
+<p>The operator populates the tfvars file (<code>prd.tfvars</code> for production, or the equivalent for your environment):</p>
+<div class="codehilite"><pre><span></span><code><span class="na">enable_azure_devops_integration</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+<span class="na">azure_devops_tenant_id</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;tenant-id-uuid&gt;&quot;</span>
+<span class="na">azure_devops_client_id</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;client-id-uuid&gt;&quot;</span>
+<span class="na">azure_devops_client_secret_ssm_param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/azure-devops/client-secret&quot;</span>
+<span class="na">azure_devops_redirect_uri</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://&lt;your-app-fqdn&gt;/api/azure-devops/callback&quot;</span>
+</code></pre></div>
+
+<p>The <code>enable_azure_devops_integration</code> flag gates the entire Azure DevOps Repos backend surface. See <a href="../../administration/integration-gating/">Integration Gating</a> for the full flag list.</p>
+<p>The SSM parameter name is the path that holds the client secret; the operator creates it manually. Terraform does not create or manage the secret value:</p>
+<div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/azure-devops/client-secret&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;&lt;the secret value you handed off&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--type<span class="w"> </span>SecureString<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--key-id<span class="w"> </span>alias/aws/ssm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--region<span class="w"> </span>us-west-2
+</code></pre></div>
+
+<p>Then the operator runs <code>terraform apply -var-file=prd.tfvars</code> --- see the <a href="../../getting-started/deploy/">Deploy guide</a>.</p>
+<h2 id="step-5-verify-from-the-ui">Step 5: Verify from the UI<a class="headerlink" href="#step-5-verify-from-the-ui" title="Permanent link">&para;</a></h2>
+<p>Once the deploy is live:</p>
+<ol>
+<li>Open the OutcomeOps UI as a user who has <strong>workspace_admin</strong> role on the workspace you want to connect Azure DevOps to.</li>
+<li>Navigate to <strong>Workspace Settings → Integrations</strong>.</li>
+<li>Click <strong>Connect Azure DevOps</strong>.</li>
+<li>The browser opens Microsoft's consent screen for the Entra ID app you registered. The user accepts; admin consent (granted in Step 2) means no second consent prompt.</li>
+<li>The browser returns to Integrations with a green banner showing the connected user's display name and email.</li>
+<li>Click <strong>Add Repositories</strong>. The picker walks: orgs → projects → repos. Pick a repo and click <strong>Add</strong>.</li>
+<li>
+<p>The repo appears in the workspace's repo list with sync status <strong>pending → queued → in_progress → success</strong>. Transitions take ~30 seconds for a small repo; several minutes for large monorepos.</p>
+<p>If sync stays <code>pending</code> for more than 5 minutes, click <strong>Sync Now</strong> to trigger immediately.</p>
+</li>
+</ol>
+<h2 id="enabling-boards-on-an-existing-repos-integration">Enabling Boards on an existing Repos integration<a class="headerlink" href="#enabling-boards-on-an-existing-repos-integration" title="Permanent link">&para;</a></h2>
+<p>The Boards integration ingests work items (User Stories, Bugs, Tasks, Epics, Features) as searchable chat context --- the ADO equivalent of the Jira integration. It's a <strong>separate integration</strong> with independent OAuth consent, its own workspace-settings tab, and its own disconnect flow. It reuses the Entra ID app, client secret, and tfvars you already set up for Repos --- two new steps: add the <code>vso.work</code> API permission, and register a second redirect URI.</p>
+<p>Time budget: <strong>~15 minutes</strong>.</p>
+<h3 id="add-the-vsowork-api-permission">Add the <code>vso.work</code> API permission<a class="headerlink" href="#add-the-vsowork-api-permission" title="Permanent link">&para;</a></h3>
+<ol>
+<li>In the same Entra ID app registration, go to <strong>API permissions → Add a permission → APIs my organization uses → Azure DevOps</strong>.</li>
+<li>Choose <strong>Delegated permissions</strong> → check <strong><code>vso.work</code></strong> (Read your organization's work items and their metadata) → click <strong>Add permissions</strong>.</li>
+<li>Back on the API permissions list, click <strong>Grant admin consent for {tenant name}</strong> → confirm.</li>
+</ol>
+<h3 id="add-the-second-redirect-uri">Add the second redirect URI<a class="headerlink" href="#add-the-second-redirect-uri" title="Permanent link">&para;</a></h3>
+<p>Entra ID validates redirect URIs literally; the Boards OAuth callback lands on a different path than Repos.</p>
+<ol>
+<li>Same app → <strong>Authentication → Redirect URIs → Add URI</strong>.</li>
+<li>Enter <code>https://{your-app-fqdn}/api/azure-devops-boards/callback</code> (mirrors the Repos redirect but with <code>-boards</code> in the path).</li>
+<li><strong>Save</strong>.</li>
+</ol>
+<h3 id="enable-the-boards-flag">Enable the Boards flag<a class="headerlink" href="#enable-the-boards-flag" title="Permanent link">&para;</a></h3>
+<p>In your tfvars, add:</p>
+<div class="codehilite"><pre><span></span><code><span class="na">enable_azure_devops_boards_integration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+</code></pre></div>
+
+<p>That's the only new line. Tenant, client ID, and client-secret SSM param reuse the Repos values. The redirect URI env var the Lambda consumes is derived from your deploy's FQDN inside the Terraform module --- you don't type it in tfvars. The value you registered in Entra ID has to match exactly: <code>https://{your-app-fqdn}/api/azure-devops-boards/callback</code>.</p>
+<p>Run <code>terraform apply -var-file=prd.tfvars</code>. The apply creates the Boards integration Lambda + Function URL, sync Lambda + SQS queue + DLQ, and scheduler Lambda + EventBridge rule.</p>
+<p>The UI's Integrations tab now shows an "Azure DevOps (Boards)" section next to "Azure DevOps (Repos)". Click <strong>Connect Azure DevOps Boards</strong>, complete the OAuth consent screen (Microsoft asks for <code>vso.work</code> only, so the consent copy is scoped correctly), and pick projects from the dropdown.</p>
+<p>The initial WIQL sync fires immediately; subsequent syncs run hourly. Work items become retrievable in chat within one scheduler tick.</p>
+<h2 id="what-boards-syncs-vs-doesnt">What Boards syncs vs. doesn't<a class="headerlink" href="#what-boards-syncs-vs-doesnt" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Only open work items are re-synced each cycle.</strong> Filter is <code>[System.State] NOT IN ('Closed', 'Done', 'Removed', 'Resolved')</code>. Once ingested, closed items stay in the KB indefinitely --- a bug you fix today stays retrievable ("what was the fix for X?").</li>
+<li><strong>Work items closed before Boards was connected are not ingested.</strong> No retroactive backfill.</li>
+<li><strong>Initial sync is capped at the 5000 most recently changed work items per project.</strong> Larger projects require an operator-run backfill.</li>
+<li><strong>v1 field set is fixed:</strong> Title, State, WorkItemType, AssignedTo, Description, Repro Steps, Acceptance Criteria, Priority, Severity, Tags, Area, Iteration, Created, Changed, Reason, Id. Custom fields are a v2 feature.</li>
+<li><strong>Comments are included inline</strong> on each work item's document.</li>
+<li><strong>Attachments are not ingested.</strong></li>
+</ul>
+<h2 id="optional-post-pr-check-results-from-an-azure-pipeline">Optional: post PR-check results from an Azure Pipeline<a class="headerlink" href="#optional-post-pr-check-results-from-an-azure-pipeline" title="Permanent link">&para;</a></h2>
+<p>If your team uses Azure Pipelines and wants PR-check results to post automatically on every PR build, add this step to your <code>azure-pipelines.yml</code>. The step invokes the platform's <code>analyze-pr</code> Lambda directly via the AWS CLI:</p>
+<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWSShellScript@1</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Trigger</span><span class="nv"> </span><span class="s">OutcomeOps</span><span class="nv"> </span><span class="s">PR-check&#39;</span>
+<span class="w">  </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eq(variables[&#39;Build.Reason&#39;], &#39;PullRequest&#39;)</span>
+<span class="w">  </span><span class="nt">inputs</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">awsCredentials</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;OutcomeOps-PRCheck&#39;</span>
+<span class="w">    </span><span class="nt">regionName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;us-west-2&#39;</span>
+<span class="w">    </span><span class="nt">scriptType</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;inline&#39;</span>
+<span class="w">    </span><span class="nt">inlineScript</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="no">PAYLOAD=$(jq -n \</span>
+<span class="w">        </span><span class="no">--argjson pr_number &quot;$(System.PullRequest.PullRequestId)&quot; \</span>
+<span class="w">        </span><span class="no">--arg org  &quot;$(OUTCOMEOPS_ADO_ORG)&quot; \</span>
+<span class="w">        </span><span class="no">--arg proj &quot;$(System.TeamProject)&quot; \</span>
+<span class="w">        </span><span class="no">--arg repo &quot;$(Build.Repository.Name)&quot; \</span>
+<span class="w">        </span><span class="no">--arg conn &quot;$(OUTCOMEOPS_CONNECTION_ID)&quot; \</span>
+<span class="w">        </span><span class="no">&#39;{</span>
+<span class="w">          </span><span class="no">pr_number: $pr_number,</span>
+<span class="w">          </span><span class="no">repository: ($org + &quot;/&quot; + $proj + &quot;/&quot; + $repo),</span>
+<span class="w">          </span><span class="no">provider: &quot;azure_devops&quot;,</span>
+<span class="w">          </span><span class="no">connection_id: $conn,</span>
+<span class="w">          </span><span class="no">ado_org: $org,</span>
+<span class="w">          </span><span class="no">ado_project: $proj,</span>
+<span class="w">          </span><span class="no">ado_repo: $repo</span>
+<span class="w">        </span><span class="no">}&#39;)</span>
+<span class="w">      </span><span class="no">aws lambda invoke \</span>
+<span class="w">        </span><span class="no">--function-name prd-outcome-ops-ai-assist-analyze-pr \</span>
+<span class="w">        </span><span class="no">--payload &quot;$PAYLOAD&quot; \</span>
+<span class="w">        </span><span class="no">--cli-binary-format raw-in-base64-out \</span>
+<span class="w">        </span><span class="no">/tmp/response.json &gt; /dev/null</span>
+<span class="w">      </span><span class="no">cat /tmp/response.json | jq .</span>
+</code></pre></div>
+
+<p>Pipeline prerequisites:</p>
+<ul>
+<li>An <code>OutcomeOps-PRCheck</code> AWS service connection in your Azure DevOps project (Project Settings → Service connections → New → AWS), configured with an IAM identity that has <code>lambda:InvokeFunction</code> on the <code>*-analyze-pr</code> function ARN.</li>
+<li>The <strong>AWS Toolkit for Azure DevOps</strong> extension installed in your ADO organization (adds the <code>AWSShellScript@1</code> task; free from the Marketplace).</li>
+</ul>
+<p>Pipeline variables:</p>
+<ul>
+<li><code>OUTCOMEOPS_ADO_ORG</code> --- your ADO organization slug (the <code>{org}</code> in <code>dev.azure.com/{org}</code>).</li>
+<li><code>OUTCOMEOPS_CONNECTION_ID</code> --- the connection ID visible in Workspace Settings → Integrations after Step 5. Opaque; not sensitive.</li>
+</ul>
+<p>If you don't want to wire up Pipelines, users can trigger a PR check manually from the workspace's PR-check UI page.</p>
+<h2 id="common-problems">Common problems<a class="headerlink" href="#common-problems" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OAuth callback failed: redirect_uri mismatch</code></td>
+<td>The redirect URI on the Entra ID app doesn't match exactly.</td>
+<td>Re-check the app registration's redirect URI. Match scheme (<code>https</code>), host, and path character-for-character. No trailing slash.</td>
+</tr>
+<tr>
+<td><code>Approval required</code> / <code>Need admin approval</code> consent screen</td>
+<td>Admin consent (Step 2.5) was not granted.</td>
+<td>Go back to API permissions and click <strong>Grant admin consent</strong>.</td>
+</tr>
+<tr>
+<td><code>invalid_resource</code> from Microsoft</td>
+<td>Wrong API was added in Step 2.</td>
+<td>Re-check API permissions --- should be <strong>Azure DevOps</strong>, not <strong>Microsoft Graph</strong>.</td>
+</tr>
+<tr>
+<td><code>Connection lost: reconnect_required</code></td>
+<td>The user who connected hasn't used the integration in ~90 days; Entra ID expired the refresh token.</td>
+<td>Any workspace admin clicks <strong>Reconnect Azure DevOps</strong> in Workspace Settings.</td>
+</tr>
+<tr>
+<td><code>Pull request comment not posting</code></td>
+<td>The connected user lacks PR-comment permission in the target repo.</td>
+<td>Verify the user has Contributor on the project, then have an ADO admin re-run admin consent.</td>
+</tr>
+<tr>
+<td><code>Repo missing from picker</code></td>
+<td>The connected user lacks read access to that repo in ADO.</td>
+<td>Grant the user read on the repo; the picker will see it on the next refresh.</td>
+</tr>
+<tr>
+<td><code>Client secret authentication failed</code></td>
+<td>Secret expired, or was pasted with leading/trailing whitespace into SSM.</td>
+<td>Regenerate per Step 3 and re-run the SSM <code>put-parameter</code> command.</td>
+</tr>
+<tr>
+<td><code>AADSTS65001: The user or administrator has not consented</code> (Boards)</td>
+<td>The <code>vso.work</code> permission wasn't granted admin consent.</td>
+<td>Go back to the app registration and grant admin consent for <code>vso.work</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rotating-the-client-secret">Rotating the client secret<a class="headerlink" href="#rotating-the-client-secret" title="Permanent link">&para;</a></h2>
+<p>Calendar a reminder ~30 days before the client secret expires:</p>
+<ol>
+<li>Generate a new secret in the Entra app (repeat Step 3). Don't delete the old one yet.</li>
+<li>Hand the new value to the operator.</li>
+<li>Operator runs the SSM <code>put-parameter --overwrite</code> command. The integration Lambda picks up the new value on its next cold start (within ~15 minutes of normal traffic) --- no <code>terraform apply</code> needed.</li>
+<li>Confirm the integration still works: open the connection picker in the UI, confirm orgs load.</li>
+<li><strong>Then</strong> delete the old secret in the Entra app.</li>
+</ol>
+<p>Don't delete the old secret before confirming the new one works. Worst case during rotation: SSM updates between two Lambda invocations and you see a few seconds of "old cached secret" --- harmless because both are valid.</p>
+<h2 id="disconnecting">Disconnecting<a class="headerlink" href="#disconnecting" title="Permanent link">&para;</a></h2>
+<p>Workspace Settings → Integrations → <strong>Disconnect Azure DevOps</strong>. The platform:</p>
+<ul>
+<li>Removes every repo (or Boards project) that was added through this connection. <strong>The associated KB documents are also cleaned up --- this is irreversible.</strong></li>
+<li>Deletes the refresh + access tokens.</li>
+<li>Removes the connection record.</li>
+</ul>
+<p>To rotate the connecting user (the original connector left the company), disconnect first, then any other workspace admin clicks <strong>Connect Azure DevOps</strong> and walks the OAuth flow under their own identity. Repos must be re-added against the new connection --- repos are tied to the connecting user's token.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1135,10 +1842,7 @@
     
     
     
-      
-      
-    
-    <a href="https://github.com/outcomeops" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+    <a href="https://github.com/outcomeops" target="_blank" rel="noopener" title="OutcomeOps on GitHub" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
@@ -1146,11 +1850,16 @@
     
     
     
-      
-      
-    
     <a href="https://outcomeops.ai" target="_blank" rel="noopener" title="outcomeops.ai" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.4c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.3c2.2 20.4 3.3 41.8 3.3 64m28.8-64h123.1c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64m112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7m-209 0H18.6c30-74.1 93.6-130.9 172-151.6-25.5 34.2-45.3 87.7-55.3 151.6M8.1 192h123.1c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64m186.6 254.6c-11.6-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5-11.2 10.7-20.5 13.9-27.8 13.9s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6-78.4-20.7-142-77.5-172-151.6zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.2-87.7 55.3-151.6h116.7z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://outcomeops.atlassian.net/servicedesk/customer/portal/1" target="_blank" rel="noopener" title="Support Portal" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7.8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5M157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1-96 0"/></svg>
     </a>
   
 </div>

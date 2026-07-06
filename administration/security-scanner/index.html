@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Make one team's content queryable across the whole org, without maintaining membership lists.">
+        <meta name="description" content="Password-authenticated login for AWS Security Agent and other headless scanners that can't do Azure AD OIDC.">
       
       
         <meta name="author" content="OutcomeOps">
       
       
-        <link rel="canonical" href="https://docs.outcomeops.ai/administration/global-workspaces/">
+        <link rel="canonical" href="https://docs.outcomeops.ai/administration/security-scanner/">
       
       
-        <link rel="prev" href="../integration-gating/">
+        <link rel="prev" href="../audit-stream-export/">
       
       
-        <link rel="next" href="../pii-redaction/">
+        <link rel="next" href="../../faq/">
       
       
       <link rel="icon" href="../../assets/logo.svg">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Global Workspaces - OutcomeOps AI Assist Docs</title>
+        <title>Security Scanner Endpoint - OutcomeOps AI Assist Docs</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#global-workspaces" class="md-skip">
+        <a href="#security-scanner-endpoint" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Global Workspaces
+              Security Scanner Endpoint
             
           </span>
         </div>
@@ -975,30 +975,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Global Workspaces
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../global-workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1007,131 +987,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-a-global-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      When to use a global workspace
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-they-behave" class="md-nav__link">
-    <span class="md-ellipsis">
-      How they behave
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-global-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a global workspace
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#naming-conventions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Naming conventions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example patterns
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Example patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#security-standards-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security Standards workspace
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#architecture-decision-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Architecture Decision workspace
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#outcomeops-help-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      OutcomeOps Help workspace
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interaction-with-other-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Interaction with other features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-gotchas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common gotchas
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related" class="md-nav__link">
-    <span class="md-ellipsis">
-      Related
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1225,10 +1080,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../security-scanner/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Security Scanner Endpoint
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1237,6 +1112,149 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-enable-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to enable this
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enabling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-scanner-uses-the-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      How the scanner uses the endpoint
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How the scanner uses the endpoint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-the-scanner-reads-credentials-from-ssm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: The scanner reads credentials from SSM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-the-scanner-posts-to-the-login-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: The scanner POSTs to the login endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-the-scanner-uses-the-cookie-on-subsequent-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: The scanner uses the cookie on subsequent requests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-lifetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session lifetime
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-header-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom header key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common problems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotating-scanner-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotating scanner credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disabling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disabling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-does-not-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      What this does NOT do
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1296,73 +1314,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-a-global-workspace" class="md-nav__link">
+  <a href="#when-to-enable-this" class="md-nav__link">
     <span class="md-ellipsis">
-      When to use a global workspace
+      When to enable this
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-they-behave" class="md-nav__link">
+  <a href="#enabling" class="md-nav__link">
     <span class="md-ellipsis">
-      How they behave
+      Enabling
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-a-global-workspace" class="md-nav__link">
+  <a href="#how-the-scanner-uses-the-endpoint" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a global workspace
+      How the scanner uses the endpoint
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#naming-conventions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Naming conventions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example patterns
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Example patterns">
+    <nav class="md-nav" aria-label="How the scanner uses the endpoint">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#security-standards-workspace" class="md-nav__link">
+  <a href="#step-1-the-scanner-reads-credentials-from-ssm" class="md-nav__link">
     <span class="md-ellipsis">
-      Security Standards workspace
+      Step 1: The scanner reads credentials from SSM
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#architecture-decision-workspace" class="md-nav__link">
+  <a href="#step-2-the-scanner-posts-to-the-login-endpoint" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture Decision workspace
+      Step 2: The scanner POSTs to the login endpoint
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#outcomeops-help-workspace" class="md-nav__link">
+  <a href="#step-3-the-scanner-uses-the-cookie-on-subsequent-requests" class="md-nav__link">
     <span class="md-ellipsis">
-      OutcomeOps Help workspace
+      Step 3: The scanner uses the cookie on subsequent requests
     </span>
   </a>
   
@@ -1374,18 +1374,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interaction-with-other-features" class="md-nav__link">
+  <a href="#session-lifetime" class="md-nav__link">
     <span class="md-ellipsis">
-      Interaction with other features
+      Session lifetime
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-gotchas" class="md-nav__link">
+  <a href="#custom-header-key" class="md-nav__link">
     <span class="md-ellipsis">
-      Common gotchas
+      Custom header key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common problems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotating-scanner-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotating scanner credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disabling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disabling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-does-not-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      What this does NOT do
     </span>
   </a>
   
@@ -1415,7 +1451,7 @@
                   
 
   
-    <a href="https://github.com/outcomeops/docs/edit/main/docs/administration/global-workspaces.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/outcomeops/docs/edit/main/docs/administration/security-scanner.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1423,84 +1459,176 @@
   
 
 
-<h1 id="global-workspaces">Global Workspaces<a class="headerlink" href="#global-workspaces" title="Permanent link">&para;</a></h1>
-<p>A <strong>global workspace</strong> is a public workspace that appears in every authenticated user's workspace picker by default. One team owns the content; everyone in the deploy can query it.</p>
-<p>Use global workspaces for content that isn't team-specific but that some team has to own and maintain --- security standards, architecture decisions, onboarding guides, compliance policies. Instead of manually adding every engineer to a "Security" workspace and re-doing that every time someone joins or leaves, you flip the workspace to global and the org membership problem goes away.</p>
-<h2 id="when-to-use-a-global-workspace">When to use a global workspace<a class="headerlink" href="#when-to-use-a-global-workspace" title="Permanent link">&para;</a></h2>
-<p><strong>Good fits:</strong></p>
+<h1 id="security-scanner-endpoint">Security Scanner Endpoint<a class="headerlink" href="#security-scanner-endpoint" title="Permanent link">&para;</a></h1>
+<p>Most users sign in to OutcomeOps AI Assist through Azure AD OIDC. But <strong>headless security scanners</strong> --- AWS Security Agent, some AI-driven DAST tools, third-party red-team automation --- can't do interactive OIDC. They need a password-authenticated login that hands them a session cookie the platform accepts as an auth alternative.</p>
+<p>The <strong>security scanner endpoint</strong> solves this. When enabled, Terraform provisions:</p>
 <ul>
-<li><strong>Security standards</strong> owned by SecOps but queryable by every engineer.</li>
-<li><strong>Architecture decision records</strong> owned by the platform team but queryable across product engineering.</li>
-<li><strong>Compliance policies</strong> owned by GRC but queryable when any engineer wonders "can I do X?"</li>
-<li><strong>Onboarding content</strong> --- how to file expenses, request access, deploy code, get to the incident channel.</li>
-<li><strong>OutcomeOps Help</strong> --- an internal instance of the OutcomeOps documentation itself, so users can chat with the docs.</li>
+<li>A <strong>secret-path Lambda</strong> behind the UI's ALB (path is a 128-bit random hex, stored in SSM --- not guessable from the outside)</li>
+<li>A <strong>login form</strong> at that path (GET) + credential validator (POST)</li>
+<li>A <strong>JWT-signed session cookie</strong> that the Express proxy accepts alongside Azure AD sessions</li>
+<li><strong>Randomly-generated credentials</strong> (path, password, JWT signing key, custom header key), stored in SSM SecureString</li>
 </ul>
-<p><strong>Bad fits:</strong></p>
+<p>Scanners fetch the path + credentials from SSM (via their own IAM role), POST to the login endpoint, get back a JWT cookie, and use it to authenticate every subsequent request.</p>
+<h2 id="when-to-enable-this">When to enable this<a class="headerlink" href="#when-to-enable-this" title="Permanent link">&para;</a></h2>
+<p>Enable if you're running:</p>
 <ul>
-<li>Team-specific runbooks that only that team's on-call rotation needs. Keep those in the team's own private workspace.</li>
-<li>Draft content, WIP standards, anything half-cooked. Global means everyone sees it; use a private workspace to iterate.</li>
-<li>Content that has to have different views for different audiences. If eng needs one framing and legal needs another, ship two workspaces (one global, one private).</li>
+<li><strong>AWS Security Agent</strong> in scanning mode against your deploy</li>
+<li><strong>AI-driven DAST tools</strong> that require interactive login (many can't handle OIDC redirects)</li>
+<li><strong>Third-party pentesting automation</strong> contracted through your SecOps team</li>
+<li><strong>Any headless scanner</strong> that needs authenticated access but can't complete an OIDC flow</li>
 </ul>
-<h2 id="how-they-behave">How they behave<a class="headerlink" href="#how-they-behave" title="Permanent link">&para;</a></h2>
+<p>Do NOT enable this for:</p>
 <ul>
-<li><strong>Discoverability.</strong> Global workspaces show up at the top of every user's workspace picker, tagged <strong>(Global)</strong>, above the user's own team workspaces.</li>
-<li><strong>Membership isn't tracked.</strong> Users don't join or leave --- they just select the workspace in their picker when they want its content in their chat.</li>
-<li><strong>Content ownership stays with one team.</strong> The workspace has a normal admin + members list; only they can add integrations, repos, spaces, or edit the system prompt. Everyone else is a read-only consumer.</li>
-<li><strong>Chat is per-user.</strong> Two users querying the same global workspace have independent conversations. No shared threads.</li>
-<li><strong>Global workspaces respect PII redaction settings.</strong> If org-level redaction is enabled, redaction runs at ingest time --- so what's in the workspace is already redacted before any user queries it.</li>
+<li>Human user access --- they should use OIDC</li>
+<li>Machine-to-machine API calls from your own infrastructure --- use IAM-signed Function URL calls instead</li>
+<li>Read-only monitoring that doesn't need authentication --- the health / status endpoints are public</li>
 </ul>
-<h2 id="creating-a-global-workspace">Creating a global workspace<a class="headerlink" href="#creating-a-global-workspace" title="Permanent link">&para;</a></h2>
-<p>Only <strong>org admins</strong> can flip a workspace to global.</p>
-<ol>
-<li>Create the workspace as normal (New Workspace → name → private/public → create).</li>
-<li>Connect the integrations the workspace should ingest --- typically one Confluence space, one repo of policy markdown, or a set of Jira issues.</li>
-<li>Add the team that owns the content as workspace admins.</li>
-<li>Sign in as an <strong>org admin</strong>.</li>
-<li>Navigate to <strong>Admin → Workspaces</strong> → find the workspace → <strong>Make global</strong>.</li>
-<li>Confirm. Every user's picker now shows this workspace with a <strong>(Global)</strong> tag.</li>
-</ol>
-<p>Reversing the flag (Admin → Workspaces → <strong>Remove global</strong>) hides it again --- the workspace stays intact with its members and content, just no longer visible to non-members.</p>
-<h2 id="naming-conventions">Naming conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h2>
-<p>Because global workspaces appear in every user's picker, naming matters:</p>
+<h2 id="enabling">Enabling<a class="headerlink" href="#enabling" title="Permanent link">&para;</a></h2>
+<p>One tfvar:</p>
+<div class="codehilite"><pre><span></span><code><span class="na">security_scanner_enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+</code></pre></div>
+
+<p>Requires <code>deploy_ui = true</code> (the scanner endpoint lives on the UI ALB). Then <code>terraform apply</code>.</p>
+<p>Terraform generates four random secrets and stores them in SSM SecureString:</p>
+<table>
+<thead>
+<tr>
+<th>SSM parameter</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/&lt;env&gt;/&lt;app&gt;/security-scanner/path</code></td>
+<td>The secret URL path (128-bit hex; the scanner login page lives at <code>/&lt;this&gt;</code>)</td>
+</tr>
+<tr>
+<td><code>/&lt;env&gt;/&lt;app&gt;/security-scanner/password</code></td>
+<td>The scanner's password (32 chars random)</td>
+</tr>
+<tr>
+<td><code>/&lt;env&gt;/&lt;app&gt;/security-scanner/jwt-secret</code></td>
+<td>The signing key for the JWT cookie (64 chars random)</td>
+</tr>
+<tr>
+<td><code>/&lt;env&gt;/&lt;app&gt;/security-scanner/header-key</code></td>
+<td>A custom-header key the scanner must include on every request (32 chars random)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>These are auto-generated and stored securely.</strong> You never see them in plaintext during <code>terraform apply</code>. The scanner fetches them from SSM via its own IAM role (see below).</p>
+<h2 id="how-the-scanner-uses-the-endpoint">How the scanner uses the endpoint<a class="headerlink" href="#how-the-scanner-uses-the-endpoint" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-the-scanner-reads-credentials-from-ssm">Step 1: The scanner reads credentials from SSM<a class="headerlink" href="#step-1-the-scanner-reads-credentials-from-ssm" title="Permanent link">&para;</a></h3>
+<p>Give your scanner an IAM role with <code>ssm:GetParameter</code> on the four scanner parameters, plus <code>kms:Decrypt</code> on the KMS key that encrypts them (usually <code>alias/aws/ssm</code>).</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Scanner&#39;s IAM policy needs:</span>
+<span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;Effect&quot;</span>:<span class="w"> </span><span class="s2">&quot;Allow&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;Action&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;ssm:GetParameter&quot;</span><span class="o">]</span>,
+<span class="w">  </span><span class="s2">&quot;Resource&quot;</span>:<span class="w"> </span><span class="s2">&quot;arn:aws:ssm:*:*:parameter/prd/outcome-ops-ai-assist/security-scanner/*&quot;</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;Effect&quot;</span>:<span class="w"> </span><span class="s2">&quot;Allow&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;Action&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;kms:Decrypt&quot;</span><span class="o">]</span>,
+<span class="w">  </span><span class="s2">&quot;Resource&quot;</span>:<span class="w"> </span><span class="s2">&quot;arn:aws:kms:*:*:alias/aws/ssm&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>The scanner runs:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Fetch the path, password, and header key from SSM</span>
+<span class="nv">SCANNER_PATH</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ssm<span class="w"> </span>get-parameter<span class="w"> </span>--with-decryption<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/security-scanner/path&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Parameter.Value&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+
+<span class="nv">SCANNER_PASSWORD</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ssm<span class="w"> </span>get-parameter<span class="w"> </span>--with-decryption<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/security-scanner/password&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Parameter.Value&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+
+<span class="nv">SCANNER_HEADER_KEY</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ssm<span class="w"> </span>get-parameter<span class="w"> </span>--with-decryption<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/security-scanner/header-key&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Parameter.Value&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+</code></pre></div>
+
+<h3 id="step-2-the-scanner-posts-to-the-login-endpoint">Step 2: The scanner POSTs to the login endpoint<a class="headerlink" href="#step-2-the-scanner-posts-to-the-login-endpoint" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">COOKIE</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-c<span class="w"> </span>-<span class="w"> </span><span class="s2">&quot;https://&lt;your-app-fqdn&gt;/</span><span class="si">${</span><span class="nv">SCANNER_PATH</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;X-Scanner-Auth: </span><span class="si">${</span><span class="nv">SCANNER_HEADER_KEY</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;password=</span><span class="si">${</span><span class="nv">SCANNER_PASSWORD</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>session_token<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $7}&#39;</span><span class="k">)</span>
+</code></pre></div>
+
+<p>The endpoint validates the password + custom header, mints a JWT signed with the SSM-stored secret, and returns it as a cookie.</p>
+<h3 id="step-3-the-scanner-uses-the-cookie-on-subsequent-requests">Step 3: The scanner uses the cookie on subsequent requests<a class="headerlink" href="#step-3-the-scanner-uses-the-cookie-on-subsequent-requests" title="Permanent link">&para;</a></h3>
+<p>Every request to the platform includes the cookie:</p>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Cookie: session_token=</span><span class="si">${</span><span class="nv">COOKIE</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>-H<span class="w"> </span><span class="s2">&quot;X-Scanner-Auth: </span><span class="si">${</span><span class="nv">SCANNER_HEADER_KEY</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span><span class="s2">&quot;https://&lt;your-app-fqdn&gt;/api/workspaces&quot;</span>
+</code></pre></div>
+
+<p>The Express proxy accepts the JWT cookie as an authenticated session. The user identity in the session is <code>scanner@internal</code> --- audit rows attributed to the scanner get tagged with this synthetic user so SecOps can filter for scanner activity separately from real user activity.</p>
+<h2 id="session-lifetime">Session lifetime<a class="headerlink" href="#session-lifetime" title="Permanent link">&para;</a></h2>
+<p>The JWT cookie expires after <strong>1 hour</strong> by default. Scanners running longer scans need to re-authenticate (repeat step 2) periodically. This is intentional --- limits the blast radius if a scanner's session cookie is intercepted.</p>
+<h2 id="custom-header-key">Custom header key<a class="headerlink" href="#custom-header-key" title="Permanent link">&para;</a></h2>
+<p>The <code>X-Scanner-Auth</code> header is a <strong>second factor</strong>. Both the password AND the custom header must be correct on the login POST, and the header must be present on every subsequent request. This defends against:</p>
 <ul>
-<li><strong>Lead with the category</strong> so pickers sort alphabetically into groups: <code>Global: Security Standards</code>, <code>Global: Architecture Decisions</code>, <code>Global: Compliance Policies</code>.</li>
-<li><strong>Keep names short</strong> --- 30 characters or less. The picker sidebar truncates long names.</li>
-<li><strong>Avoid team-of-origin in the name</strong> unless the team ownership is the point --- <code>Global: SecOps Runbook</code> is fine if the team boundary is meaningful; <code>Global: Security Standards</code> is better if the content is the point.</li>
+<li><strong>Credential leak.</strong> If the password ends up in a log or the SSM parameter is misconfigured, an attacker still needs the header key.</li>
+<li><strong>Session replay.</strong> If a session cookie is stolen, the attacker still needs the header key.</li>
 </ul>
-<h2 id="example-patterns">Example patterns<a class="headerlink" href="#example-patterns" title="Permanent link">&para;</a></h2>
-<h3 id="security-standards-workspace">Security Standards workspace<a class="headerlink" href="#security-standards-workspace" title="Permanent link">&para;</a></h3>
+<p>Both secrets rotate together via Terraform if you re-generate the tfvars-linked randoms (<code>terraform taint</code> on the random resources + apply).</p>
+<h2 id="common-problems">Common problems<a class="headerlink" href="#common-problems" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>404 on the secret path</td>
+<td>Wrong path fetched from SSM, or the <code>security_scanner_enabled</code> flag is false.</td>
+<td>Confirm the flag is true; re-fetch the path from SSM.</td>
+</tr>
+<tr>
+<td>401 on login POST</td>
+<td>Wrong password, or missing <code>X-Scanner-Auth</code> header, or the header value is wrong.</td>
+<td>Fetch fresh values from SSM. Confirm the header key is present.</td>
+</tr>
+<tr>
+<td>401 on API calls after login</td>
+<td>JWT cookie expired (1-hour lifetime) or missing on the request.</td>
+<td>Re-run the login POST and update the cookie.</td>
+</tr>
+<tr>
+<td>Scanner works from one region but not another (HA deploys)</td>
+<td>The random secrets are region-specific. Each region has its own SSM parameters.</td>
+<td>Fetch the credentials from the region you're targeting.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rotating-scanner-credentials">Rotating scanner credentials<a class="headerlink" href="#rotating-scanner-credentials" title="Permanent link">&para;</a></h2>
+<p>To rotate all four secrets (path, password, JWT signing key, header key):</p>
+<div class="codehilite"><pre><span></span><code>terraform<span class="w"> </span>taint<span class="w"> </span>random_id.scanner_path
+terraform<span class="w"> </span>taint<span class="w"> </span>random_password.scanner_password
+terraform<span class="w"> </span>taint<span class="w"> </span>random_password.scanner_jwt_secret
+terraform<span class="w"> </span>taint<span class="w"> </span>random_password.scanner_header_key
+terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span class="o">=</span>prd.tfvars
+</code></pre></div>
+
+<p>Terraform regenerates all four, updates SSM, and the Lambda picks up the new values within one cold-start cycle (~15 minutes of normal traffic, or force immediately with a redeploy).</p>
+<p><strong>During rotation, existing scanner sessions with cookies signed by the OLD JWT secret become invalid immediately.</strong> Scanners currently mid-scan lose auth and must re-login. Plan rotations for a window when no scan is in flight, or accept the interruption.</p>
+<h2 id="disabling">Disabling<a class="headerlink" href="#disabling" title="Permanent link">&para;</a></h2>
+<p>Set <code>security_scanner_enabled = false</code> and re-apply Terraform. The Lambda, ALB listener rule, and SSM parameters get destroyed. Existing scanner sessions are dropped immediately.</p>
+<h2 id="what-this-does-not-do">What this does NOT do<a class="headerlink" href="#what-this-does-not-do" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Content:</strong> a <code>github.com/yourcompany/security-standards</code> repo of Markdown standards, connected via the GitHub integration.</li>
-<li><strong>Owned by:</strong> SecOps team as workspace admins.</li>
-<li><strong>Global.</strong> Every engineer can chat "what's our secret-management standard?" and get an answer grounded in the actual doc.</li>
-<li><strong>System prompt:</strong> "Always cite the specific standard you're pulling from. If the question is about an exception, note that exceptions must be approved by SecOps."</li>
-</ul>
-<h3 id="architecture-decision-workspace">Architecture Decision workspace<a class="headerlink" href="#architecture-decision-workspace" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Content:</strong> the ADR folder from your platform monorepo (or a dedicated <code>adrs</code> repo).</li>
-<li><strong>Owned by:</strong> platform architecture team.</li>
-<li><strong>Global.</strong> New engineers can chat "why do we use Terraform workspaces instead of separate accounts?" and get the ADR that made the call.</li>
-<li><strong>System prompt:</strong> "Answer based on the ADR content. If an ADR supersedes another, cite both and note which is current."</li>
-</ul>
-<h3 id="outcomeops-help-workspace">OutcomeOps Help workspace<a class="headerlink" href="#outcomeops-help-workspace" title="Permanent link">&para;</a></h3>
-<p>Once your deploy is running, seed a global workspace from the public <a href="https://docs.outcomeops.ai">docs.outcomeops.ai</a> content. Users can chat with the docs directly instead of navigating them.</p>
-<h2 id="interaction-with-other-features">Interaction with other features<a class="headerlink" href="#interaction-with-other-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong><a href="../../features/mcp-servers/">MCP servers</a></strong> attached to a global workspace are usable by every user in chat. Great for a company-wide read-only tool (like an internal API browser); risky for a tool that mutates external state (approve carefully).</li>
-<li><strong><a href="../../features/code-generation/">Code generation</a></strong> doesn't fire from global workspaces --- only from workspaces where a team has explicit ticket → repo mapping. Global workspaces are read-only in practice.</li>
-<li><strong><a href="../pii-redaction/">PII redaction</a></strong> runs at ingest, so global workspaces inherit whatever redaction posture the org has set. Global doesn't override org-level rules.</li>
-</ul>
-<h2 id="common-gotchas">Common gotchas<a class="headerlink" href="#common-gotchas" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Picker fatigue.</strong> If you have 15 global workspaces, users stop reading them and just click their team's workspace. Aim for 2-5 global workspaces max, at least in year one.</li>
-<li><strong>Stale content.</strong> Global workspaces attract "set it and forget it" thinking. Assign an owner + a review cadence (quarterly is reasonable) so the content stays fresh.</li>
-<li><strong>Cross-team ownership drift.</strong> If two teams try to co-own a global workspace, the system prompt ends up muddled. Pick one owner; other teams contribute via PRs to the underlying repo/space.</li>
+<li><strong>Not a replacement for OIDC</strong> for human users. Anyone with the scanner credentials can act as <code>scanner@internal</code> --- there's no user attribution beyond that identity. Reserve for machine access only.</li>
+<li><strong>Not multi-scanner.</strong> All scanners share the same credentials in v1. If you need per-scanner attribution, contact your account team --- the design can be extended to multiple named scanner identities.</li>
+<li><strong>Not integrated with your identity provider.</strong> The scanner is intentionally out-of-band from OIDC / SSO. That's the point --- SSO can't do headless auth.</li>
 </ul>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../../features/workspaces/">Workspaces</a> --- workspace basics, membership, roles.</li>
-<li><a href="../integration-gating/">Integration Gating</a> --- what integrations are provisioned deploy-wide.</li>
-<li><a href="../pii-redaction/">PII Redaction</a> --- how content is redacted at ingest, including for global workspaces.</li>
+<li><a href="../../getting-started/deploy/">Deploy</a> --- <code>security_scanner_enabled</code> tfvar sits alongside the other UI flags.</li>
+<li><a href="../audit-stream-export/">Audit Stream Export</a> --- if you want scanner activity in your SIEM, the events already flow through the same audit stream tagged with <code>scanner@internal</code>.</li>
 </ul>
 
 

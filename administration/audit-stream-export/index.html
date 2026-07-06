@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Make one team's content queryable across the whole org, without maintaining membership lists.">
+        <meta name="description" content="Stream every audit-log event to your SIEM via a Kinesis Data Stream in OCSF format.">
       
       
         <meta name="author" content="OutcomeOps">
       
       
-        <link rel="canonical" href="https://docs.outcomeops.ai/administration/global-workspaces/">
+        <link rel="canonical" href="https://docs.outcomeops.ai/administration/audit-stream-export/">
       
       
-        <link rel="prev" href="../integration-gating/">
+        <link rel="prev" href="../high-availability/">
       
       
-        <link rel="next" href="../pii-redaction/">
+        <link rel="next" href="../security-scanner/">
       
       
       <link rel="icon" href="../../assets/logo.svg">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Global Workspaces - OutcomeOps AI Assist Docs</title>
+        <title>SIEM Audit Stream Export - OutcomeOps AI Assist Docs</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#global-workspaces" class="md-skip">
+        <a href="#siem-audit-stream-export" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Global Workspaces
+              SIEM Audit Stream Export
             
           </span>
         </div>
@@ -975,30 +975,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Global Workspaces
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../global-workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1007,131 +987,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-a-global-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      When to use a global workspace
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-they-behave" class="md-nav__link">
-    <span class="md-ellipsis">
-      How they behave
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-global-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a global workspace
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#naming-conventions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Naming conventions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example patterns
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Example patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#security-standards-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security Standards workspace
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#architecture-decision-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Architecture Decision workspace
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#outcomeops-help-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      OutcomeOps Help workspace
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interaction-with-other-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Interaction with other features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-gotchas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common gotchas
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related" class="md-nav__link">
-    <span class="md-ellipsis">
-      Related
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1204,10 +1059,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../audit-stream-export/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    SIEM Audit Stream
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1216,6 +1091,176 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-kinesis-data-streams-not-firehose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Kinesis Data Streams, not Firehose
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enabling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocsf-envelope" class="md-nav__link">
+    <span class="md-ellipsis">
+      OCSF envelope
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtercriteria-patterns-for-common-siem-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      FilterCriteria patterns for common SIEM tasks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consumer-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consumer patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consumer patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splunk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Splunk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datadog
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sumo-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumo Logic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elastic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-security-lake" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Security Lake
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firehose-to-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firehose to S3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-after-enabling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify after enabling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disabling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disabling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1296,73 +1341,109 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-a-global-workspace" class="md-nav__link">
+  <a href="#architecture" class="md-nav__link">
     <span class="md-ellipsis">
-      When to use a global workspace
+      Architecture
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-they-behave" class="md-nav__link">
+  <a href="#why-kinesis-data-streams-not-firehose" class="md-nav__link">
     <span class="md-ellipsis">
-      How they behave
+      Why Kinesis Data Streams, not Firehose
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-a-global-workspace" class="md-nav__link">
+  <a href="#enabling" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a global workspace
+      Enabling
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#naming-conventions" class="md-nav__link">
+  <a href="#ocsf-envelope" class="md-nav__link">
     <span class="md-ellipsis">
-      Naming conventions
+      OCSF envelope
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-patterns" class="md-nav__link">
+  <a href="#filtercriteria-patterns-for-common-siem-tasks" class="md-nav__link">
     <span class="md-ellipsis">
-      Example patterns
+      FilterCriteria patterns for common SIEM tasks
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Example patterns">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consumer-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consumer patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consumer patterns">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#security-standards-workspace" class="md-nav__link">
+  <a href="#splunk" class="md-nav__link">
     <span class="md-ellipsis">
-      Security Standards workspace
+      Splunk
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#architecture-decision-workspace" class="md-nav__link">
+  <a href="#datadog" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture Decision workspace
+      Datadog
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#outcomeops-help-workspace" class="md-nav__link">
+  <a href="#sumo-logic" class="md-nav__link">
     <span class="md-ellipsis">
-      OutcomeOps Help workspace
+      Sumo Logic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elastic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-security-lake" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Security Lake
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firehose-to-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firehose to S3
     </span>
   </a>
   
@@ -1374,18 +1455,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interaction-with-other-features" class="md-nav__link">
+  <a href="#verify-after-enabling" class="md-nav__link">
     <span class="md-ellipsis">
-      Interaction with other features
+      Verify after enabling
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-gotchas" class="md-nav__link">
+  <a href="#cost" class="md-nav__link">
     <span class="md-ellipsis">
-      Common gotchas
+      Cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disabling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disabling
     </span>
   </a>
   
@@ -1415,7 +1505,7 @@
                   
 
   
-    <a href="https://github.com/outcomeops/docs/edit/main/docs/administration/global-workspaces.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/outcomeops/docs/edit/main/docs/administration/audit-stream-export.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1423,84 +1513,154 @@
   
 
 
-<h1 id="global-workspaces">Global Workspaces<a class="headerlink" href="#global-workspaces" title="Permanent link">&para;</a></h1>
-<p>A <strong>global workspace</strong> is a public workspace that appears in every authenticated user's workspace picker by default. One team owns the content; everyone in the deploy can query it.</p>
-<p>Use global workspaces for content that isn't team-specific but that some team has to own and maintain --- security standards, architecture decisions, onboarding guides, compliance policies. Instead of manually adding every engineer to a "Security" workspace and re-doing that every time someone joins or leaves, you flip the workspace to global and the org membership problem goes away.</p>
-<h2 id="when-to-use-a-global-workspace">When to use a global workspace<a class="headerlink" href="#when-to-use-a-global-workspace" title="Permanent link">&para;</a></h2>
-<p><strong>Good fits:</strong></p>
+<h1 id="siem-audit-stream-export">SIEM Audit Stream Export<a class="headerlink" href="#siem-audit-stream-export" title="Permanent link">&para;</a></h1>
+<p>Every mutation in OutcomeOps AI Assist writes a row to a DynamoDB audit table. That's the built-in audit trail --- readable from the Admin Audit dashboard and from CloudWatch Logs Insights.</p>
+<p>If your security team wants those events in <strong>their</strong> SIEM --- Splunk, Datadog, Sumo Logic, Elastic, AWS Security Lake, or a Firehose-to-S3 pipeline --- the platform can export the audit stream over a <strong>Kinesis Data Stream</strong> in <strong>OCSF v1.3.0</strong> format. You attach the consumer of your choice; the platform doesn't prescribe one.</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>+----------------+     DDB Streams     +-----------------------+
+|  audit-logs    |  ---- INSERT ----&gt;  |  audit-stream-        |
+|  DynamoDB      |                     |  publisher Lambda     |
++----------------+                     +-----------+-----------+
+                                                   |
+                                       OCSF v1.3.0 envelope
+                                                   |
+                                                   v
+                                       +-----------+-----------+
+                                       |  Kinesis Data Stream  |
+                                       |  &lt;env&gt;-&lt;app&gt;-         |
+                                       |  audit-export         |
+                                       |  (on-demand, 24h)     |
+                                       +-----------+-----------+
+                                                   |
+                                                   v
+                                       +-----------------------+
+                                       |  Your SIEM consumer   |
+                                       |  - Splunk add-on      |
+                                       |  - Firehose -&gt; S3     |
+                                       |  - Lambda -&gt; Sumo /   |
+                                       |    Datadog / Elastic  |
+                                       |  - Security Lake      |
+                                       +-----------------------+
+</code></pre></div>
+
+<p>Every event that lands in the audit table flows through the publisher Lambda, wrapped in an OCSF envelope, and lands on the Kinesis stream. Your consumer reads the stream and forwards to your SIEM.</p>
+<h2 id="why-kinesis-data-streams-not-firehose">Why Kinesis Data Streams, not Firehose<a class="headerlink" href="#why-kinesis-data-streams-not-firehose" title="Permanent link">&para;</a></h2>
+<p>Kinesis Data Streams (KDS) keeps the platform agnostic about your consumer choice. Firehose is "fire and forget to S3 / Splunk" --- fine if that's what you want, but limiting if you need to fan out to multiple destinations or process events before landing. KDS lets you:</p>
 <ul>
-<li><strong>Security standards</strong> owned by SecOps but queryable by every engineer.</li>
-<li><strong>Architecture decision records</strong> owned by the platform team but queryable across product engineering.</li>
-<li><strong>Compliance policies</strong> owned by GRC but queryable when any engineer wonders "can I do X?"</li>
-<li><strong>Onboarding content</strong> --- how to file expenses, request access, deploy code, get to the incident channel.</li>
-<li><strong>OutcomeOps Help</strong> --- an internal instance of the OutcomeOps documentation itself, so users can chat with the docs.</li>
+<li>Attach a Splunk add-on that pulls from the stream</li>
+<li>Attach a Datadog forwarder</li>
+<li>Attach a Lambda that fans out to multiple SIEMs</li>
+<li>Attach a Firehose (if you actually want the Firehose pattern) --- your Firehose reads from KDS</li>
+<li>Attach AWS Security Lake</li>
 </ul>
-<p><strong>Bad fits:</strong></p>
+<p>The stream is your integration point; the platform doesn't lock you into one destination.</p>
+<h2 id="enabling">Enabling<a class="headerlink" href="#enabling" title="Permanent link">&para;</a></h2>
+<p>One tfvar:</p>
+<div class="codehilite"><pre><span></span><code><span class="na">audit_stream_export_enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+</code></pre></div>
+
+<p>That's it. Run <code>terraform apply</code> and the stream + publisher Lambda land.</p>
+<p>CMK encryption on the stream flows automatically from your existing <code>enable_cmk_encryption</code> toggle:</p>
+<table>
+<thead>
+<tr>
+<th><code>enable_cmk_encryption</code></th>
+<th>Stream encryption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>false</code> (default)</td>
+<td>AWS-managed <code>alias/aws/kinesis</code></td>
+</tr>
+<tr>
+<td><code>true</code></td>
+<td>Platform CMK (same key as DDB / S3 / SQS)</td>
+</tr>
+</tbody>
+</table>
+<p>After apply, discover the stream ARN via Terraform output or SSM:</p>
+<div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>get-parameter<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/audit-export/stream-arn&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Parameter.Value&#39;</span><span class="w"> </span>--output<span class="w"> </span>text
+</code></pre></div>
+
+<p>The stream is <strong>on-demand mode</strong> (no shard math, scales automatically) with <strong>24-hour retention</strong>. Consumers who want longer in-stream retention should spin up their own Firehose consumer and land events in S3 with their own lifecycle policy.</p>
+<h2 id="ocsf-envelope">OCSF envelope<a class="headerlink" href="#ocsf-envelope" title="Permanent link">&para;</a></h2>
+<p>Every event is wrapped in OCSF v1.3.0. Consumers use OCSF's <code>category_uid</code> + <code>class_uid</code> + <code>activity_id</code> to filter for the event types they care about. The raw OutcomeOps payload is preserved under <code>unmapped</code> for consumers who want the full detail.</p>
+<p>An abbreviated example event (login):</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OutcomeOps AI Assist&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;vendor_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OutcomeOps&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.3.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;log_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;audit-logs&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;category_uid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;category_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Identity &amp; Access Management&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;class_uid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3002</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;class_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Authentication&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;activity_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;activity_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Logon&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1720000000000</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;actor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;email_addr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;alice@example.com&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;src_endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;203.0.113.10&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;status_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;unmapped&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;outcome_ops_action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACTION_LOGIN_SUCCEEDED&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;workspace_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;user_agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mozilla/5.0 ...&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="filtercriteria-patterns-for-common-siem-tasks">FilterCriteria patterns for common SIEM tasks<a class="headerlink" href="#filtercriteria-patterns-for-common-siem-tasks" title="Permanent link">&para;</a></h2>
+<p>Your consumer's FilterCriteria (Splunk regex, Datadog log processor, Lambda event filter, etc.) can target specific event classes:</p>
 <ul>
-<li>Team-specific runbooks that only that team's on-call rotation needs. Keep those in the team's own private workspace.</li>
-<li>Draft content, WIP standards, anything half-cooked. Global means everyone sees it; use a private workspace to iterate.</li>
-<li>Content that has to have different views for different audiences. If eng needs one framing and legal needs another, ship two workspaces (one global, one private).</li>
+<li><strong>Every login:</strong> <code>category_uid = 3 AND class_uid = 3002 AND activity_id = 1</code></li>
+<li><strong>Every workspace deletion:</strong> <code>unmapped.outcome_ops_action = "ACTION_WORKSPACE_DELETED"</code></li>
+<li><strong>Every OAuth connection:</strong> <code>unmapped.outcome_ops_action LIKE "ACTION_%_CONNECTED"</code></li>
+<li><strong>Every code generation trigger:</strong> <code>unmapped.outcome_ops_action = "ACTION_CODE_GENERATION_TRIGGERED"</code></li>
+<li><strong>Every admin membership change:</strong> <code>unmapped.outcome_ops_action IN ("ACTION_MEMBER_ADDED", "ACTION_MEMBER_REMOVED", "ACTION_MEMBER_ROLE_CHANGED")</code></li>
 </ul>
-<h2 id="how-they-behave">How they behave<a class="headerlink" href="#how-they-behave" title="Permanent link">&para;</a></h2>
+<p>The full list of OutcomeOps action types lives in your deploy's audit table --- query DDB directly to enumerate them, or check the CloudWatch Logs of the workspace-management Lambda for the emit calls.</p>
+<h2 id="consumer-patterns">Consumer patterns<a class="headerlink" href="#consumer-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="splunk">Splunk<a class="headerlink" href="#splunk" title="Permanent link">&para;</a></h3>
+<p>Use the <strong>Splunk Add-on for AWS</strong>. Configure it to pull from Kinesis Data Streams with the stream ARN. Add-on handles multi-shard fan-out and checkpointing automatically.</p>
+<h3 id="datadog">Datadog<a class="headerlink" href="#datadog" title="Permanent link">&para;</a></h3>
+<p>Use the <strong>Datadog Forwarder</strong> Lambda subscribed to the Kinesis stream. Datadog receives the events as logs; use log processors to reshape OCSF into your Datadog log pipeline.</p>
+<h3 id="sumo-logic">Sumo Logic<a class="headerlink" href="#sumo-logic" title="Permanent link">&para;</a></h3>
+<p>Use the <strong>Sumo Logic AWS Lambda Function for Kinesis Streams</strong>. Streams events into a Sumo source with your organization's tags.</p>
+<h3 id="elastic">Elastic<a class="headerlink" href="#elastic" title="Permanent link">&para;</a></h3>
+<p>Use <strong>Elastic Agent's AWS Kinesis input</strong>. Elastic ingests OCSF; the fields map cleanly into ECS.</p>
+<h3 id="aws-security-lake">AWS Security Lake<a class="headerlink" href="#aws-security-lake" title="Permanent link">&para;</a></h3>
+<p>Attach Security Lake's Kinesis subscriber to the stream. Security Lake normalizes OCSF into its Parquet-on-S3 lake for cross-source query via Athena.</p>
+<h3 id="firehose-to-s3">Firehose to S3<a class="headerlink" href="#firehose-to-s3" title="Permanent link">&para;</a></h3>
+<p>If you just want events on S3:</p>
 <ul>
-<li><strong>Discoverability.</strong> Global workspaces show up at the top of every user's workspace picker, tagged <strong>(Global)</strong>, above the user's own team workspaces.</li>
-<li><strong>Membership isn't tracked.</strong> Users don't join or leave --- they just select the workspace in their picker when they want its content in their chat.</li>
-<li><strong>Content ownership stays with one team.</strong> The workspace has a normal admin + members list; only they can add integrations, repos, spaces, or edit the system prompt. Everyone else is a read-only consumer.</li>
-<li><strong>Chat is per-user.</strong> Two users querying the same global workspace have independent conversations. No shared threads.</li>
-<li><strong>Global workspaces respect PII redaction settings.</strong> If org-level redaction is enabled, redaction runs at ingest time --- so what's in the workspace is already redacted before any user queries it.</li>
+<li>Create a Firehose delivery stream with Kinesis Data Streams as its source</li>
+<li>Point Firehose at your OutcomeOps audit stream</li>
+<li>Firehose lands events in S3 with your bucket + prefix</li>
 </ul>
-<h2 id="creating-a-global-workspace">Creating a global workspace<a class="headerlink" href="#creating-a-global-workspace" title="Permanent link">&para;</a></h2>
-<p>Only <strong>org admins</strong> can flip a workspace to global.</p>
-<ol>
-<li>Create the workspace as normal (New Workspace → name → private/public → create).</li>
-<li>Connect the integrations the workspace should ingest --- typically one Confluence space, one repo of policy markdown, or a set of Jira issues.</li>
-<li>Add the team that owns the content as workspace admins.</li>
-<li>Sign in as an <strong>org admin</strong>.</li>
-<li>Navigate to <strong>Admin → Workspaces</strong> → find the workspace → <strong>Make global</strong>.</li>
-<li>Confirm. Every user's picker now shows this workspace with a <strong>(Global)</strong> tag.</li>
-</ol>
-<p>Reversing the flag (Admin → Workspaces → <strong>Remove global</strong>) hides it again --- the workspace stays intact with its members and content, just no longer visible to non-members.</p>
-<h2 id="naming-conventions">Naming conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h2>
-<p>Because global workspaces appear in every user's picker, naming matters:</p>
-<ul>
-<li><strong>Lead with the category</strong> so pickers sort alphabetically into groups: <code>Global: Security Standards</code>, <code>Global: Architecture Decisions</code>, <code>Global: Compliance Policies</code>.</li>
-<li><strong>Keep names short</strong> --- 30 characters or less. The picker sidebar truncates long names.</li>
-<li><strong>Avoid team-of-origin in the name</strong> unless the team ownership is the point --- <code>Global: SecOps Runbook</code> is fine if the team boundary is meaningful; <code>Global: Security Standards</code> is better if the content is the point.</li>
-</ul>
-<h2 id="example-patterns">Example patterns<a class="headerlink" href="#example-patterns" title="Permanent link">&para;</a></h2>
-<h3 id="security-standards-workspace">Security Standards workspace<a class="headerlink" href="#security-standards-workspace" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Content:</strong> a <code>github.com/yourcompany/security-standards</code> repo of Markdown standards, connected via the GitHub integration.</li>
-<li><strong>Owned by:</strong> SecOps team as workspace admins.</li>
-<li><strong>Global.</strong> Every engineer can chat "what's our secret-management standard?" and get an answer grounded in the actual doc.</li>
-<li><strong>System prompt:</strong> "Always cite the specific standard you're pulling from. If the question is about an exception, note that exceptions must be approved by SecOps."</li>
-</ul>
-<h3 id="architecture-decision-workspace">Architecture Decision workspace<a class="headerlink" href="#architecture-decision-workspace" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Content:</strong> the ADR folder from your platform monorepo (or a dedicated <code>adrs</code> repo).</li>
-<li><strong>Owned by:</strong> platform architecture team.</li>
-<li><strong>Global.</strong> New engineers can chat "why do we use Terraform workspaces instead of separate accounts?" and get the ADR that made the call.</li>
-<li><strong>System prompt:</strong> "Answer based on the ADR content. If an ADR supersedes another, cite both and note which is current."</li>
-</ul>
-<h3 id="outcomeops-help-workspace">OutcomeOps Help workspace<a class="headerlink" href="#outcomeops-help-workspace" title="Permanent link">&para;</a></h3>
-<p>Once your deploy is running, seed a global workspace from the public <a href="https://docs.outcomeops.ai">docs.outcomeops.ai</a> content. Users can chat with the docs directly instead of navigating them.</p>
-<h2 id="interaction-with-other-features">Interaction with other features<a class="headerlink" href="#interaction-with-other-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong><a href="../../features/mcp-servers/">MCP servers</a></strong> attached to a global workspace are usable by every user in chat. Great for a company-wide read-only tool (like an internal API browser); risky for a tool that mutates external state (approve carefully).</li>
-<li><strong><a href="../../features/code-generation/">Code generation</a></strong> doesn't fire from global workspaces --- only from workspaces where a team has explicit ticket → repo mapping. Global workspaces are read-only in practice.</li>
-<li><strong><a href="../pii-redaction/">PII redaction</a></strong> runs at ingest, so global workspaces inherit whatever redaction posture the org has set. Global doesn't override org-level rules.</li>
-</ul>
-<h2 id="common-gotchas">Common gotchas<a class="headerlink" href="#common-gotchas" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Picker fatigue.</strong> If you have 15 global workspaces, users stop reading them and just click their team's workspace. Aim for 2-5 global workspaces max, at least in year one.</li>
-<li><strong>Stale content.</strong> Global workspaces attract "set it and forget it" thinking. Assign an owner + a review cadence (quarterly is reasonable) so the content stays fresh.</li>
-<li><strong>Cross-team ownership drift.</strong> If two teams try to co-own a global workspace, the system prompt ends up muddled. Pick one owner; other teams contribute via PRs to the underlying repo/space.</li>
-</ul>
+<h2 id="verify-after-enabling">Verify after enabling<a class="headerlink" href="#verify-after-enabling" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Fire a test event: sign in to the platform once.</span>
+<span class="c1"># Then within ~5 seconds, check the stream has an incoming record:</span>
+
+aws<span class="w"> </span>kinesis<span class="w"> </span>describe-stream-summary<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--stream-name<span class="w"> </span>prd-outcome-ops-ai-assist-audit-export<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;StreamDescriptionSummary.OpenShardCount&#39;</span>
+</code></pre></div>
+
+<p>Production consumers (KCL, Firehose, Splunk Add-on for AWS, Lambda event-source mapping) handle multi-shard fan-out transparently. <strong>One-off <code>aws kinesis get-records</code> calls do not</strong> --- they target one shard at a time, and on-demand mode silently scales the stream as traffic grows. If you sample the stream by hand, fan across every shard or you'll quietly see only ~1/N of the traffic.</p>
+<h2 id="cost">Cost<a class="headerlink" href="#cost" title="Permanent link">&para;</a></h2>
+<p>Kinesis Data Streams on-demand mode charges per GB written and per GB read. Ballpark for a typical customer with active platform usage: a few dollars per month for the stream itself. Your consumer's cost varies by choice (Firehose $, Splunk Add-on free, Datadog per-log-line, etc.).</p>
+<h2 id="disabling">Disabling<a class="headerlink" href="#disabling" title="Permanent link">&para;</a></h2>
+<p>Set <code>audit_stream_export_enabled = false</code> and re-apply Terraform. The publisher Lambda + Kinesis stream get destroyed. Events continue landing in the DynamoDB audit table (that's the base audit trail; the stream is an export mechanism on top).</p>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../../features/workspaces/">Workspaces</a> --- workspace basics, membership, roles.</li>
-<li><a href="../integration-gating/">Integration Gating</a> --- what integrations are provisioned deploy-wide.</li>
-<li><a href="../pii-redaction/">PII Redaction</a> --- how content is redacted at ingest, including for global workspaces.</li>
+<li>The DynamoDB audit table is the base audit surface. See the deploy's Admin → Audit dashboard for the built-in queryable view.</li>
+<li><a href="../integration-gating/">Integration Gating</a> --- audit stream export is an admin flag, not an integration flag; it stays gated by <code>audit_stream_export_enabled</code> regardless of which integrations are enabled.</li>
 </ul>
 
 

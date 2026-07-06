@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation for OutcomeOps AI Assist -- self-hosted, regulated-grade AI code assistant.">
+        <meta name="description" content="Technical answers to the questions people actually ask before and during adoption.">
       
       
         <meta name="author" content="OutcomeOps">
@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.outcomeops.ai/faq/">
       
       
-        <link rel="prev" href="../administration/pii-redaction/">
+        <link rel="prev" href="../administration/security-scanner/">
       
       
       
@@ -892,6 +892,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1000,6 +1008,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/model-selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model Selection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/high-availability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    High Availability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/audit-stream-export/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SIEM Audit Stream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/security-scanner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security Scanner Endpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1023,6 +1115,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1032,6 +1135,298 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-does-my-data-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where does my data go?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#does-outcomeops-have-any-access-to-my-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Does OutcomeOps have any access to my data?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-the-license-server-see" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does the license server see?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-i-need-to-open-outbound-firewall-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do I need to open outbound firewall rules?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I upgrade?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-aws-regions-are-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      Which AWS regions are supported?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-the-deploy-footprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's the deploy footprint?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#which-bedrock-models-are-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      Which Bedrock models are supported?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-use-my-own-llm-not-bedrock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I use my own LLM (not Bedrock)?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-model-costs-transparent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Are model costs transparent?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Governance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#can-secops-review-what-my-deploy-provisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can SecOps review what my deploy provisions?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#does-outcomeops-ai-assist-meet-soc-2-hipaa-fedramp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Does OutcomeOps AI Assist meet SOC 2 / HIPAA / FedRAMP?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-audit-what-users-did" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I audit what users did?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-stream-audit-events-to-my-siem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I stream audit events to my SIEM?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#content-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content + Integrations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Content + Integrations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#can-i-add-an-integration-outcomeops-doesnt-natively-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I add an integration OutcomeOps doesn't natively support?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-the-platform-do-with-generated-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does the platform do with generated code?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-fast-does-content-become-queryable-after-ingest" class="md-nav__link">
+    <span class="md-ellipsis">
+      How fast does content become queryable after ingest?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#does-the-platform-re-sync-forever-or-does-it-stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Does the platform re-sync forever, or does it stop?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-contribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support + Contribution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Support + Contribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-do-i-file-bugs-or-feature-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where do I file bugs or feature requests?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-contribute-to-the-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I contribute to the docs?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-there-a-slack-discord-community" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is there a Slack / Discord community?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-sla-does-outcomeops-offer" class="md-nav__link">
+    <span class="md-ellipsis">
+      What SLA does OutcomeOps offer?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1057,6 +1452,287 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-does-my-data-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where does my data go?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#does-outcomeops-have-any-access-to-my-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Does OutcomeOps have any access to my data?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-the-license-server-see" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does the license server see?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-i-need-to-open-outbound-firewall-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do I need to open outbound firewall rules?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I upgrade?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-aws-regions-are-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      Which AWS regions are supported?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-the-deploy-footprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's the deploy footprint?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#which-bedrock-models-are-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      Which Bedrock models are supported?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-use-my-own-llm-not-bedrock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I use my own LLM (not Bedrock)?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-model-costs-transparent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Are model costs transparent?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Governance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#can-secops-review-what-my-deploy-provisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can SecOps review what my deploy provisions?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#does-outcomeops-ai-assist-meet-soc-2-hipaa-fedramp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Does OutcomeOps AI Assist meet SOC 2 / HIPAA / FedRAMP?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-audit-what-users-did" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I audit what users did?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-stream-audit-events-to-my-siem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I stream audit events to my SIEM?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#content-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content + Integrations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Content + Integrations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#can-i-add-an-integration-outcomeops-doesnt-natively-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I add an integration OutcomeOps doesn't natively support?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-the-platform-do-with-generated-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does the platform do with generated code?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-fast-does-content-become-queryable-after-ingest" class="md-nav__link">
+    <span class="md-ellipsis">
+      How fast does content become queryable after ingest?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#does-the-platform-re-sync-forever-or-does-it-stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Does the platform re-sync forever, or does it stop?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-contribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support + Contribution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Support + Contribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-do-i-file-bugs-or-feature-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where do I file bugs or feature requests?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-contribute-to-the-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I contribute to the docs?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-there-a-slack-discord-community" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is there a Slack / Discord community?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-sla-does-outcomeops-offer" class="md-nav__link">
+    <span class="md-ellipsis">
+      What SLA does OutcomeOps offer?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1078,14 +1754,84 @@
   
 
 
-<h1 id="faq">Faq<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h1>
-<p><em>Placeholder -- content coming soon.</em></p>
+<h1 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h1>
+<h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
+<h3 id="where-does-my-data-go">Where does my data go?<a class="headerlink" href="#where-does-my-data-go" title="Permanent link">&para;</a></h3>
+<p>Nowhere. OutcomeOps AI Assist runs entirely in your AWS account. Content ingested from your integrations lands in your S3 buckets, your DynamoDB tables, your S3 Vectors index. LLM calls go to your Bedrock endpoints. Chat conversations save to your DynamoDB. Nothing leaves your account.</p>
+<h3 id="does-outcomeops-have-any-access-to-my-data">Does OutcomeOps have any access to my data?<a class="headerlink" href="#does-outcomeops-have-any-access-to-my-data" title="Permanent link">&para;</a></h3>
+<p>No. The deploy runs under your IAM. There is no cross-account role that grants OutcomeOps access to anything in your account. OutcomeOps ships you Terraform modules and container images; you run them.</p>
+<h3 id="what-does-the-license-server-see">What does the license server see?<a class="headerlink" href="#what-does-the-license-server-see" title="Permanent link">&para;</a></h3>
+<p>Two things: (1) the license JWT you provide, which the license server validates; (2) a repo-count snapshot the platform sends periodically (how many repos are connected across all workspaces). No source code, no chat content, no user emails. The snapshot exists so OutcomeOps can enforce license terms; contact us if you need to see the exact payload.</p>
+<h3 id="do-i-need-to-open-outbound-firewall-rules">Do I need to open outbound firewall rules?<a class="headerlink" href="#do-i-need-to-open-outbound-firewall-rules" title="Permanent link">&para;</a></h3>
+<p>For non-air-gapped tiers: yes, one --- to <code>license.outcomeops.ai</code> for license validation and (optionally) help-content updates. For air-gapped enterprise tiers: no --- licensing is baked into the deploy artifact and help content ships as an immutable snapshot per release.</p>
+<h3 id="how-do-i-upgrade">How do I upgrade?<a class="headerlink" href="#how-do-i-upgrade" title="Permanent link">&para;</a></h3>
+<p>Bump the Terraform module version in your tfvars, run <code>make pre-deploy</code> to rebuild layers + images, then <code>terraform apply</code>. Release notes ship at <code>outcomeops.ai/releases</code> (or via your account team for regulated deploys).</p>
+<h3 id="which-aws-regions-are-supported">Which AWS regions are supported?<a class="headerlink" href="#which-aws-regions-are-supported" title="Permanent link">&para;</a></h3>
+<p>Any region where Bedrock supports the models you configure. Claude Sonnet + Haiku (defaults) are broadly available. OpenAI on Bedrock (GPT-5.5) is us-east-2 only at time of writing. Verify the model IDs in your tfvars against your target region before applying.</p>
+<h3 id="whats-the-deploy-footprint">What's the deploy footprint?<a class="headerlink" href="#whats-the-deploy-footprint" title="Permanent link">&para;</a></h3>
+<p>Ballpark for a full-enable deploy (every integration flag <code>true</code>):</p>
+<ul>
+<li>~40 Lambda functions (shared core + one integration + one sync + one scheduler per enabled integration)</li>
+<li>~15 DynamoDB tables (workspaces, audit, analytics, symbol graph, code maps, license snapshot, etc.)</li>
+<li>~10 SQS queues + 10 DLQs (one pair per integration)</li>
+<li>~5 KMS keys (encryption at rest across the stack)</li>
+<li>2 Fargate services (chat UI + MCP catalog)</li>
+<li>1 Application Load Balancer (UI)</li>
+<li>~30 SSM SecureString parameters (integration credentials + license)</li>
+</ul>
+<p>Disable integrations you don't use and the footprint drops proportionally. See <a href="../administration/integration-gating/">Integration Gating</a>.</p>
+<h2 id="models">Models<a class="headerlink" href="#models" title="Permanent link">&para;</a></h2>
+<h3 id="which-bedrock-models-are-supported">Which Bedrock models are supported?<a class="headerlink" href="#which-bedrock-models-are-supported" title="Permanent link">&para;</a></h3>
+<p>The current defaults:</p>
+<ul>
+<li><strong>Advanced:</strong> Claude Sonnet 4.6 (synthesis, PR-check analysis, code generation)</li>
+<li><strong>Basic:</strong> Claude Haiku 4.5 (query rewriting, summarization, code-map extraction)</li>
+<li><strong>Embedding:</strong> Titan Embed Text v2 (vectors)</li>
+<li><strong>Rerank:</strong> Cohere Rerank v3.5 (dual-channel retrieval reranking; optional)</li>
+</ul>
+<p>All four are swappable via tfvars. Regulated customers who need a specific model (their compliance-approved variant) override the model IDs. OpenAI GPT-5.5 on Bedrock is supported via a shared model client abstraction (currently us-east-2 only).</p>
+<h3 id="can-i-use-my-own-llm-not-bedrock">Can I use my own LLM (not Bedrock)?<a class="headerlink" href="#can-i-use-my-own-llm-not-bedrock" title="Permanent link">&para;</a></h3>
+<p>Not directly in v1. The shared model client is Bedrock-first with a Mantle backend for OpenAI-on-Bedrock. Direct-to-Anthropic-API or OpenAI API access isn't the default posture --- regulated deploys prefer Bedrock's within-AWS traffic + compliance boundary.</p>
+<p>If you have a use case for a non-Bedrock model (an on-prem Llama, a private inference endpoint), talk to us --- extending the shared model client is a plausible engineering path.</p>
+<h3 id="are-model-costs-transparent">Are model costs transparent?<a class="headerlink" href="#are-model-costs-transparent" title="Permanent link">&para;</a></h3>
+<p>Yes. Every LLM call the platform makes logs its input and output token counts to DynamoDB, tagged by workspace and user. The audit dashboard rolls up cost per workspace, per user, per model. Set daily / monthly cost alerts in your tfvars (<code>cost_alert_workspace_monthly_usd</code>, etc.).</p>
+<h2 id="governance">Governance<a class="headerlink" href="#governance" title="Permanent link">&para;</a></h2>
+<h3 id="can-secops-review-what-my-deploy-provisions">Can SecOps review what my deploy provisions?<a class="headerlink" href="#can-secops-review-what-my-deploy-provisions" title="Permanent link">&para;</a></h3>
+<p>Yes. Your tfvars are the source of truth --- each <code>enable_*_integration</code> flag maps to a documented set of resources (see <a href="../administration/integration-gating/">Integration Gating</a>). The unauthenticated <code>/api/config/integrations</code> endpoint returns the live manifest so SecOps can verify the deploy state matches the tfvars.</p>
+<h3 id="does-outcomeops-ai-assist-meet-soc-2-hipaa-fedramp">Does OutcomeOps AI Assist meet SOC 2 / HIPAA / FedRAMP?<a class="headerlink" href="#does-outcomeops-ai-assist-meet-soc-2-hipaa-fedramp" title="Permanent link">&para;</a></h3>
+<p>Compliance is a property of the <strong>deploy</strong>, not the software. OutcomeOps AI Assist deploys into your AWS account, using your KMS keys, under your IAM. The platform's design supports compliance postures --- audit trails, KMS-encrypted everything, no cross-account access, in-account processing --- but certification is on your side. Ask your account team about the deploy checklist for your compliance regime.</p>
+<h3 id="how-do-i-audit-what-users-did">How do I audit what users did?<a class="headerlink" href="#how-do-i-audit-what-users-did" title="Permanent link">&para;</a></h3>
+<p>Every mutation writes an audit row to DynamoDB with the user's email, source IP, user agent, action, and workspace. Read-only chat queries are logged separately in the chat audit table (with input, output, retrieval sources, tool calls, and token counts). Both are queryable from the Admin → Audit dashboard, or via CloudWatch Logs Insights if you want raw access.</p>
+<h3 id="can-i-stream-audit-events-to-my-siem">Can I stream audit events to my SIEM?<a class="headerlink" href="#can-i-stream-audit-events-to-my-siem" title="Permanent link">&para;</a></h3>
+<p>Yes, via the audit stream export feature. Set <code>audit_stream_export_enabled = true</code> in your tfvars --- Terraform provisions a Kinesis Data Stream and a publisher Lambda that re-emits every audit row as an OCSF v1.3.0 envelope. Attach your SIEM's consumer (Splunk, Datadog, Sumo, Security Lake, Firehose-to-S3) to the stream.</p>
+<h2 id="content-integrations">Content + Integrations<a class="headerlink" href="#content-integrations" title="Permanent link">&para;</a></h2>
+<h3 id="can-i-add-an-integration-outcomeops-doesnt-natively-support">Can I add an integration OutcomeOps doesn't natively support?<a class="headerlink" href="#can-i-add-an-integration-outcomeops-doesnt-natively-support" title="Permanent link">&para;</a></h3>
+<p>Yes, via <a href="../features/mcp-servers/">MCP servers</a>. If the external system speaks the Model Context Protocol, you point the platform at its endpoint and users can invoke its tools from chat. Common pattern: wrap a REST API in a thin MCP shim you self-host, and add it as a workspace-scoped MCP.</p>
+<h3 id="what-does-the-platform-do-with-generated-code">What does the platform do with generated code?<a class="headerlink" href="#what-does-the-platform-do-with-generated-code" title="Permanent link">&para;</a></h3>
+<p>It opens a pull request. The PR is authored by the OutcomeOps GitHub App, attributed to AI generation, and shows up in your normal PR review flow. You approve, request changes, or close --- same as any other PR. The platform doesn't merge on its own.</p>
+<h3 id="how-fast-does-content-become-queryable-after-ingest">How fast does content become queryable after ingest?<a class="headerlink" href="#how-fast-does-content-become-queryable-after-ingest" title="Permanent link">&para;</a></h3>
+<p>Small repos: 2-5 minutes from add to chat-queryable. Large monorepos: 20-60 minutes. Confluence spaces, Jira projects, database schemas: similar range depending on volume. The Integrations panel shows sync status per item.</p>
+<h3 id="does-the-platform-re-sync-forever-or-does-it-stop">Does the platform re-sync forever, or does it stop?<a class="headerlink" href="#does-the-platform-re-sync-forever-or-does-it-stop" title="Permanent link">&para;</a></h3>
+<p>Continuous. Every integration has an hourly scheduler that fires the sync worker; each worker looks at what's changed since last time and updates only the delta. If you add a new file to an ingested repo, it becomes queryable within the next hour. If you don't want a specific repo synced, remove it from the workspace.</p>
+<h2 id="support-contribution">Support + Contribution<a class="headerlink" href="#support-contribution" title="Permanent link">&para;</a></h2>
+<h3 id="where-do-i-file-bugs-or-feature-requests">Where do I file bugs or feature requests?<a class="headerlink" href="#where-do-i-file-bugs-or-feature-requests" title="Permanent link">&para;</a></h3>
+<p>For product issues (deployment problems, bugs, feature requests): open a ticket at the <a href="https://outcomeops.atlassian.net/servicedesk/customer/portal/1">OutcomeOps Support Portal</a>. Your account team triages from there.</p>
+<p>For documentation issues (typos, wrong details, missing content): <a href="https://github.com/outcomeops/docs/issues/new">open an issue in the docs repo</a>. Include the page URL and what's confusing.</p>
+<h3 id="can-i-contribute-to-the-docs">Can I contribute to the docs?<a class="headerlink" href="#can-i-contribute-to-the-docs" title="Permanent link">&para;</a></h3>
+<p>Issues yes, pull requests no. See the <a href="https://github.com/outcomeops/docs">docs repo README</a> for the contribution policy. If you have suggested wording for a fix, include it in your issue --- we'll lift it into the source when it fits.</p>
+<h3 id="is-there-a-slack-discord-community">Is there a Slack / Discord community?<a class="headerlink" href="#is-there-a-slack-discord-community" title="Permanent link">&para;</a></h3>
+<p>Not currently. OutcomeOps AI Assist is early-stage; support flows through your account team. As adoption grows we may open a broader community channel.</p>
+<h3 id="what-sla-does-outcomeops-offer">What SLA does OutcomeOps offer?<a class="headerlink" href="#what-sla-does-outcomeops-offer" title="Permanent link">&para;</a></h3>
+<p>OutcomeOps ships software; the SLA is what your AWS account provides. The platform is multi-AZ by default and supports multi-region HA (active/passive with per-region KMS keys). Configure your AWS account for the availability posture you need; the platform inherits it.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1130,10 +1876,7 @@
     
     
     
-      
-      
-    
-    <a href="https://github.com/outcomeops" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+    <a href="https://github.com/outcomeops" target="_blank" rel="noopener" title="OutcomeOps on GitHub" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
@@ -1141,11 +1884,16 @@
     
     
     
-      
-      
-    
     <a href="https://outcomeops.ai" target="_blank" rel="noopener" title="outcomeops.ai" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.4c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.3c2.2 20.4 3.3 41.8 3.3 64m28.8-64h123.1c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64m112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7m-209 0H18.6c30-74.1 93.6-130.9 172-151.6-25.5 34.2-45.3 87.7-55.3 151.6M8.1 192h123.1c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64m186.6 254.6c-11.6-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5-11.2 10.7-20.5 13.9-27.8 13.9s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6-78.4-20.7-142-77.5-172-151.6zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.2-87.7 55.3-151.6h116.7z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://outcomeops.atlassian.net/servicedesk/customer/portal/1" target="_blank" rel="noopener" title="Support Portal" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7.8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5M157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1-96 0"/></svg>
     </a>
   
 </div>

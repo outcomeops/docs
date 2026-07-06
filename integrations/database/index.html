@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation for OutcomeOps AI Assist -- self-hosted, regulated-grade AI code assistant.">
+        <meta name="description" content="Connect PostgreSQL, MySQL, or SQL Server so the platform can query schemas + tables as chat context.">
       
       
         <meta name="author" content="OutcomeOps">
@@ -709,6 +709,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -718,6 +729,184 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-connects" class="md-nav__link">
+    <span class="md-ellipsis">
+      What this connects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-engines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported engines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design principles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-a-read-only-database-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create a read-only database user
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Create a read-only database user">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      PostgreSQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      MySQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL Server
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-store-the-password-in-ssm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Store the password in SSM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-optional-upload-your-ca-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: (Optional) Upload your CA bundle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-enable-the-flag-and-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Enable the flag and deploy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-create-a-connection-from-the-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Create a connection from the UI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-select-schemas-to-expose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Select schemas to expose
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common problems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotating-the-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotating the password
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disconnecting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disconnecting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-flag-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the flag gates
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -907,6 +1096,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1015,6 +1212,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/model-selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model Selection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/high-availability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    High Availability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/audit-stream-export/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SIEM Audit Stream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/security-scanner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security Scanner Endpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1062,6 +1343,173 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-connects" class="md-nav__link">
+    <span class="md-ellipsis">
+      What this connects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-engines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported engines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design principles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-a-read-only-database-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create a read-only database user
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Create a read-only database user">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      PostgreSQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      MySQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL Server
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-store-the-password-in-ssm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Store the password in SSM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-optional-upload-your-ca-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: (Optional) Upload your CA bundle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-enable-the-flag-and-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Enable the flag and deploy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-create-a-connection-from-the-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Create a connection from the UI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-select-schemas-to-expose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Select schemas to expose
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common problems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotating-the-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotating the password
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disconnecting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disconnecting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-flag-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the flag gates
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1084,13 +1532,205 @@
 
 
 <h1 id="database">Database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h1>
-<p><em>Placeholder -- content coming soon.</em></p>
+<p>The Database integration connects OutcomeOps AI Assist to your relational databases and makes <strong>schemas + tables</strong> queryable as chat context. Ask "what columns does the customers table have?" or "which tables reference user_id?" and the platform answers from live schema introspection, not from a stale doc.</p>
+<p>Time budget: <strong>~20 minutes per database connection</strong>.</p>
+<h2 id="what-this-connects">What this connects<a class="headerlink" href="#what-this-connects" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Table + column metadata.</strong> Column names, types, nullability, comments.</li>
+<li><strong>Schema-level relationships.</strong> Foreign keys, primary keys, indexes.</li>
+<li><strong>Row counts</strong> (approximate) at introspection time.</li>
+<li><strong>NOT ingested:</strong> table row data. The platform reads structure, never content.</li>
+<li><strong>Schema-drift notifications.</strong> An SNS topic fires when a DBA adds or drops a schema between syncs; table-level changes inside already-selected schemas are picked up automatically.</li>
+</ul>
+<h2 id="supported-engines">Supported engines<a class="headerlink" href="#supported-engines" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Engine</th>
+<th>Versions</th>
+<th>Auth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PostgreSQL</strong></td>
+<td>12+</td>
+<td>Password (via SSM SecureString)</td>
+</tr>
+<tr>
+<td><strong>MySQL</strong></td>
+<td>8.0+</td>
+<td>Password (via SSM SecureString)</td>
+</tr>
+<tr>
+<td><strong>SQL Server</strong></td>
+<td>2019+</td>
+<td>Password (via SSM SecureString)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-principles">Design principles<a class="headerlink" href="#design-principles" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Read-only.</strong> The platform never writes to your databases. Give it a read-only user.</li>
+<li><strong>Schemas-only scope.</strong> You pick which schemas the platform can see; it auto-discovers tables within selected schemas but never sees anything else.</li>
+<li><strong>BYO CA bundle.</strong> For databases behind private CAs (typical in regulated deploys), you upload your CA bundle to SSM and the connection layer trusts it. No mucking with Lambda base images.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Database admin access</strong> to create a read-only user.</li>
+<li><strong>Network path from the platform's VPC to the database.</strong> Typically a peering, Transit Gateway, or VPN connection. The platform's Fargate + Lambda subnets need to reach the database on its port.</li>
+<li><strong><code>enable_database_integration = true</code></strong> in the tfvars.</li>
+</ul>
+<h2 id="step-1-create-a-read-only-database-user">Step 1: Create a read-only database user<a class="headerlink" href="#step-1-create-a-read-only-database-user" title="Permanent link">&para;</a></h2>
+<p>The platform reads schema metadata via a dedicated read-only user, never the database owner or a shared app user.</p>
+<h3 id="postgresql">PostgreSQL<a class="headerlink" href="#postgresql" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;&lt;strong-password&gt;&#39;</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">CONNECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">your_db</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="p">;</span>
+
+<span class="c1">-- For each schema you want to expose:</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">USAGE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="n">TABLES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="p">;</span>
+
+<span class="c1">-- Grant on future tables too:</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="k">public</span>
+<span class="w">  </span><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">TABLES</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="p">;</span>
+</code></pre></div>
+
+<h3 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;outcomeops_reader&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;&lt;strong-password&gt;&#39;</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">your_db</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;outcomeops_reader&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+<span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div>
+
+<h3 id="sql-server">SQL Server<a class="headerlink" href="#sql-server" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="n">USE</span><span class="w"> </span><span class="n">master</span><span class="p">;</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;strong-password&gt;&#39;</span><span class="p">;</span>
+
+<span class="n">USE</span><span class="w"> </span><span class="n">your_db</span><span class="p">;</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">ROLE</span><span class="w"> </span><span class="n">db_datareader</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="n">MEMBER</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">DEFINITION</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">dbo</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="p">;</span>
+</code></pre></div>
+
+<h2 id="step-2-store-the-password-in-ssm">Step 2: Store the password in SSM<a class="headerlink" href="#step-2-store-the-password-in-ssm" title="Permanent link">&para;</a></h2>
+<p>The platform reads credentials from SSM at connect time. Put the password in a SecureString:</p>
+<div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/database/production-postgres-password&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;&lt;the password from Step 1&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--type<span class="w"> </span>SecureString<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--key-id<span class="w"> </span>alias/aws/ssm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--region<span class="w"> </span>us-west-2
+</code></pre></div>
+
+<p>Use a name that identifies the specific database (<code>production-postgres-password</code>, <code>analytics-mysql-password</code>). One parameter per database connection.</p>
+<h2 id="step-3-optional-upload-your-ca-bundle">Step 3: (Optional) Upload your CA bundle<a class="headerlink" href="#step-3-optional-upload-your-ca-bundle" title="Permanent link">&para;</a></h2>
+<p>If your database sits behind a private CA (typical for enterprise-managed RDS or Aurora deployments with internal certificate authorities), upload the CA bundle:</p>
+<div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/database/ca-bundle&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span>internal-ca-bundle.pem<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--type<span class="w"> </span>String<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--region<span class="w"> </span>us-west-2
+</code></pre></div>
+
+<p>The platform reads the CA bundle at connection time and uses it for TLS verification. If your database uses a public CA (AWS RDS's default), skip this step.</p>
+<h2 id="step-4-enable-the-flag-and-deploy">Step 4: Enable the flag and deploy<a class="headerlink" href="#step-4-enable-the-flag-and-deploy" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="na">enable_database_integration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+
+<span class="c1"># Optional -- schema-drift SNS topic subscription</span>
+<span class="na">database_drift_notification_emails</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;dba-team@example.com&quot;</span><span class="p">]</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span class="o">=</span>prd.tfvars
+</code></pre></div>
+
+<p>See the <a href="../../getting-started/deploy/">Deploy guide</a>.</p>
+<h2 id="step-5-create-a-connection-from-the-ui">Step 5: Create a connection from the UI<a class="headerlink" href="#step-5-create-a-connection-from-the-ui" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Open the OutcomeOps UI as a <strong>workspace admin</strong>.</li>
+<li>Navigate to <strong>Workspace Settings → Integrations</strong>.</li>
+<li>Under Database, click <strong>New connection</strong>.</li>
+<li>Fill in:<ul>
+<li><strong>Name:</strong> human-readable label (e.g., "Production Postgres").</li>
+<li><strong>Engine:</strong> PostgreSQL / MySQL / SQL Server.</li>
+<li><strong>Host + port + database.</strong></li>
+<li><strong>Username:</strong> <code>outcomeops_reader</code> (from Step 1).</li>
+<li><strong>Password SSM parameter:</strong> the parameter name from Step 2 (e.g., <code>/prd/outcome-ops-ai-assist/database/production-postgres-password</code>).</li>
+<li><strong>CA bundle SSM parameter (optional):</strong> from Step 3.</li>
+</ul>
+</li>
+<li>Click <strong>Test connection</strong>. The platform validates credentials + reachability. If it fails, see Common problems below.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<h2 id="step-6-select-schemas-to-expose">Step 6: Select schemas to expose<a class="headerlink" href="#step-6-select-schemas-to-expose" title="Permanent link">&para;</a></h2>
+<ol>
+<li>On the saved connection, click <strong>Configure schemas</strong>.</li>
+<li>The picker shows every schema the read-only user can see.</li>
+<li>Check the schemas you want the platform to make queryable. Uncheck the rest.</li>
+<li>Save. Initial introspection fires immediately; subsequent syncs run hourly.</li>
+</ol>
+<p>Tables inside selected schemas are auto-discovered on each sync. Add a new table to a selected schema and it appears in chat within an hour --- no reconfiguration needed.</p>
+<h2 id="common-problems">Common problems<a class="headerlink" href="#common-problems" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Connection refused</code> on Test</td>
+<td>Network path from the platform's VPC to the database is blocked.</td>
+<td>Verify security groups, NACLs, and route tables. The platform's Fargate + Lambda subnets need outbound access to the database's port.</td>
+</tr>
+<tr>
+<td><code>password authentication failed</code></td>
+<td>Password in SSM doesn't match the user's password.</td>
+<td>Re-run the SSM <code>put-parameter --overwrite</code> with the correct password. Trim any accidental whitespace.</td>
+</tr>
+<tr>
+<td><code>certificate verify failed</code></td>
+<td>Database uses a private CA, and you didn't upload the CA bundle.</td>
+<td>Upload the CA bundle per Step 3, edit the connection, add the SSM parameter path.</td>
+</tr>
+<tr>
+<td><code>permission denied for schema X</code></td>
+<td>The read-only user doesn't have <code>USAGE</code> on schema X.</td>
+<td>Re-run the Step 1 grants for schema X.</td>
+</tr>
+<tr>
+<td>Schemas missing from the picker</td>
+<td>User doesn't have visibility on those schemas.</td>
+<td>Grant the user access to the schemas, then click Refresh.</td>
+</tr>
+<tr>
+<td>Drift SNS never fires</td>
+<td>You didn't subscribe an endpoint to the drift topic, OR the first apply's SubscribeNow confirmation email was ignored.</td>
+<td>Check the AWS SNS console for the topic named <code>*-database-drift</code>, subscribe an email endpoint, confirm the subscription in the email you receive.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rotating-the-password">Rotating the password<a class="headerlink" href="#rotating-the-password" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Change the password on the database user.</li>
+<li>Run <code>aws ssm put-parameter --overwrite</code> on the parameter with the new value.</li>
+<li>Wait ~15 minutes for the next Lambda cold start, or manually trigger a sync from the UI to force the new value to load.</li>
+</ol>
+<p>No Terraform apply needed.</p>
+<h2 id="disconnecting">Disconnecting<a class="headerlink" href="#disconnecting" title="Permanent link">&para;</a></h2>
+<p>Workspace Settings → Integrations → find the connection → <strong>Disconnect</strong>. The connection record is deleted; ingested schema metadata is removed from the workspace's KB. The read-only user still exists on your database until you drop it manually.</p>
+<h2 id="what-the-flag-gates">What the flag gates<a class="headerlink" href="#what-the-flag-gates" title="Permanent link">&para;</a></h2>
+<p>Setting <code>enable_database_integration = false</code> provisions no Database integration Lambdas, no SQS queues, no scheduler, no drift SNS topic. See <a href="../../administration/integration-gating/">Integration Gating</a>.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1135,10 +1775,7 @@
     
     
     
-      
-      
-    
-    <a href="https://github.com/outcomeops" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+    <a href="https://github.com/outcomeops" target="_blank" rel="noopener" title="OutcomeOps on GitHub" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
@@ -1146,11 +1783,16 @@
     
     
     
-      
-      
-    
     <a href="https://outcomeops.ai" target="_blank" rel="noopener" title="outcomeops.ai" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.4c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.3c2.2 20.4 3.3 41.8 3.3 64m28.8-64h123.1c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64m112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7m-209 0H18.6c30-74.1 93.6-130.9 172-151.6-25.5 34.2-45.3 87.7-55.3 151.6M8.1 192h123.1c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64m186.6 254.6c-11.6-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5-11.2 10.7-20.5 13.9-27.8 13.9s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6-78.4-20.7-142-77.5-172-151.6zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.2-87.7 55.3-151.6h116.7z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://outcomeops.atlassian.net/servicedesk/customer/portal/1" target="_blank" rel="noopener" title="Support Portal" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7.8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5M157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1-96 0"/></svg>
     </a>
   
 </div>

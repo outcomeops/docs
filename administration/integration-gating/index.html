@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation for OutcomeOps AI Assist -- self-hosted, regulated-grade AI code assistant.">
+        <meta name="description" content="Every integration is a single tfvar. Nothing you don't enable exists in your AWS account.">
       
       
         <meta name="author" content="OutcomeOps">
@@ -896,6 +896,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -958,6 +966,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Integration Gating
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -967,6 +986,106 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this matters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flags
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-ssm-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shared SSM parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-enable-an-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      To enable an integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-disable-an-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      To disable an integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-current-state-on-a-live-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking current state on a live deploy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secops-review-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      SecOps review checklist
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAQ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1006,6 +1125,90 @@
   
   <span class="md-ellipsis">
     PII Redaction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-selection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model Selection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../high-availability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    High Availability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audit-stream-export/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SIEM Audit Stream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-scanner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security Scanner Endpoint
   </span>
   
 
@@ -1062,6 +1265,95 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this matters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flags
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-ssm-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shared SSM parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-enable-an-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      To enable an integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-disable-an-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      To disable an integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-current-state-on-a-live-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking current state on a live deploy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secops-review-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      SecOps review checklist
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAQ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1084,13 +1376,161 @@
 
 
 <h1 id="integration-gating">Integration Gating<a class="headerlink" href="#integration-gating" title="Permanent link">&para;</a></h1>
-<p><em>Placeholder -- content coming soon.</em></p>
+<p>Every workspace integration in OutcomeOps AI Assist ships behind a <strong>platform-level tfvar</strong> that defaults to <code>false</code>. Setting the flag to <code>true</code> provisions the entire backend surface for that integration --- Lambdas, Function URLs, SQS queues, dead-letter queues, EventBridge rules, SSM parameters, IAM policies. Setting it to <code>false</code> (or leaving the default) provisions nothing.</p>
+<p>This is the SecOps story:</p>
+<blockquote>
+<p><strong>Nothing you don't enable exists in your AWS account.</strong> A reviewer can look at your tfvars and know exactly which surface has been provisioned. Terraform apply provisions the shared core (workspace management, chat, UI) plus whatever integration flags are true --- and only those.</p>
+</blockquote>
+<h2 id="why-this-matters">Why this matters<a class="headerlink" href="#why-this-matters" title="Permanent link">&para;</a></h2>
+<p>Before per-integration gating landed, the platform provisioned every integration when <code>enable_workspaces = true</code> fired. Regulated buyers pushed back: "we don't use Confluence; why does its Lambda exist in our account?" The answer used to be "because the platform is monolithic." The answer now is "it doesn't --- flip <code>enable_confluence_integration = false</code> and it's gone."</p>
+<p>Regulated customers, air-gapped deploys, and SecOps reviewers all benefit from the same property: <strong>zero cost, zero attack surface, zero audit noise</strong> for integrations you don't use.</p>
+<h2 id="flags">Flags<a class="headerlink" href="#flags" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Default</th>
+<th>What provisions when true</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enable_azure_devops_integration</code></td>
+<td><code>false</code></td>
+<td><a href="../../integrations/azure-devops/">Azure DevOps (Repos)</a> --- integration Lambda + Function URL + sync + scheduler + SQS + DLQ + EventBridge</td>
+</tr>
+<tr>
+<td><code>enable_azure_devops_boards_integration</code></td>
+<td><code>false</code></td>
+<td><a href="../../integrations/azure-devops/#enabling-boards-on-an-existing-repos-integration">Azure DevOps (Boards)</a> --- work items ingestion</td>
+</tr>
+<tr>
+<td><code>enable_github_integration</code></td>
+<td><code>false</code></td>
+<td><a href="../../integrations/github/">GitHub App</a> --- integration Lambda + Function URL + sync + scheduler + SQS + DLQ + App-credential SSM parameters</td>
+</tr>
+<tr>
+<td><code>enable_github_issue_integration</code></td>
+<td><code>true</code></td>
+<td>Code-generation API Gateway v2 (public HTTP endpoint that receives GitHub webhooks) + Lambda trigger permission. Enables the GitHub-Issues code-generation trigger.</td>
+</tr>
+<tr>
+<td><code>enable_confluence_integration</code></td>
+<td><code>false</code></td>
+<td><a href="../../integrations/confluence/">Confluence</a> --- integration Lambda + Function URL + sync + scheduler + SQS + DLQ + Confluence callback SSM</td>
+</tr>
+<tr>
+<td><code>enable_jira_integration</code></td>
+<td><code>false</code></td>
+<td><a href="../../integrations/jira/">Jira</a> --- workspace Jira Lambdas + Function URL + sync + scheduler + SQS + DLQ + Jira callback SSM + SSM Automation cross-account role + document</td>
+</tr>
+<tr>
+<td><code>enable_outlook_integration</code></td>
+<td><code>false</code></td>
+<td><a href="../../integrations/microsoft-365/">Outlook</a> --- integration Lambda + Function URL + sync + scheduler + SQS + DLQ + Outlook callback SSM</td>
+</tr>
+<tr>
+<td><code>enable_teams_integration</code></td>
+<td><code>false</code></td>
+<td><a href="../../integrations/microsoft-365/">Teams</a> --- same surface, Teams callback SSM</td>
+</tr>
+<tr>
+<td><code>enable_sharepoint_integration</code></td>
+<td><code>false</code></td>
+<td><a href="../../integrations/microsoft-365/">SharePoint</a> --- same surface, SharePoint callback SSM</td>
+</tr>
+<tr>
+<td><code>enable_onedrive_integration</code></td>
+<td><code>false</code></td>
+<td><a href="../../integrations/microsoft-365/">OneDrive</a> --- same surface, OneDrive callback SSM</td>
+</tr>
+<tr>
+<td><code>enable_onenote_integration</code></td>
+<td><code>false</code></td>
+<td><a href="../../integrations/microsoft-365/">OneNote</a> --- same surface, OneNote callback SSM</td>
+</tr>
+<tr>
+<td><code>enable_database_integration</code></td>
+<td><code>false</code></td>
+<td><a href="../../integrations/database/">Database</a> --- integration Lambda (container image) + Function URL + sync + scheduler + SQS + DLQ + drift-notification SNS topic</td>
+</tr>
+</tbody>
+</table>
+<h2 id="shared-ssm-parameters">Shared SSM parameters<a class="headerlink" href="#shared-ssm-parameters" title="Permanent link">&para;</a></h2>
+<p>Some SSM parameters back multiple integrations. They provision when <strong>any</strong> of the sharing integrations is enabled:</p>
+<ul>
+<li><strong>Atlassian OAuth (<code>atlassian_oauth_client_id</code> + SSM secret)</strong> --- provisioned when <code>enable_confluence_integration</code> OR <code>enable_jira_integration</code> is <code>true</code>.</li>
+<li><strong>Microsoft OAuth (<code>microsoft_oauth_client_id</code> + SSM secret)</strong> --- provisioned when any of <code>enable_outlook_integration</code>, <code>enable_teams_integration</code>, <code>enable_sharepoint_integration</code>, <code>enable_onedrive_integration</code>, or <code>enable_onenote_integration</code> is <code>true</code>.</li>
+</ul>
+<p>So you don't populate the shared credentials again when adding a second Atlassian-family or Microsoft-family integration.</p>
+<h2 id="to-enable-an-integration">To enable an integration<a class="headerlink" href="#to-enable-an-integration" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Add <code>enable_&lt;name&gt;_integration = true</code> to your <code>tfvars</code> file.</li>
+<li>Populate any integration-specific tfvars and SSM parameters (see the per-integration setup guide under <a href="../../integrations/">Integrations</a>).</li>
+<li>Run <code>terraform apply -var-file=&lt;env&gt;.tfvars</code> via your CI/CD path.</li>
+<li><strong>Verify:</strong> the workspace-management Lambda's <code>GET /api/config/integrations</code> manifest returns the flag as <code>true</code>. The UI's Workspace Settings → Integrations tab renders the integration's section once the manifest reload completes.</li>
+</ol>
+<h2 id="to-disable-an-integration">To disable an integration<a class="headerlink" href="#to-disable-an-integration" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Set <code>enable_&lt;name&gt;_integration = false</code> (or remove the line --- the default is <code>false</code>).</li>
+<li>Run <code>terraform apply</code>. The plan shows destruction of the integration's Lambdas, SQS queues, EventBridge rules, and SSM parameters. Shared OAuth parameters stay if another sharing integration is still enabled.</li>
+<li><strong>Verify:</strong> the manifest returns <code>false</code> and the UI section is hidden.</li>
+</ol>
+<p><strong>Existing workspace connections are NOT auto-deleted</strong> when the flag flips off. The connection rows stay in DynamoDB until a workspace admin manually disconnects each one. Users see the connection state in the UI but can't ingest new content because the backend Lambdas are gone.</p>
+<h2 id="checking-current-state-on-a-live-deploy">Checking current state on a live deploy<a class="headerlink" href="#checking-current-state-on-a-live-deploy" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-sS<span class="w"> </span>https://&lt;your-deploy-fqdn&gt;/api/config/integrations<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
+</code></pre></div>
+
+<p>Returns:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;azure_devops&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;azure_devops_boards&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;github&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;github_issues&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;confluence&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;jira&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;outlook&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;teams&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;sharepoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;onedrive&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;onenote&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;database&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The endpoint is unauthenticated --- SecOps can check the manifest from anywhere. It only reveals which integrations are provisioned, not any credentials or content.</p>
+<h2 id="secops-review-checklist">SecOps review checklist<a class="headerlink" href="#secops-review-checklist" title="Permanent link">&para;</a></h2>
+<p>When your SecOps reviewer opens your tfvars, they should be able to confirm:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Each <code>enable_*_integration</code> flag matches a documented business need.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Flags they don't recognize are set to <code>false</code> (or absent, since the default is <code>false</code>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> SSM parameter names for OAuth credentials are documented.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> The list of enabled integrations matches <code>curl .../api/config/integrations</code> on the live deploy.</li>
+</ul>
+<p>Any drift between tfvars and the live manifest is a bug --- either the tfvars weren't applied, or the manifest env vars weren't wired correctly. File a support issue.</p>
+<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
+<p><strong>Q: What happens if I flip a flag off that has existing workspace connections?</strong>
+The backend Lambdas are destroyed. Existing DynamoDB connection rows survive but become inert. Users see the connection state in the UI but can't ingest new content, and background sync stops running. Delete the connections from Workspace Settings when you're ready.</p>
+<p><strong>Q: Can I re-enable an integration I previously disabled?</strong>
+Yes. Flip the flag back to <code>true</code>, apply Terraform. The Lambdas re-provision, sync resumes for any surviving connections, and existing workspace repos + projects resume being queryable.</p>
+<p><strong>Q: Does disabling <code>enable_github_issue_integration</code> break the workspace GitHub App?</strong>
+No. The two flags gate different surfaces. <code>enable_github_integration</code> gates the workspace GitHub App (repo ingestion + PR checks + workspace connections). <code>enable_github_issue_integration</code> gates only the API Gateway v2 that receives GitHub webhooks for issue-driven code generation. Disable the latter if you don't want a public HTTP endpoint but still want repo ingestion.</p>
+<p><strong>Q: Are there costs for provisioned-but-unused integrations?</strong>
+Yes --- Lambda functions incur a minimal storage cost, SQS queues have no idle cost, but scheduler EventBridge rules fire hourly (which fires Lambda invocations that immediately no-op when there's no work). Total cost of a provisioned-but-unused integration is a few dollars per month. Not zero, but not a factor in real deploys.</p>
+<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../getting-started/deploy/">Deploy</a> --- where the tfvars go.</li>
+<li>Per-integration setup guides --- <a href="../../integrations/azure-devops/">Azure DevOps</a>, <a href="../../integrations/github/">GitHub</a>, <a href="../../integrations/jira/">Jira</a>, <a href="../../integrations/confluence/">Confluence</a>, <a href="../../integrations/microsoft-365/">Microsoft 365</a>, <a href="../../integrations/database/">Database</a>.</li>
+</ul>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1135,10 +1575,7 @@
     
     
     
-      
-      
-    
-    <a href="https://github.com/outcomeops" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+    <a href="https://github.com/outcomeops" target="_blank" rel="noopener" title="OutcomeOps on GitHub" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
@@ -1146,11 +1583,16 @@
     
     
     
-      
-      
-    
     <a href="https://outcomeops.ai" target="_blank" rel="noopener" title="outcomeops.ai" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.4c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.3c2.2 20.4 3.3 41.8 3.3 64m28.8-64h123.1c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64m112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7m-209 0H18.6c30-74.1 93.6-130.9 172-151.6-25.5 34.2-45.3 87.7-55.3 151.6M8.1 192h123.1c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64m186.6 254.6c-11.6-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5-11.2 10.7-20.5 13.9-27.8 13.9s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6-78.4-20.7-142-77.5-172-151.6zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.2-87.7 55.3-151.6h116.7z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://outcomeops.atlassian.net/servicedesk/customer/portal/1" target="_blank" rel="noopener" title="Support Portal" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7.8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5M157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1-96 0"/></svg>
     </a>
   
 </div>

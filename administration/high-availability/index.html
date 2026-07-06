@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Make one team's content queryable across the whole org, without maintaining membership lists.">
+        <meta name="description" content="Active/passive multi-region topology, failover procedure, and failback.">
       
       
         <meta name="author" content="OutcomeOps">
       
       
-        <link rel="canonical" href="https://docs.outcomeops.ai/administration/global-workspaces/">
+        <link rel="canonical" href="https://docs.outcomeops.ai/administration/high-availability/">
       
       
-        <link rel="prev" href="../integration-gating/">
+        <link rel="prev" href="../model-selection/">
       
       
-        <link rel="next" href="../pii-redaction/">
+        <link rel="next" href="../audit-stream-export/">
       
       
       <link rel="icon" href="../../assets/logo.svg">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Global Workspaces - OutcomeOps AI Assist Docs</title>
+        <title>High Availability - OutcomeOps AI Assist Docs</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#global-workspaces" class="md-skip">
+        <a href="#high-availability" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Global Workspaces
+              High Availability
             
           </span>
         </div>
@@ -975,30 +975,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Global Workspaces
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../global-workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1007,131 +987,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-a-global-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      When to use a global workspace
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-they-behave" class="md-nav__link">
-    <span class="md-ellipsis">
-      How they behave
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-global-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a global workspace
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#naming-conventions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Naming conventions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example patterns
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Example patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#security-standards-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security Standards workspace
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#architecture-decision-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Architecture Decision workspace
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#outcomeops-help-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      OutcomeOps Help workspace
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interaction-with-other-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Interaction with other features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-gotchas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common gotchas
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related" class="md-nav__link">
-    <span class="md-ellipsis">
-      Related
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1183,10 +1038,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../high-availability/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    High Availability
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1195,6 +1070,200 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Topology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-replicates" class="md-nav__link">
+    <span class="md-ellipsis">
+      What replicates
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-ha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enabling HA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#day-to-day-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Day-to-day operation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failover-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Failover procedure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failover procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-confirm-safety-or-accept-the-tradeoff" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Confirm safety (or accept the tradeoff)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-flip-the-secondary-regions-appconfig-role-to-active" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Flip the secondary region's AppConfig role to active
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-flip-the-primary-regions-appconfig-role-to-passive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Flip the primary region's AppConfig role to passive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-update-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Update DNS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-confirm-clean-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Confirm clean state
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failback-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Failback procedure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dlq-has-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      DLQ has messages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-brain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Split-brain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-ttl-is-too-long" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNS TTL is too long
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replication-is-lagging-by-more-than-a-minute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Replication is lagging by more than a minute
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-tradeoffs-worth-knowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design tradeoffs worth knowing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1296,73 +1365,91 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-a-global-workspace" class="md-nav__link">
+  <a href="#topology" class="md-nav__link">
     <span class="md-ellipsis">
-      When to use a global workspace
+      Topology
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-they-behave" class="md-nav__link">
+  <a href="#what-replicates" class="md-nav__link">
     <span class="md-ellipsis">
-      How they behave
+      What replicates
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-a-global-workspace" class="md-nav__link">
+  <a href="#enabling-ha" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a global workspace
+      Enabling HA
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#naming-conventions" class="md-nav__link">
+  <a href="#day-to-day-operation" class="md-nav__link">
     <span class="md-ellipsis">
-      Naming conventions
+      Day-to-day operation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-patterns" class="md-nav__link">
+  <a href="#failover-procedure" class="md-nav__link">
     <span class="md-ellipsis">
-      Example patterns
+      Failover procedure
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Example patterns">
+    <nav class="md-nav" aria-label="Failover procedure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#security-standards-workspace" class="md-nav__link">
+  <a href="#step-1-confirm-safety-or-accept-the-tradeoff" class="md-nav__link">
     <span class="md-ellipsis">
-      Security Standards workspace
+      Step 1: Confirm safety (or accept the tradeoff)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#architecture-decision-workspace" class="md-nav__link">
+  <a href="#step-2-flip-the-secondary-regions-appconfig-role-to-active" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture Decision workspace
+      Step 2: Flip the secondary region's AppConfig role to active
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#outcomeops-help-workspace" class="md-nav__link">
+  <a href="#step-3-flip-the-primary-regions-appconfig-role-to-passive" class="md-nav__link">
     <span class="md-ellipsis">
-      OutcomeOps Help workspace
+      Step 3: Flip the primary region's AppConfig role to passive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-update-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Update DNS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-confirm-clean-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Confirm clean state
     </span>
   </a>
   
@@ -1374,18 +1461,69 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interaction-with-other-features" class="md-nav__link">
+  <a href="#failback-procedure" class="md-nav__link">
     <span class="md-ellipsis">
-      Interaction with other features
+      Failback procedure
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-gotchas" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
-      Common gotchas
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dlq-has-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      DLQ has messages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-brain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Split-brain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-ttl-is-too-long" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNS TTL is too long
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replication-is-lagging-by-more-than-a-minute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Replication is lagging by more than a minute
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-tradeoffs-worth-knowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design tradeoffs worth knowing
     </span>
   </a>
   
@@ -1415,7 +1553,7 @@
                   
 
   
-    <a href="https://github.com/outcomeops/docs/edit/main/docs/administration/global-workspaces.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/outcomeops/docs/edit/main/docs/administration/high-availability.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1423,84 +1561,167 @@
   
 
 
-<h1 id="global-workspaces">Global Workspaces<a class="headerlink" href="#global-workspaces" title="Permanent link">&para;</a></h1>
-<p>A <strong>global workspace</strong> is a public workspace that appears in every authenticated user's workspace picker by default. One team owns the content; everyone in the deploy can query it.</p>
-<p>Use global workspaces for content that isn't team-specific but that some team has to own and maintain --- security standards, architecture decisions, onboarding guides, compliance policies. Instead of manually adding every engineer to a "Security" workspace and re-doing that every time someone joins or leaves, you flip the workspace to global and the org membership problem goes away.</p>
-<h2 id="when-to-use-a-global-workspace">When to use a global workspace<a class="headerlink" href="#when-to-use-a-global-workspace" title="Permanent link">&para;</a></h2>
-<p><strong>Good fits:</strong></p>
+<h1 id="high-availability">High Availability<a class="headerlink" href="#high-availability" title="Permanent link">&para;</a></h1>
+<p>OutcomeOps AI Assist supports <strong>active/passive multi-region HA</strong>. One region serves traffic; the other stands by, kept in sync via cross-region replication. Failover is an <strong>operator action</strong> --- a human flips two AppConfig role flags and updates DNS to point at the secondary region. There is no automatic failover; the platform is designed so a human can decide "this outage is real, flip now" and execute a bounded procedure.</p>
+<p>This page covers the runbook.</p>
+<h2 id="topology">Topology<a class="headerlink" href="#topology" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Region</th>
+<th>Role</th>
+<th>Traffic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary (e.g., <code>us-west-2</code>)</td>
+<td><code>active</code></td>
+<td>All chat, ingest, code generation</td>
+</tr>
+<tr>
+<td>Secondary (e.g., <code>us-east-2</code>)</td>
+<td><code>passive</code></td>
+<td>Replication applier only; scheduled work does not run</td>
+</tr>
+</tbody>
+</table>
+<p>Both regions are provisioned by Terraform. When <code>secondary_region</code> is set in your tfvars, the deploy provisions ~30 secondary-region resources (DDB, SQS, S3, S3 Vectors, AppConfig, KMS, IAM, replicator applier Lambda) under the <code>aws.secondary</code> provider. Single-region deploys leave <code>secondary_region = ""</code> and skip this entirely.</p>
+<h2 id="what-replicates">What replicates<a class="headerlink" href="#what-replicates" title="Permanent link">&para;</a></h2>
+<p>Every mutation in the active region emits an EventBridge event on the platform's replication bus. A per-region <strong>replication applier Lambda</strong> in the passive region consumes those events and applies the mutation to its local DynamoDB tables + S3 buckets. Result: the passive region's state trails the active region by seconds under normal load.</p>
+<p><strong>No global tables.</strong> The topology avoids DynamoDB global tables intentionally --- global tables had a public outage in October 2025 that caused cross-region failures for many customers, and the failure mode surfaced only during failover. The current design uses per-region tables with EventBridge as the transport, so a region-level DDB outage stays contained.</p>
+<h2 id="enabling-ha">Enabling HA<a class="headerlink" href="#enabling-ha" title="Permanent link">&para;</a></h2>
+<p>Set the secondary region in your tfvars and re-apply Terraform. Everything else the platform needs (KMS replica keys, per-region SSM SecureStrings, AppConfig role flags) is provisioned as part of the same apply.</p>
+<div class="codehilite"><pre><span></span><code><span class="na">secondary_region</span><span class="w">                        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;us-east-2&quot;</span>
+<span class="na">outcomeops_license_layer_arn_secondary</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;arn:aws:lambda:us-east-2:&lt;layer-account&gt;:layer:prd-outcomeops-license-validator-v2-0-0:4&quot;</span>
+<span class="na">ui_vpc_id_secondary</span><span class="w">                     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;vpc-xxxxxxxxxxxxxxxxx&quot;</span>
+<span class="na">ui_private_subnet_ids_secondary</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;subnet-xxx&quot;, &quot;subnet-xxx&quot;, &quot;subnet-xxx&quot;</span><span class="p">]</span>
+<span class="na">ui_container_image_secondary</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;account&gt;.dkr.ecr.us-east-2.amazonaws.com/prd-outcome-ops-ai-assist-chat-ui:latest&quot;</span>
+</code></pre></div>
+
+<p>The <code>_secondary</code> variants of the OAuth SSM parameters (Atlassian client secret, Microsoft client secret, GitHub App private key, etc.) get their initial values via a one-time bootstrap script the operator runs after the first HA apply --- see the operator handoff kit for the exact commands.</p>
+<h2 id="day-to-day-operation">Day-to-day operation<a class="headerlink" href="#day-to-day-operation" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Security standards</strong> owned by SecOps but queryable by every engineer.</li>
-<li><strong>Architecture decision records</strong> owned by the platform team but queryable across product engineering.</li>
-<li><strong>Compliance policies</strong> owned by GRC but queryable when any engineer wonders "can I do X?"</li>
-<li><strong>Onboarding content</strong> --- how to file expenses, request access, deploy code, get to the incident channel.</li>
-<li><strong>OutcomeOps Help</strong> --- an internal instance of the OutcomeOps documentation itself, so users can chat with the docs.</li>
+<li>The <strong>active</strong> region runs everything: chat, integration OAuth callbacks, sync workers, schedulers, code-generation, MCP catalog. Users hit the active region's UI via DNS.</li>
+<li>The <strong>passive</strong> region runs the replication applier only. Its Lambdas exist and are warm, but chat writes and scheduled work do not fire. Reads against the passive region's data are allowed but the UI is not routed there.</li>
 </ul>
-<p><strong>Bad fits:</strong></p>
+<p>Check status any time:</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">AWS_PROFILE</span><span class="o">=</span>ops<span class="w"> </span><span class="nv">ENV</span><span class="o">=</span>prd<span class="w"> </span>make<span class="w"> </span>ha-status
+</code></pre></div>
+
+<p>The output tells you:</p>
 <ul>
-<li>Team-specific runbooks that only that team's on-call rotation needs. Keep those in the team's own private workspace.</li>
-<li>Draft content, WIP standards, anything half-cooked. Global means everyone sees it; use a private workspace to iterate.</li>
-<li>Content that has to have different views for different audiences. If eng needs one framing and legal needs another, ship two workspaces (one global, one private).</li>
+<li>Which region is active and which is passive</li>
+<li>Replication lag in seconds</li>
+<li>DLQ depth (any events the applier couldn't apply)</li>
+<li>Verdict: <strong>SAFE TO FLIP</strong> / <strong>UNSAFE (DLQ has messages)</strong> / <strong>SPLIT-BRAIN</strong></li>
 </ul>
-<h2 id="how-they-behave">How they behave<a class="headerlink" href="#how-they-behave" title="Permanent link">&para;</a></h2>
+<p>Green verdict means both regions agree on roles and no replication events are stuck. Any other verdict, don't attempt failover --- investigate first.</p>
+<h2 id="failover-procedure">Failover procedure<a class="headerlink" href="#failover-procedure" title="Permanent link">&para;</a></h2>
+<p>Use this when the primary region is unhealthy and you need to route traffic to the secondary. Ballpark: <strong>5-10 minutes</strong> end-to-end for a human comfortable with the console.</p>
+<h3 id="step-1-confirm-safety-or-accept-the-tradeoff">Step 1: Confirm safety (or accept the tradeoff)<a class="headerlink" href="#step-1-confirm-safety-or-accept-the-tradeoff" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">AWS_PROFILE</span><span class="o">=</span>ops<span class="w"> </span><span class="nv">ENV</span><span class="o">=</span>prd<span class="w"> </span>make<span class="w"> </span>ha-status
+</code></pre></div>
+
+<p>Ideal: verdict says <code>SAFE TO FLIP</code>. In a real outage where the primary region is unreachable, you won't get this signal --- you're doing an emergency failover. Skip to step 2 and accept that some in-flight events may be lost.</p>
+<h3 id="step-2-flip-the-secondary-regions-appconfig-role-to-active">Step 2: Flip the secondary region's AppConfig role to <code>active</code><a class="headerlink" href="#step-2-flip-the-secondary-regions-appconfig-role-to-active" title="Permanent link">&para;</a></h3>
+<p>Open the AWS Console for the secondary region:</p>
+<p><strong>AppConfig → Applications → <code>${env}-${app}-ha</code> → Environment <code>${env}</code> → Profile <code>active-region</code> → Create new hosted configuration version</strong></p>
+<p>Content:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;schema_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;active&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;activated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;current ISO 8601 timestamp&gt;&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Start a deployment with the <code>${env}-${app}-ha-instant</code> deployment strategy. AppConfig pushes the change to every Lambda in the secondary region within seconds.</p>
+<h3 id="step-3-flip-the-primary-regions-appconfig-role-to-passive">Step 3: Flip the primary region's AppConfig role to <code>passive</code><a class="headerlink" href="#step-3-flip-the-primary-regions-appconfig-role-to-passive" title="Permanent link">&para;</a></h3>
+<p>Same procedure, but in the primary region's AppConfig:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;schema_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;passive&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;activated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;current ISO 8601 timestamp&gt;&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>If the primary region is unreachable (a real outage), skip this step. <code>make ha-status</code> will flag the split-brain when the primary recovers, and you complete this step retroactively.</p>
+<h3 id="step-4-update-dns">Step 4: Update DNS<a class="headerlink" href="#step-4-update-dns" title="Permanent link">&para;</a></h3>
+<p>DNS is currently manual --- update your Route 53 record (or your external DNS provider) so <code>&lt;your-app-fqdn&gt;</code> resolves to the secondary region's ALB.</p>
+<p>If you're using Route 53 with alias records:</p>
 <ul>
-<li><strong>Discoverability.</strong> Global workspaces show up at the top of every user's workspace picker, tagged <strong>(Global)</strong>, above the user's own team workspaces.</li>
-<li><strong>Membership isn't tracked.</strong> Users don't join or leave --- they just select the workspace in their picker when they want its content in their chat.</li>
-<li><strong>Content ownership stays with one team.</strong> The workspace has a normal admin + members list; only they can add integrations, repos, spaces, or edit the system prompt. Everyone else is a read-only consumer.</li>
-<li><strong>Chat is per-user.</strong> Two users querying the same global workspace have independent conversations. No shared threads.</li>
-<li><strong>Global workspaces respect PII redaction settings.</strong> If org-level redaction is enabled, redaction runs at ingest time --- so what's in the workspace is already redacted before any user queries it.</li>
+<li>Change the alias target from the primary ALB to the secondary ALB</li>
+<li>TTL of 60s on the record recommended so cutover is fast</li>
 </ul>
-<h2 id="creating-a-global-workspace">Creating a global workspace<a class="headerlink" href="#creating-a-global-workspace" title="Permanent link">&para;</a></h2>
-<p>Only <strong>org admins</strong> can flip a workspace to global.</p>
+<p>If you're using external DNS (Cloudflare, Azure DNS, on-prem BIND):</p>
+<ul>
+<li>Update the record to the secondary ALB's DNS name</li>
+<li>Wait for TTL to expire</li>
+</ul>
+<p>Once DNS propagates, users hitting <code>&lt;your-app-fqdn&gt;</code> land on the secondary region.</p>
+<h3 id="step-5-confirm-clean-state">Step 5: Confirm clean state<a class="headerlink" href="#step-5-confirm-clean-state" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">AWS_PROFILE</span><span class="o">=</span>ops<span class="w"> </span><span class="nv">ENV</span><span class="o">=</span>prd<span class="w"> </span>make<span class="w"> </span>ha-status
+</code></pre></div>
+
+<p>You should see:</p>
+<ul>
+<li>Exactly one region active (the secondary)</li>
+<li>Exactly one region passive (the primary, if reachable; otherwise flagged as unreachable)</li>
+<li>No split-brain</li>
+</ul>
+<h2 id="failback-procedure">Failback procedure<a class="headerlink" href="#failback-procedure" title="Permanent link">&para;</a></h2>
+<p>Run this after the primary region recovers and you want to route traffic back. Same steps in reverse, executed only after replication has caught up.</p>
 <ol>
-<li>Create the workspace as normal (New Workspace → name → private/public → create).</li>
-<li>Connect the integrations the workspace should ingest --- typically one Confluence space, one repo of policy markdown, or a set of Jira issues.</li>
-<li>Add the team that owns the content as workspace admins.</li>
-<li>Sign in as an <strong>org admin</strong>.</li>
-<li>Navigate to <strong>Admin → Workspaces</strong> → find the workspace → <strong>Make global</strong>.</li>
-<li>Confirm. Every user's picker now shows this workspace with a <strong>(Global)</strong> tag.</li>
+<li>
+<p><strong>Confirm in-sync + empty DLQs:</strong></p>
+<p><code>bash
+AWS_PROFILE=ops ENV=prd make ha-status</code></p>
+<p>Verdict must be <code>SAFE TO FLIP</code>. If DLQ has messages, drain them first (see below).</p>
+</li>
+<li>
+<p><strong>Flip the becoming-passive (currently active) region to <code>passive</code> FIRST.</strong></p>
+</li>
+<li>
+<p><strong>Flip the becoming-active (currently passive) region to <code>active</code>.</strong></p>
+</li>
+<li>
+<p><strong>Update DNS back to the primary region's ALB.</strong></p>
+</li>
 </ol>
-<p>Reversing the flag (Admin → Workspaces → <strong>Remove global</strong>) hides it again --- the workspace stays intact with its members and content, just no longer visible to non-members.</p>
-<h2 id="naming-conventions">Naming conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h2>
-<p>Because global workspaces appear in every user's picker, naming matters:</p>
+<p>Order matters: flipping the new-passive first minimizes the split-brain window. If both regions briefly read <code>passive</code>, no scheduled work runs for the in-between minutes --- that's fine, the next tick after re-activation catches up.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="dlq-has-messages">DLQ has messages<a class="headerlink" href="#dlq-has-messages" title="Permanent link">&para;</a></h3>
+<p><code>make ha-status</code> exits with code 2. Some events couldn't apply in the passive region. Investigate the root cause (usually a KMS grant misalignment or an IAM policy drift between primary and secondary), fix it, then replay:</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">AWS_PROFILE</span><span class="o">=</span>ops<span class="w"> </span><span class="nv">ENV</span><span class="o">=</span>prd<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">REGION</span><span class="o">=</span>us-east-2<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">QUEUE</span><span class="o">=</span>prd-outcome-ops-ai-assist-replication-applier-dlq<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">ARGS</span><span class="o">=</span><span class="s2">&quot;--dry-run&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>make<span class="w"> </span>ha-replay-dlq
+</code></pre></div>
+
+<p>Inspect the dry-run output; if it looks right, drop <code>ARGS="--dry-run"</code> and rerun to actually replay.</p>
+<p>Three DLQs exist, one per direction:</p>
 <ul>
-<li><strong>Lead with the category</strong> so pickers sort alphabetically into groups: <code>Global: Security Standards</code>, <code>Global: Architecture Decisions</code>, <code>Global: Compliance Policies</code>.</li>
-<li><strong>Keep names short</strong> --- 30 characters or less. The picker sidebar truncates long names.</li>
-<li><strong>Avoid team-of-origin in the name</strong> unless the team ownership is the point --- <code>Global: SecOps Runbook</code> is fine if the team boundary is meaningful; <code>Global: Security Standards</code> is better if the content is the point.</li>
+<li><strong><code>${env}-${app}-replication-to-secondary-dlq</code></strong> (in primary region) --- events primary couldn't deliver to secondary's bus.</li>
+<li><strong><code>${env}-${app}-replication-to-primary-dlq</code></strong> (in secondary region) --- events secondary couldn't deliver to primary's bus.</li>
+<li><strong><code>${env}-${app}-replication-applier-dlq</code></strong> (in either region) --- events the applier Lambda failed to apply locally.</li>
 </ul>
-<h2 id="example-patterns">Example patterns<a class="headerlink" href="#example-patterns" title="Permanent link">&para;</a></h2>
-<h3 id="security-standards-workspace">Security Standards workspace<a class="headerlink" href="#security-standards-workspace" title="Permanent link">&para;</a></h3>
+<h3 id="split-brain">Split-brain<a class="headerlink" href="#split-brain" title="Permanent link">&para;</a></h3>
+<p><code>make ha-status</code> exit code 3: both regions read <code>active</code>. This is an unsafe state --- both regions could be writing conflicting data. Resolve by choosing a winning region (usually the one that's healthy) and flipping the other to <code>passive</code> immediately. Then investigate what caused the split-brain (usually an incomplete failover procedure).</p>
+<h3 id="dns-ttl-is-too-long">DNS TTL is too long<a class="headerlink" href="#dns-ttl-is-too-long" title="Permanent link">&para;</a></h3>
+<p>If your DNS TTL is &gt; 60 seconds, users get pinned to the old region for the TTL window during failover. This isn't a bug --- it's how DNS works --- but you can shorten TTL as a preparedness action <em>before</em> an actual failover. Alias records at Route 53 already have low TTLs; if you're using external DNS, verify the record's TTL is short.</p>
+<h3 id="replication-is-lagging-by-more-than-a-minute">Replication is lagging by more than a minute<a class="headerlink" href="#replication-is-lagging-by-more-than-a-minute" title="Permanent link">&para;</a></h3>
+<p>Under normal load, replication should be sub-second. Sustained lag usually means the applier Lambda is throttled by concurrent-execution limits or the EventBridge bus is backed up. Check CloudWatch metrics for <code>replication-applier</code>, and consider increasing the Lambda's reserved concurrency if throttling is the cause.</p>
+<h2 id="design-tradeoffs-worth-knowing">Design tradeoffs worth knowing<a class="headerlink" href="#design-tradeoffs-worth-knowing" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Content:</strong> a <code>github.com/yourcompany/security-standards</code> repo of Markdown standards, connected via the GitHub integration.</li>
-<li><strong>Owned by:</strong> SecOps team as workspace admins.</li>
-<li><strong>Global.</strong> Every engineer can chat "what's our secret-management standard?" and get an answer grounded in the actual doc.</li>
-<li><strong>System prompt:</strong> "Always cite the specific standard you're pulling from. If the question is about an exception, note that exceptions must be approved by SecOps."</li>
-</ul>
-<h3 id="architecture-decision-workspace">Architecture Decision workspace<a class="headerlink" href="#architecture-decision-workspace" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Content:</strong> the ADR folder from your platform monorepo (or a dedicated <code>adrs</code> repo).</li>
-<li><strong>Owned by:</strong> platform architecture team.</li>
-<li><strong>Global.</strong> New engineers can chat "why do we use Terraform workspaces instead of separate accounts?" and get the ADR that made the call.</li>
-<li><strong>System prompt:</strong> "Answer based on the ADR content. If an ADR supersedes another, cite both and note which is current."</li>
-</ul>
-<h3 id="outcomeops-help-workspace">OutcomeOps Help workspace<a class="headerlink" href="#outcomeops-help-workspace" title="Permanent link">&para;</a></h3>
-<p>Once your deploy is running, seed a global workspace from the public <a href="https://docs.outcomeops.ai">docs.outcomeops.ai</a> content. Users can chat with the docs directly instead of navigating them.</p>
-<h2 id="interaction-with-other-features">Interaction with other features<a class="headerlink" href="#interaction-with-other-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong><a href="../../features/mcp-servers/">MCP servers</a></strong> attached to a global workspace are usable by every user in chat. Great for a company-wide read-only tool (like an internal API browser); risky for a tool that mutates external state (approve carefully).</li>
-<li><strong><a href="../../features/code-generation/">Code generation</a></strong> doesn't fire from global workspaces --- only from workspaces where a team has explicit ticket → repo mapping. Global workspaces are read-only in practice.</li>
-<li><strong><a href="../pii-redaction/">PII redaction</a></strong> runs at ingest, so global workspaces inherit whatever redaction posture the org has set. Global doesn't override org-level rules.</li>
-</ul>
-<h2 id="common-gotchas">Common gotchas<a class="headerlink" href="#common-gotchas" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Picker fatigue.</strong> If you have 15 global workspaces, users stop reading them and just click their team's workspace. Aim for 2-5 global workspaces max, at least in year one.</li>
-<li><strong>Stale content.</strong> Global workspaces attract "set it and forget it" thinking. Assign an owner + a review cadence (quarterly is reasonable) so the content stays fresh.</li>
-<li><strong>Cross-team ownership drift.</strong> If two teams try to co-own a global workspace, the system prompt ends up muddled. Pick one owner; other teams contribute via PRs to the underlying repo/space.</li>
+<li><strong>Chat writes are gated to the active region.</strong> Users hitting the passive region's URL directly (bypassing DNS) can read past conversations but cannot post new messages. This is the intentional passive-mode contract.</li>
+<li><strong>The 12-integration surface duplicates in the secondary region.</strong> Every integration's Lambdas + SQS + scheduler have a <code>_secondary</code> counterpart. Cost implication: HA roughly doubles Lambda + SQS spend, since both regions run the same infra. It's a design choice --- true active/passive means no compromises on capacity if failover is needed.</li>
+<li><strong>DNS is not automated.</strong> Automating DNS failover requires a health-check + Route 53 failover routing setup that many regulated customers explicitly don't want (they want a human in the loop for cross-region traffic changes). If you want automated failover, set up Route 53 failover routing pointing at both ALBs with health checks --- the AppConfig flip becomes automatic-in-response but you still control the record.</li>
 </ul>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../../features/workspaces/">Workspaces</a> --- workspace basics, membership, roles.</li>
-<li><a href="../integration-gating/">Integration Gating</a> --- what integrations are provisioned deploy-wide.</li>
-<li><a href="../pii-redaction/">PII Redaction</a> --- how content is redacted at ingest, including for global workspaces.</li>
+<li><a href="../../getting-started/deploy/">Deploy</a> --- HA tfvars are documented here.</li>
+<li><a href="../integration-gating/">Integration Gating</a> --- HA does not gate integrations; whatever's enabled in the primary is duplicated in the secondary.</li>
 </ul>
 
 
