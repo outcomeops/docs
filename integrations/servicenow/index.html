@@ -1526,7 +1526,10 @@ terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span cla
 <p>On the ServiceNow instance you want to connect, as a ServiceNow admin:</p>
 <ol>
 <li>Navigate to <strong>System OAuth → Application Registry</strong>.</li>
-<li>Click <strong>New</strong> → <strong>Create an OAuth API endpoint for external clients</strong>.</li>
+<li>Click <strong>New</strong>. ServiceNow shows the <strong>Select your application connection type</strong> picker. Pick <strong>OAuth - Authorization code grant</strong>.<ul>
+<li>The other options --- Client credentials grant, JWT bearer grant, Resource owner password credential grant, and Third-party ID token --- are all machine-to-machine or password flows and won't produce the redirect back to the OutcomeOps UI that the platform's per-workspace OAuth needs.</li>
+</ul>
+</li>
 <li>Fill in:<ul>
 <li><strong>Name:</strong> anything descriptive, e.g. <code>OutcomeOps AI Assist (prd)</code>.</li>
 <li><strong>Client ID:</strong> ServiceNow generates this.</li>
