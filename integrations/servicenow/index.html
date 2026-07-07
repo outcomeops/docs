@@ -796,36 +796,45 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-1-enable-the-flag-and-deploy" class="md-nav__link">
+  <a href="#step-1-register-an-oauth-application-registry-entry-servicenow-admin" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Enable the flag and deploy
+      Step 1: Register an OAuth Application Registry entry (ServiceNow admin)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2-register-an-oauth-application-registry-entry" class="md-nav__link">
+  <a href="#step-2-put-the-client-secret-in-ssm" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: Register an OAuth Application Registry entry
+      Step 2: Put the client secret in SSM
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-connect-from-the-outcomeops-ui" class="md-nav__link">
+  <a href="#step-3-set-the-tfvars" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 3: Connect from the OutcomeOps UI
+      Step 3: Set the tfvars
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-authorize" class="md-nav__link">
+  <a href="#step-4-enable-and-deploy" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 4: Authorize
+      Step 4: Enable and deploy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-connect-from-the-ui-workspace-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Connect from the UI (workspace admin)
     </span>
   </a>
   
@@ -880,15 +889,6 @@
   <a href="#what-the-flag-gates" class="md-nav__link">
     <span class="md-ellipsis">
       What the flag gates
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-doesnt-require-soc-2-from-outcomeops" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why this doesn't require SOC 2 from OutcomeOps
     </span>
   </a>
   
@@ -1367,36 +1367,45 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-1-enable-the-flag-and-deploy" class="md-nav__link">
+  <a href="#step-1-register-an-oauth-application-registry-entry-servicenow-admin" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Enable the flag and deploy
+      Step 1: Register an OAuth Application Registry entry (ServiceNow admin)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2-register-an-oauth-application-registry-entry" class="md-nav__link">
+  <a href="#step-2-put-the-client-secret-in-ssm" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: Register an OAuth Application Registry entry
+      Step 2: Put the client secret in SSM
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-connect-from-the-outcomeops-ui" class="md-nav__link">
+  <a href="#step-3-set-the-tfvars" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 3: Connect from the OutcomeOps UI
+      Step 3: Set the tfvars
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-authorize" class="md-nav__link">
+  <a href="#step-4-enable-and-deploy" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 4: Authorize
+      Step 4: Enable and deploy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-connect-from-the-ui-workspace-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Connect from the UI (workspace admin)
     </span>
   </a>
   
@@ -1456,15 +1465,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#why-this-doesnt-require-soc-2-from-outcomeops" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why this doesn't require SOC 2 from OutcomeOps
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1490,7 +1490,7 @@
 
 <h1 id="servicenow">ServiceNow<a class="headerlink" href="#servicenow" title="Permanent link">&para;</a></h1>
 <p>The ServiceNow integration ingests <strong>published Knowledge Base articles + their attachments</strong> from your ServiceNow instance and makes them retrievable in chat. Ask "what's our password reset process for cloud-only accounts?" or "which article covers the office VPN client on macOS?" and the platform answers grounded in the article your service desk already maintains --- cited by article number, not paraphrased from a stale copy.</p>
-<p>Time budget: <strong>~5 minutes</strong> for someone with ServiceNow admin + AWS admin access.</p>
+<p>Time budget: <strong>~10 minutes</strong> for someone with ServiceNow admin + AWS admin access.</p>
 <h2 id="what-this-connects">What this connects<a class="headerlink" href="#what-this-connects" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong><code>kb_knowledge</code> records</strong> with <code>workflow_state = published</code>. Draft, review, and retired articles are excluded.</li>
@@ -1501,33 +1501,22 @@
 </ul>
 <h2 id="design-principles">Design principles<a class="headerlink" href="#design-principles" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Per-workspace OAuth.</strong> Every customer's ServiceNow instance requires an OAuth app registered on their own instance. There is no shared "OutcomeOps ServiceNow app" to consent to --- the customer's SSO admin owns and can rotate the OAuth app entirely from their side.</li>
-<li><strong>KMS-encrypted secrets in DDB, not env-level SSM.</strong> Because each workspace's OAuth app is distinct, the <code>client_secret</code> lives on the connection row encrypted with the customer's OAuth-tokens CMK. Nothing about ServiceNow lives at the deploy level.</li>
-<li><strong>KB read is user-scoped.</strong> ServiceNow doesn't take a scope parameter on the authorize URL; the OAuth app inherits the requesting user's ACLs. To constrain what the platform can see, connect as a dedicated read-only user rather than a full ServiceNow admin.</li>
+<li><strong>One OAuth app per deployment.</strong> Same pattern as every other OAuth integration --- register the app on ServiceNow once, drop the client ID in tfvars and the client secret in SSM, then every workspace on the deploy connects against it.</li>
+<li><strong>Read-only in effect.</strong> ServiceNow's OAuth app inherits the requesting user's ACLs. Connect as a dedicated read-only ServiceNow user to constrain what the platform can see; or connect as an admin if you want the KB write-audit trail to just show up as one identity.</li>
 <li><strong>HTML wrapped, not scraped.</strong> The platform stores the article body verbatim (in a minimal <code>&lt;html&gt;</code> envelope with number + short description), not a summarized re-render. Retrieval hits the source ServiceNow copy.</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong><code>enable_servicenow_integration = true</code></strong> in your tfvars. That's the entire deploy step --- no SSM parameters to pre-populate.</li>
-<li><strong>ServiceNow admin access</strong> on the target instance, specifically the ability to register an OAuth Application Registry entry. A ServiceNow "admin" role or equivalent.</li>
-<li><strong>A workspace admin</strong> logged into the OutcomeOps UI. (This can be the same person as the ServiceNow admin.)</li>
+<li><strong><code>enable_servicenow_integration = true</code></strong> in your tfvars, plus the two configuration variables below.</li>
+<li><strong>ServiceNow admin access</strong> on the target instance, specifically the ability to register an OAuth Application Registry entry.</li>
+<li><strong>A workspace admin</strong> logged into the OutcomeOps UI. (Can be the same person as the ServiceNow admin.)</li>
 </ul>
-<h2 id="step-1-enable-the-flag-and-deploy">Step 1: Enable the flag and deploy<a class="headerlink" href="#step-1-enable-the-flag-and-deploy" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="na">enable_servicenow_integration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>terraform
-terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span class="o">=</span>prd.tfvars
-</code></pre></div>
-
-<p>This provisions the ServiceNow integration + sync + scheduler Lambdas, the sync SQS queue with a DLQ, an hourly EventBridge cron, and CloudWatch alarms wired to your existing alerts SNS topic. Both regions come up in parallel under the active/passive HA topology.</p>
-<p>See the <a href="../../getting-started/deploy/">Deploy guide</a>.</p>
-<h2 id="step-2-register-an-oauth-application-registry-entry">Step 2: Register an OAuth Application Registry entry<a class="headerlink" href="#step-2-register-an-oauth-application-registry-entry" title="Permanent link">&para;</a></h2>
-<p>On the ServiceNow instance you want to connect, as a ServiceNow admin:</p>
+<h2 id="step-1-register-an-oauth-application-registry-entry-servicenow-admin">Step 1: Register an OAuth Application Registry entry (ServiceNow admin)<a class="headerlink" href="#step-1-register-an-oauth-application-registry-entry-servicenow-admin" title="Permanent link">&para;</a></h2>
+<p>On the ServiceNow instance you want to connect:</p>
 <ol>
 <li>Navigate to <strong>System OAuth → Application Registry</strong>.</li>
 <li>Click <strong>New</strong>. ServiceNow shows the <strong>Select your application connection type</strong> picker. Pick <strong>OAuth - Authorization code grant</strong>.<ul>
-<li>The other options --- Client credentials grant, JWT bearer grant, Resource owner password credential grant, and Third-party ID token --- are all machine-to-machine or password flows and won't produce the redirect back to the OutcomeOps UI that the platform's per-workspace OAuth needs.</li>
+<li>The other options --- Client credentials grant, JWT bearer grant, Resource owner password credential grant, and Third-party ID token --- are all machine-to-machine or password flows and won't produce the redirect back to the OutcomeOps UI.</li>
 </ul>
 </li>
 <li>Fill in:<ul>
@@ -1535,42 +1524,56 @@ terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span cla
 <li><strong>Client ID:</strong> ServiceNow generates this.</li>
 <li><strong>Client Secret:</strong> ServiceNow generates this. This is the last time ServiceNow will show it in plaintext --- copy it now.</li>
 <li><strong>Redirect URL:</strong> <code>https://&lt;your-outcomeops-fqdn&gt;/api/servicenow/callback</code>. Exact match, no trailing slash, no query string.</li>
-<li><strong>Refresh token lifespan:</strong> default (100 days) is fine. The platform auto-rotates on each refresh where the instance supports it.</li>
-<li><strong>Access token lifespan:</strong> 30 minutes is fine; the sync worker refreshes on every invocation.</li>
+<li><strong>Refresh token lifespan:</strong> default (100 days) is fine.</li>
+<li><strong>Access token lifespan:</strong> 30 minutes is fine.</li>
 </ul>
 </li>
 <li>Save.</li>
 </ol>
-<p><strong>Scopes.</strong> ServiceNow's OAuth app inherits the requesting user's ACLs at authorize time, not a scope parameter. If you want the platform limited to KB read only, either register the OAuth app while signed in as a dedicated read-only user, or ask the workspace admin to authorize as one. A full ServiceNow admin authorizing will grant the OAuth app admin-level ACLs (which is more than the KB flow uses, but works fine).</p>
-<h2 id="step-3-connect-from-the-outcomeops-ui">Step 3: Connect from the OutcomeOps UI<a class="headerlink" href="#step-3-connect-from-the-outcomeops-ui" title="Permanent link">&para;</a></h2>
-<p>As a workspace admin:</p>
+<h2 id="step-2-put-the-client-secret-in-ssm">Step 2: Put the client secret in SSM<a class="headerlink" href="#step-2-put-the-client-secret-in-ssm" title="Permanent link">&para;</a></h2>
+<p>The platform reads the client_secret from SSM SecureString at cold start. Put it in there:</p>
+<div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/oauth/servicenow/client-secret&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;&lt;the client_secret from Step 1&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--type<span class="w"> </span>SecureString<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--overwrite<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--region<span class="w"> </span>us-west-2
+</code></pre></div>
+
+<p>If you're running HA (secondary region), mirror the value there too (or use <code>scripts/ha-sync-secrets</code>).</p>
+<h2 id="step-3-set-the-tfvars">Step 3: Set the tfvars<a class="headerlink" href="#step-3-set-the-tfvars" title="Permanent link">&para;</a></h2>
+<p>In your <code>terraform/prd.tfvars</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="na">enable_servicenow_integration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+
+<span class="c1"># Your ServiceNow instance URL (no trailing slash)</span>
+<span class="na">servicenow_instance_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://acme.service-now.com&quot;</span>
+
+<span class="c1"># The Client ID from Step 1 (public, not a secret)</span>
+<span class="na">servicenow_oauth_client_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+</code></pre></div>
+
+<h2 id="step-4-enable-and-deploy">Step 4: Enable and deploy<a class="headerlink" href="#step-4-enable-and-deploy" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>terraform
+terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span class="o">=</span>prd.tfvars
+</code></pre></div>
+
+<p>This provisions the ServiceNow integration + sync + scheduler Lambdas, the sync SQS queue with a DLQ, an hourly EventBridge cron, and CloudWatch alarms. Both regions come up in parallel under the active/passive HA topology.</p>
+<p>See the <a href="../../getting-started/deploy/">Deploy guide</a>.</p>
+<h2 id="step-5-connect-from-the-ui-workspace-admin">Step 5: Connect from the UI (workspace admin)<a class="headerlink" href="#step-5-connect-from-the-ui-workspace-admin" title="Permanent link">&para;</a></h2>
+<p>Because the OAuth app is env-configured, the workspace admin's job is a single click:</p>
 <ol>
 <li>Open the OutcomeOps UI and navigate to <strong>Workspace Settings → Integrations</strong>.</li>
 <li>Find the <strong>ServiceNow Knowledge Base</strong> section. Click <strong>Connect</strong>.</li>
-<li>Fill in the three fields:<ul>
-<li><strong>Instance URL:</strong> <code>https://&lt;subdomain&gt;.service-now.com</code>. No trailing slash. Legacy <code>.servicenow.com</code> (without the hyphen) is accepted with a warning.</li>
-<li><strong>Client ID:</strong> paste from Step 2.</li>
-<li><strong>Client Secret:</strong> paste from Step 2.</li>
-</ul>
-</li>
-<li>Click <strong>Save &amp; Authorize.</strong></li>
+<li>Your browser lands on the ServiceNow OAuth consent screen. Sign in (as a KB-reader user or your admin) and click <strong>Allow</strong>.</li>
+<li>ServiceNow redirects you back to the OutcomeOps UI. The connection card shows <code>Status: queued</code>, then flips to <code>success</code> once the first sync completes (~1 minute).</li>
 </ol>
-<p>The platform KMS-encrypts the Client Secret with the workspace's OAuth-tokens CMK and stores it in DynamoDB. It then redirects your browser to ServiceNow's OAuth consent screen.</p>
-<h2 id="step-4-authorize">Step 4: Authorize<a class="headerlink" href="#step-4-authorize" title="Permanent link">&para;</a></h2>
-<p>On the ServiceNow OAuth consent screen, sign in (as a KB-reader user or your admin, depending on how you scoped Step 2) and click <strong>Allow.</strong></p>
-<p>ServiceNow redirects you back to the OutcomeOps UI, which:</p>
-<ul>
-<li>Exchanges the authorization code for access + refresh tokens.</li>
-<li>Captures the ServiceNow user identity so a later reconnect against a different user account is detectable.</li>
-<li>Enqueues an immediate sync so KB articles appear in chat without waiting for the top-of-hour scheduler tick.</li>
-</ul>
-<p>Refresh the workspace page after ~30 seconds. The connection card shows <code>Status: success</code> when the first walk lands.</p>
+<p>Same UX pattern as Confluence, Jira, and Microsoft 365 --- no separate setup form.</p>
 <h2 id="sync-cadence">Sync cadence<a class="headerlink" href="#sync-cadence" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Hourly at :45 UTC</strong> on the scheduler tick.</li>
-<li><strong>Delta-only after the first sync.</strong> The scheduler passes the connection's stored <code>sys_updated_on</code> cursor to the sync worker, which walks only articles updated since.</li>
+<li><strong>Delta-only after the first sync.</strong> The scheduler passes the connection's stored <code>sys_updated_on</code> cursor to the sync worker.</li>
 <li><strong>Manual sync</strong> from the workspace settings card (<strong>Sync now</strong>) starts from the current cursor.</li>
-<li><strong>Orphan cleanup</strong> runs after a complete enumeration. Articles that disappeared from <code>published</code> are removed from the workspace's KB on the next full walk.</li>
+<li><strong>Orphan cleanup</strong> runs after a complete enumeration. Articles that disappeared from <code>published</code> are removed from the workspace's KB.</li>
 </ul>
 <h2 id="rate-limiting">Rate limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h2>
 <p>ServiceNow rate-limits per instance. The sync worker retries <code>429</code> responses with <code>Retry-After</code> backoff up to 3 attempts. If the instance sustains rate-limiting harder than that, the sync marks the run partial-success (or failed) and defers to the next scheduler tick with a fresh cursor. If it keeps happening, raise the instance's Table API rate limit (usually configurable per role) or contact ServiceNow support.</p>
@@ -1590,9 +1593,14 @@ terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span cla
 <td>Verify: no trailing slash, no query string, case-sensitive subdomain. Update in <strong>System OAuth → Application Registry</strong> on ServiceNow.</td>
 </tr>
 <tr>
+<td>Integration Lambda returns 500 "ServiceNow integration not fully configured"</td>
+<td>One of <code>servicenow_instance_url</code> / <code>servicenow_oauth_client_id</code> is missing from tfvars, or the client-secret SSM param is still <code>PLACEHOLDER_CONFIGURE_ME</code>.</td>
+<td>Verify tfvars are populated, <code>terraform apply</code>, and re-run the <code>aws ssm put-parameter</code> from Step 2.</td>
+</tr>
+<tr>
 <td>Connection card says <code>reauth_required</code></td>
 <td>Refresh token was rejected. Usually the OAuth app was revoked/regenerated, or the user's ACLs changed.</td>
-<td>Click <strong>Connect</strong> again, re-run the setup form. Existing article-mapped chat citations survive.</td>
+<td>Click <strong>Connect</strong> again. Existing article-mapped chat citations survive.</td>
 </tr>
 <tr>
 <td>Connection card says <code>failed</code> with "ServiceNow rate limited"</td>
@@ -1614,15 +1622,13 @@ terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span cla
 <h2 id="rotating-the-client-secret">Rotating the Client Secret<a class="headerlink" href="#rotating-the-client-secret" title="Permanent link">&para;</a></h2>
 <ol>
 <li>On ServiceNow, regenerate the Client Secret on the Application Registry entry.</li>
-<li>In the OutcomeOps UI, open the workspace's ServiceNow connection card and click <strong>Connect</strong> to re-run the setup form with the new value.</li>
+<li>Run <code>aws ssm put-parameter --overwrite</code> on <code>/prd/outcome-ops-ai-assist/oauth/servicenow/client-secret</code> with the new value. Mirror to your secondary region.</li>
+<li>Wait for the next Lambda cold start (~5 minutes idle) or invoke the integration Lambda once to force one. No <code>terraform apply</code> needed --- the SSM parameter uses <code>lifecycle.ignore_changes = [value]</code>.</li>
 </ol>
-<p>The same <code>connection_id</code> is reused (idempotent per instance URL), so no history loss.</p>
 <h2 id="disconnecting">Disconnecting<a class="headerlink" href="#disconnecting" title="Permanent link">&para;</a></h2>
-<p>Workspace Settings → Integrations → ServiceNow connection card → <strong>Disconnect.</strong> The connection record is deleted, and a fan-out delete purges all <code>workspaces/{ws}/servicenow/{connection_id}/*</code> S3 objects + vectors. The OAuth Application Registry entry on the ServiceNow side is untouched --- delete it from ServiceNow if you want to revoke the platform's grant fully.</p>
+<p>Workspace Settings → Integrations → ServiceNow connection card → <strong>Disconnect.</strong> The connection record is deleted and a fan-out delete purges all <code>workspaces/{ws}/servicenow/{connection_id}/*</code> S3 objects + vectors. The OAuth Application Registry entry on the ServiceNow side is untouched.</p>
 <h2 id="what-the-flag-gates">What the flag gates<a class="headerlink" href="#what-the-flag-gates" title="Permanent link">&para;</a></h2>
-<p>Setting <code>enable_servicenow_integration = false</code> provisions no ServiceNow Lambdas, no SQS queues, no scheduler, no alarms, no UI section. SecOps can look at your tfvars and know exactly which surfaces exist. See <a href="../../administration/integration-gating/">Integration Gating</a>.</p>
-<h2 id="why-this-doesnt-require-soc-2-from-outcomeops">Why this doesn't require SOC 2 from OutcomeOps<a class="headerlink" href="#why-this-doesnt-require-soc-2-from-outcomeops" title="Permanent link">&para;</a></h2>
-<p>The platform runs entirely in your AWS account, and the ServiceNow OAuth app is registered on your ServiceNow instance. The Client Secret, refresh token, article contents, and article attachments never leave your control plane. There is no vendor-hosted control path in the ingest flow --- so your existing SOC 2 (or HIPAA, or FedRAMP) posture applies to the ServiceNow integration the same way it applies to the rest of your AWS estate. See the <a href="../../faq/">FAQ</a> for the full compliance-posture explanation.</p>
+<p>Setting <code>enable_servicenow_integration = false</code> provisions no ServiceNow Lambdas, no SQS queues, no scheduler, no alarms, no UI section, no SSM parameters. SecOps can look at your tfvars and know exactly which surfaces exist. See <a href="../../administration/integration-gating/">Integration Gating</a>.</p>
 
 
 
