@@ -50,7 +50,8 @@ See the [Deploy guide](../getting-started/deploy.md).
 On the ServiceNow instance you want to connect, as a ServiceNow admin:
 
 1. Navigate to **System OAuth → Application Registry**.
-2. Click **New** → **Create an OAuth API endpoint for external clients**.
+2. Click **New**. ServiceNow shows the **Select your application connection type** picker. Pick **OAuth - Authorization code grant**.
+    - The other options --- Client credentials grant, JWT bearer grant, Resource owner password credential grant, and Third-party ID token --- are all machine-to-machine or password flows and won't produce the redirect back to the OutcomeOps UI that the platform's per-workspace OAuth needs.
 3. Fill in:
     - **Name:** anything descriptive, e.g. `OutcomeOps AI Assist (prd)`.
     - **Client ID:** ServiceNow generates this.
