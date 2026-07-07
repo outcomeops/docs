@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Connect Outlook, Teams, SharePoint, OneDrive, and OneNote via a single Entra ID app.">
+        <meta name="description" content="Ingest published ServiceNow Knowledge Base articles + attachments as chat context, without leaving the customer's AWS account.">
       
       
         <meta name="author" content="OutcomeOps">
       
       
-        <link rel="canonical" href="https://docs.outcomeops.ai/integrations/microsoft-365/">
+        <link rel="canonical" href="https://docs.outcomeops.ai/integrations/servicenow/">
       
       
-        <link rel="prev" href="../confluence/">
+        <link rel="prev" href="../database/">
       
       
-        <link rel="next" href="../database/">
+        <link rel="next" href="../../features/">
       
       
       <link rel="icon" href="../../assets/logo.svg">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Microsoft 365 - OutcomeOps AI Assist Docs</title>
+        <title>ServiceNow - OutcomeOps AI Assist Docs</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#microsoft-365" class="md-skip">
+        <a href="#servicenow" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Microsoft 365
+              ServiceNow
             
           </span>
         </div>
@@ -678,30 +678,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Microsoft 365
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../microsoft-365/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -710,125 +690,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-each-surface-ingests" class="md-nav__link">
-    <span class="md-ellipsis">
-      What each surface ingests
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-1-register-a-single-entra-id-app-for-all-m365-surfaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1: Register a single Entra ID app for all M365 surfaces
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2-grant-the-microsoft-graph-api-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Grant the Microsoft Graph API permissions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-3-register-redirect-uris-for-each-enabled-surface" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3: Register redirect URIs for each enabled surface
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-create-a-client-secret" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 4: Create a client secret
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-5-handoff-to-the-platform-operator" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 5: Handoff to the platform operator
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-verify-from-the-ui-per-enabled-surface" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 6: Verify from the UI (per enabled surface)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-problems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common problems
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-each-flag-gates" class="md-nav__link">
-    <span class="md-ellipsis">
-      What each flag gates
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#disconnecting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Disconnecting
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -859,10 +720,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../servicenow/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ServiceNow
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -871,6 +752,152 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-connects" class="md-nav__link">
+    <span class="md-ellipsis">
+      What this connects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design principles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-enable-the-flag-and-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Enable the flag and deploy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-register-an-oauth-application-registry-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Register an OAuth Application Registry entry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-connect-from-the-outcomeops-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Connect from the OutcomeOps UI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-authorize" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Authorize
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sync-cadence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sync cadence
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rate limiting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common problems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotating-the-client-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotating the Client Secret
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disconnecting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disconnecting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-flag-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the flag gates
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-doesnt-require-soc-2-from-outcomeops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this doesn't require SOC 2 from OutcomeOps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1313,9 +1340,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-each-surface-ingests" class="md-nav__link">
+  <a href="#what-this-connects" class="md-nav__link">
     <span class="md-ellipsis">
-      What each surface ingests
+      What this connects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design principles
     </span>
   </a>
   
@@ -1331,54 +1367,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-1-register-a-single-entra-id-app-for-all-m365-surfaces" class="md-nav__link">
+  <a href="#step-1-enable-the-flag-and-deploy" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Register a single Entra ID app for all M365 surfaces
+      Step 1: Enable the flag and deploy
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2-grant-the-microsoft-graph-api-permissions" class="md-nav__link">
+  <a href="#step-2-register-an-oauth-application-registry-entry" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: Grant the Microsoft Graph API permissions
+      Step 2: Register an OAuth Application Registry entry
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-register-redirect-uris-for-each-enabled-surface" class="md-nav__link">
+  <a href="#step-3-connect-from-the-outcomeops-ui" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 3: Register redirect URIs for each enabled surface
+      Step 3: Connect from the OutcomeOps UI
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-create-a-client-secret" class="md-nav__link">
+  <a href="#step-4-authorize" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 4: Create a client secret
+      Step 4: Authorize
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-5-handoff-to-the-platform-operator" class="md-nav__link">
+  <a href="#sync-cadence" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 5: Handoff to the platform operator
+      Sync cadence
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-6-verify-from-the-ui-per-enabled-surface" class="md-nav__link">
+  <a href="#rate-limiting" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 6: Verify from the UI (per enabled surface)
+      Rate limiting
     </span>
   </a>
   
@@ -1394,9 +1430,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-each-flag-gates" class="md-nav__link">
+  <a href="#rotating-the-client-secret" class="md-nav__link">
     <span class="md-ellipsis">
-      What each flag gates
+      Rotating the Client Secret
     </span>
   </a>
   
@@ -1406,6 +1442,24 @@
   <a href="#disconnecting" class="md-nav__link">
     <span class="md-ellipsis">
       Disconnecting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-flag-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the flag gates
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-doesnt-require-soc-2-from-outcomeops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this doesn't require SOC 2 from OutcomeOps
     </span>
   </a>
   
@@ -1426,7 +1480,7 @@
                   
 
   
-    <a href="https://github.com/outcomeops/docs/edit/main/docs/integrations/microsoft-365.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/outcomeops/docs/edit/main/docs/integrations/servicenow.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1434,211 +1488,138 @@
   
 
 
-<h1 id="microsoft-365">Microsoft 365<a class="headerlink" href="#microsoft-365" title="Permanent link">&para;</a></h1>
-<p>OutcomeOps AI Assist connects to five Microsoft 365 surfaces --- <strong>Outlook</strong>, <strong>Teams</strong>, <strong>SharePoint</strong>, <strong>OneDrive</strong>, and <strong>OneNote</strong> --- through a single Entra ID app registration. Each surface has its own tfvar flag; you enable only the ones you actually use. All five share the same OAuth client ID and client secret.</p>
-<p>Time budget: <strong>~30 minutes</strong> for the initial Entra ID setup, plus ~5 minutes per surface you enable.</p>
-<h2 id="what-each-surface-ingests">What each surface ingests<a class="headerlink" href="#what-each-surface-ingests" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Surface</th>
-<th>Content</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Outlook</strong></td>
-<td>Mail folders the connecting user picks (typically shared team mailboxes, not personal inbox)</td>
-</tr>
-<tr>
-<td><strong>Teams</strong></td>
-<td>Channel messages from the Teams + channels the user picks (not private chats)</td>
-</tr>
-<tr>
-<td><strong>SharePoint</strong></td>
-<td>Document library items from the sites the user picks</td>
-</tr>
-<tr>
-<td><strong>OneDrive</strong></td>
-<td>Files from the folders the user picks (personal or shared)</td>
-</tr>
-<tr>
-<td><strong>OneNote</strong></td>
-<td>Notebooks the user picks</td>
-</tr>
-</tbody>
-</table>
+<h1 id="servicenow">ServiceNow<a class="headerlink" href="#servicenow" title="Permanent link">&para;</a></h1>
+<p>The ServiceNow integration ingests <strong>published Knowledge Base articles + their attachments</strong> from your ServiceNow instance and makes them retrievable in chat. Ask "what's our password reset process for cloud-only accounts?" or "which article covers the office VPN client on macOS?" and the platform answers grounded in the article your service desk already maintains --- cited by article number, not paraphrased from a stale copy.</p>
+<p>Time budget: <strong>~5 minutes</strong> for someone with ServiceNow admin + AWS admin access.</p>
+<h2 id="what-this-connects">What this connects<a class="headerlink" href="#what-this-connects" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><code>kb_knowledge</code> records</strong> with <code>workflow_state = published</code>. Draft, review, and retired articles are excluded.</li>
+<li><strong>Attachments</strong> on those articles, filtered to a file-type allowlist (Office docs, PDF, Markdown, plaintext, CSV, HTML, JSON, YAML).</li>
+<li><strong>Delta-only re-syncs</strong> every hour. The scheduler tracks each connection's <code>sys_updated_on</code> high-water mark so only articles that changed since last sync are re-walked.</li>
+<li><strong>Orphan cleanup.</strong> Articles moved out of <code>published</code> or deleted on the ServiceNow side are removed from the workspace's KB on the next full walk.</li>
+<li><strong>NOT ingested:</strong> incidents, service catalog tasks, problem records, CMDB, article ratings, article revision history.</li>
+</ul>
+<h2 id="design-principles">Design principles<a class="headerlink" href="#design-principles" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Per-workspace OAuth.</strong> Every customer's ServiceNow instance requires an OAuth app registered on their own instance. There is no shared "OutcomeOps ServiceNow app" to consent to --- the customer's SSO admin owns and can rotate the OAuth app entirely from their side.</li>
+<li><strong>KMS-encrypted secrets in DDB, not env-level SSM.</strong> Because each workspace's OAuth app is distinct, the <code>client_secret</code> lives on the connection row encrypted with the customer's OAuth-tokens CMK. Nothing about ServiceNow lives at the deploy level.</li>
+<li><strong>KB read is user-scoped.</strong> ServiceNow doesn't take a scope parameter on the authorize URL; the OAuth app inherits the requesting user's ACLs. To constrain what the platform can see, connect as a dedicated read-only user rather than a full ServiceNow admin.</li>
+<li><strong>HTML wrapped, not scraped.</strong> The platform stores the article body verbatim (in a minimal <code>&lt;html&gt;</code> envelope with number + short description), not a summarized re-render. Retrieval hits the source ServiceNow copy.</li>
+</ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Azure tenant admin access</strong> for the Entra ID app registration + admin consent.</li>
-<li><strong>Coordination with the platform operator.</strong></li>
-<li><strong>The tfvar flag</strong> for each surface you want to enable (see <a href="../../administration/integration-gating/">Integration Gating</a>).</li>
+<li><strong><code>enable_servicenow_integration = true</code></strong> in your tfvars. That's the entire deploy step --- no SSM parameters to pre-populate.</li>
+<li><strong>ServiceNow admin access</strong> on the target instance, specifically the ability to register an OAuth Application Registry entry. A ServiceNow "admin" role or equivalent.</li>
+<li><strong>A workspace admin</strong> logged into the OutcomeOps UI. (This can be the same person as the ServiceNow admin.)</li>
 </ul>
-<h2 id="step-1-register-a-single-entra-id-app-for-all-m365-surfaces">Step 1: Register a single Entra ID app for all M365 surfaces<a class="headerlink" href="#step-1-register-a-single-entra-id-app-for-all-m365-surfaces" title="Permanent link">&para;</a></h2>
+<h2 id="step-1-enable-the-flag-and-deploy">Step 1: Enable the flag and deploy<a class="headerlink" href="#step-1-enable-the-flag-and-deploy" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="na">enable_servicenow_integration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>terraform
+terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span class="o">=</span>prd.tfvars
+</code></pre></div>
+
+<p>This provisions the ServiceNow integration + sync + scheduler Lambdas, the sync SQS queue with a DLQ, an hourly EventBridge cron, and CloudWatch alarms wired to your existing alerts SNS topic. Both regions come up in parallel under the active/passive HA topology.</p>
+<p>See the <a href="../../getting-started/deploy/">Deploy guide</a>.</p>
+<h2 id="step-2-register-an-oauth-application-registry-entry">Step 2: Register an OAuth Application Registry entry<a class="headerlink" href="#step-2-register-an-oauth-application-registry-entry" title="Permanent link">&para;</a></h2>
+<p>On the ServiceNow instance you want to connect, as a ServiceNow admin:</p>
 <ol>
-<li>Sign in to the <strong><a href="https://entra.microsoft.com">Microsoft Entra admin center</a></strong> as an application administrator.</li>
-<li>Navigate to <strong>Applications → App registrations → New registration</strong>.</li>
-<li><strong>Name:</strong> <code>OutcomeOps AI Assist - Microsoft 365</code>.</li>
-<li><strong>Supported account types:</strong> <code>Accounts in this organizational directory only (Single tenant)</code>.</li>
-<li><strong>Redirect URIs:</strong> you'll add these in Step 3 (there's one per surface). For now, leave blank.</li>
-<li>Click <strong>Register</strong>.</li>
-<li>On the Overview page, copy:<ul>
-<li><strong>Application (client) ID</strong></li>
-<li><strong>Directory (tenant) ID</strong></li>
+<li>Navigate to <strong>System OAuth → Application Registry</strong>.</li>
+<li>Click <strong>New</strong> → <strong>Create an OAuth API endpoint for external clients</strong>.</li>
+<li>Fill in:<ul>
+<li><strong>Name:</strong> anything descriptive, e.g. <code>OutcomeOps AI Assist (prd)</code>.</li>
+<li><strong>Client ID:</strong> ServiceNow generates this.</li>
+<li><strong>Client Secret:</strong> ServiceNow generates this. This is the last time ServiceNow will show it in plaintext --- copy it now.</li>
+<li><strong>Redirect URL:</strong> <code>https://&lt;your-outcomeops-fqdn&gt;/api/servicenow/callback</code>. Exact match, no trailing slash, no query string.</li>
+<li><strong>Refresh token lifespan:</strong> default (100 days) is fine. The platform auto-rotates on each refresh where the instance supports it.</li>
+<li><strong>Access token lifespan:</strong> 30 minutes is fine; the sync worker refreshes on every invocation.</li>
 </ul>
 </li>
+<li>Save.</li>
 </ol>
-<h2 id="step-2-grant-the-microsoft-graph-api-permissions">Step 2: Grant the Microsoft Graph API permissions<a class="headerlink" href="#step-2-grant-the-microsoft-graph-api-permissions" title="Permanent link">&para;</a></h2>
-<p>The M365 integrations use Microsoft Graph delegated permissions. Add whichever ones you need based on the surfaces you plan to enable:</p>
-<table>
-<thead>
-<tr>
-<th>Surface</th>
-<th>Required delegated permissions (Microsoft Graph)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Outlook</strong></td>
-<td><code>Mail.Read</code>, <code>Mail.Read.Shared</code></td>
-</tr>
-<tr>
-<td><strong>Teams</strong></td>
-<td><code>ChannelMessage.Read.All</code>, <code>Team.ReadBasic.All</code>, <code>Channel.ReadBasic.All</code></td>
-</tr>
-<tr>
-<td><strong>SharePoint</strong></td>
-<td><code>Sites.Read.All</code>, <code>Files.Read.All</code></td>
-</tr>
-<tr>
-<td><strong>OneDrive</strong></td>
-<td><code>Files.Read.All</code>, <code>Files.Read.Selected</code></td>
-</tr>
-<tr>
-<td><strong>OneNote</strong></td>
-<td><code>Notes.Read.All</code></td>
-</tr>
-</tbody>
-</table>
+<p><strong>Scopes.</strong> ServiceNow's OAuth app inherits the requesting user's ACLs at authorize time, not a scope parameter. If you want the platform limited to KB read only, either register the OAuth app while signed in as a dedicated read-only user, or ask the workspace admin to authorize as one. A full ServiceNow admin authorizing will grant the OAuth app admin-level ACLs (which is more than the KB flow uses, but works fine).</p>
+<h2 id="step-3-connect-from-the-outcomeops-ui">Step 3: Connect from the OutcomeOps UI<a class="headerlink" href="#step-3-connect-from-the-outcomeops-ui" title="Permanent link">&para;</a></h2>
+<p>As a workspace admin:</p>
 <ol>
-<li>In your app registration → <strong>API permissions → Add a permission → Microsoft Graph → Delegated permissions</strong>.</li>
-<li>Search for each permission from the table, check it, click <strong>Add permissions</strong>.</li>
-<li>Repeat for each surface.</li>
-<li>Click <strong>Grant admin consent for {tenant name}</strong> and confirm. All permissions should show <strong>Granted for {tenant name}</strong>.</li>
+<li>Open the OutcomeOps UI and navigate to <strong>Workspace Settings → Integrations</strong>.</li>
+<li>Find the <strong>ServiceNow Knowledge Base</strong> section. Click <strong>Connect</strong>.</li>
+<li>Fill in the three fields:<ul>
+<li><strong>Instance URL:</strong> <code>https://&lt;subdomain&gt;.service-now.com</code>. No trailing slash. Legacy <code>.servicenow.com</code> (without the hyphen) is accepted with a warning.</li>
+<li><strong>Client ID:</strong> paste from Step 2.</li>
+<li><strong>Client Secret:</strong> paste from Step 2.</li>
+</ul>
+</li>
+<li>Click <strong>Save &amp; Authorize.</strong></li>
 </ol>
-<p>If you skip admin consent, users hit a per-user consent prompt on their first connect --- SecOps friction you probably don't want.</p>
-<h2 id="step-3-register-redirect-uris-for-each-enabled-surface">Step 3: Register redirect URIs for each enabled surface<a class="headerlink" href="#step-3-register-redirect-uris-for-each-enabled-surface" title="Permanent link">&para;</a></h2>
-<p>Each M365 surface has a distinct OAuth callback URL. Add every URI for the surfaces you plan to enable:</p>
-<table>
-<thead>
-<tr>
-<th>Surface</th>
-<th>Redirect URI</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Outlook</td>
-<td><code>https://&lt;your-app-fqdn&gt;/api/outlook/callback</code></td>
-</tr>
-<tr>
-<td>Teams</td>
-<td><code>https://&lt;your-app-fqdn&gt;/api/teams/callback</code></td>
-</tr>
-<tr>
-<td>SharePoint</td>
-<td><code>https://&lt;your-app-fqdn&gt;/api/sharepoint/callback</code></td>
-</tr>
-<tr>
-<td>OneDrive</td>
-<td><code>https://&lt;your-app-fqdn&gt;/api/onedrive/callback</code></td>
-</tr>
-<tr>
-<td>OneNote</td>
-<td><code>https://&lt;your-app-fqdn&gt;/api/onenote/callback</code></td>
-</tr>
-</tbody>
-</table>
-<p>In the app registration → <strong>Authentication → Add a platform → Web → Redirect URIs</strong> → add each URL that applies.</p>
-<h2 id="step-4-create-a-client-secret">Step 4: Create a client secret<a class="headerlink" href="#step-4-create-a-client-secret" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Certificates &amp; secrets → Client secrets → New client secret</strong>.</li>
-<li>Expires: 24 months is a reasonable default.</li>
-<li>Copy the <strong>Value</strong> immediately (only shown once).</li>
-<li>Hand off to the operator via a secure channel.</li>
-</ol>
-<h2 id="step-5-handoff-to-the-platform-operator">Step 5: Handoff to the platform operator<a class="headerlink" href="#step-5-handoff-to-the-platform-operator" title="Permanent link">&para;</a></h2>
-<p>Tfvars:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Shared: apply to all five M365 surfaces</span>
-<span class="na">microsoft_oauth_client_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;Client ID from Step 1.7&gt;&quot;</span>
-
-<span class="c1"># Per-surface flags: enable only what you need</span>
-<span class="na">enable_outlook_integration</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
-<span class="na">enable_teams_integration</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
-<span class="na">enable_sharepoint_integration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">false</span>
-<span class="na">enable_onedrive_integration</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="no">false</span>
-<span class="na">enable_onenote_integration</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="no">false</span>
-</code></pre></div>
-
-<p>The tenant ID and client secret land in SSM:</p>
-<div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/oauth/microsoft/client-secret&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;&lt;the Client Secret from Step 4&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--type<span class="w"> </span>SecureString<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--key-id<span class="w"> </span>alias/aws/ssm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--region<span class="w"> </span>us-west-2
-</code></pre></div>
-
-<p>The SSM path is <code>/oauth/microsoft/</code> (shared across all five surfaces) --- you populate it once regardless of how many surfaces you enable.</p>
-<p>Then <code>terraform apply</code> --- see the <a href="../../getting-started/deploy/">Deploy guide</a>.</p>
-<h2 id="step-6-verify-from-the-ui-per-enabled-surface">Step 6: Verify from the UI (per enabled surface)<a class="headerlink" href="#step-6-verify-from-the-ui-per-enabled-surface" title="Permanent link">&para;</a></h2>
-<p>For each surface you enabled:</p>
-<ol>
-<li>Open the OutcomeOps UI as a <strong>workspace admin</strong>.</li>
-<li>Navigate to <strong>Workspace Settings → Integrations</strong>.</li>
-<li>Under the surface (e.g., "Outlook"), click <strong>Connect</strong>.</li>
-<li>The browser opens Microsoft's consent screen scoped to just that surface's permissions --- e.g., Outlook shows mail access only, Teams shows channel access only. This scoped consent is why we register one Entra ID app but grant one permission set per surface.</li>
-<li>Complete the consent, land back on Integrations with a green banner.</li>
-<li>Click <strong>Add ...</strong> (folders / teams / sites / notebooks / mailboxes depending on the surface) and pick what to ingest.</li>
-<li>Sync status transitions <strong>pending → in_progress → success</strong>.</li>
-</ol>
+<p>The platform KMS-encrypts the Client Secret with the workspace's OAuth-tokens CMK and stores it in DynamoDB. It then redirects your browser to ServiceNow's OAuth consent screen.</p>
+<h2 id="step-4-authorize">Step 4: Authorize<a class="headerlink" href="#step-4-authorize" title="Permanent link">&para;</a></h2>
+<p>On the ServiceNow OAuth consent screen, sign in (as a KB-reader user or your admin, depending on how you scoped Step 2) and click <strong>Allow.</strong></p>
+<p>ServiceNow redirects you back to the OutcomeOps UI, which:</p>
+<ul>
+<li>Exchanges the authorization code for access + refresh tokens.</li>
+<li>Captures the ServiceNow user identity so a later reconnect against a different user account is detectable.</li>
+<li>Enqueues an immediate sync so KB articles appear in chat without waiting for the top-of-hour scheduler tick.</li>
+</ul>
+<p>Refresh the workspace page after ~30 seconds. The connection card shows <code>Status: success</code> when the first walk lands.</p>
+<h2 id="sync-cadence">Sync cadence<a class="headerlink" href="#sync-cadence" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Hourly at :45 UTC</strong> on the scheduler tick.</li>
+<li><strong>Delta-only after the first sync.</strong> The scheduler passes the connection's stored <code>sys_updated_on</code> cursor to the sync worker, which walks only articles updated since.</li>
+<li><strong>Manual sync</strong> from the workspace settings card (<strong>Sync now</strong>) starts from the current cursor.</li>
+<li><strong>Orphan cleanup</strong> runs after a complete enumeration. Articles that disappeared from <code>published</code> are removed from the workspace's KB on the next full walk.</li>
+</ul>
+<h2 id="rate-limiting">Rate limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h2>
+<p>ServiceNow rate-limits per instance. The sync worker retries <code>429</code> responses with <code>Retry-After</code> backoff up to 3 attempts. If the instance sustains rate-limiting harder than that, the sync marks the run partial-success (or failed) and defers to the next scheduler tick with a fresh cursor. If it keeps happening, raise the instance's Table API rate limit (usually configurable per role) or contact ServiceNow support.</p>
 <h2 id="common-problems">Common problems<a class="headerlink" href="#common-problems" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Error</th>
+<th>Symptom</th>
 <th>Cause</th>
 <th>Fix</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>Need admin approval</code> consent screen for a surface</td>
-<td>Admin consent (Step 2.4) wasn't granted for that surface's permissions.</td>
-<td>Go back to the app registration → API permissions → Grant admin consent.</td>
+<td><code>Redirect URI mismatch</code> from ServiceNow</td>
+<td>The Redirect URL on the Application Registry entry doesn't match <code>https://&lt;your-fqdn&gt;/api/servicenow/callback</code> byte-for-byte.</td>
+<td>Verify: no trailing slash, no query string, case-sensitive subdomain. Update in <strong>System OAuth → Application Registry</strong> on ServiceNow.</td>
 </tr>
 <tr>
-<td><code>Redirect URI mismatch</code> on one surface but not others</td>
-<td>You didn't register that surface's redirect URI in Step 3.</td>
-<td>Add the URI, save, retry.</td>
+<td>Connection card says <code>reauth_required</code></td>
+<td>Refresh token was rejected. Usually the OAuth app was revoked/regenerated, or the user's ACLs changed.</td>
+<td>Click <strong>Connect</strong> again, re-run the setup form. Existing article-mapped chat citations survive.</td>
 </tr>
 <tr>
-<td>Only some content syncs (e.g., team channels missing)</td>
-<td>The connecting user isn't a member of that team / doesn't have permission on that site / folder.</td>
-<td>Grant the user permission in the M365 admin center, click Refresh in the picker.</td>
+<td>Connection card says <code>failed</code> with "ServiceNow rate limited"</td>
+<td>Instance rate-limiting exceeds the sync worker's 3-attempt backoff.</td>
+<td>Raise the Table API rate limit on the ServiceNow side, or wait for the next scheduler tick.</td>
 </tr>
 <tr>
-<td>SharePoint sync succeeds but 0 documents</td>
-<td>The picker showed sites, but each site has no docs the user can read.</td>
-<td>Verify site permissions --- delegated access means the user's read scope determines what the platform sees.</td>
+<td>The ServiceNow section doesn't appear in Workspace Settings</td>
+<td>Either the tfvar is off, or the UI Fargate task didn't refresh after the last apply.</td>
+<td>Verify <code>enable_servicenow_integration = true</code> in your tfvars, apply, then force-redeploy the UI service.</td>
+</tr>
+<tr>
+<td>Articles missing from chat</td>
+<td>The user who authorized doesn't have KB read ACLs on those categories on ServiceNow.</td>
+<td>Grant KB read to that user, or re-authorize as a different user with broader ACLs.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="what-each-flag-gates">What each flag gates<a class="headerlink" href="#what-each-flag-gates" title="Permanent link">&para;</a></h2>
-<p>Each flag independently provisions its own Lambda + SQS + scheduler surface. The shared Microsoft OAuth SSM params (<code>client_id</code> + <code>client_secret</code>) stay as long as <strong>any</strong> of the five flags is <code>true</code>. Set them all to <code>false</code> and the platform provisions nothing M365-related. See <a href="../../administration/integration-gating/">Integration Gating</a>.</p>
+<h2 id="rotating-the-client-secret">Rotating the Client Secret<a class="headerlink" href="#rotating-the-client-secret" title="Permanent link">&para;</a></h2>
+<ol>
+<li>On ServiceNow, regenerate the Client Secret on the Application Registry entry.</li>
+<li>In the OutcomeOps UI, open the workspace's ServiceNow connection card and click <strong>Connect</strong> to re-run the setup form with the new value.</li>
+</ol>
+<p>The same <code>connection_id</code> is reused (idempotent per instance URL), so no history loss.</p>
 <h2 id="disconnecting">Disconnecting<a class="headerlink" href="#disconnecting" title="Permanent link">&para;</a></h2>
-<p>Per surface: Workspace Settings → Integrations → <strong>Disconnect \&lt;surface&gt;</strong>. Removes the connection, tokens, and ingested content for that surface only. The other four remain untouched.</p>
-<p>Full uninstall: from the Entra admin center, delete the app registration. This revokes all consent across the tenant.</p>
+<p>Workspace Settings → Integrations → ServiceNow connection card → <strong>Disconnect.</strong> The connection record is deleted, and a fan-out delete purges all <code>workspaces/{ws}/servicenow/{connection_id}/*</code> S3 objects + vectors. The OAuth Application Registry entry on the ServiceNow side is untouched --- delete it from ServiceNow if you want to revoke the platform's grant fully.</p>
+<h2 id="what-the-flag-gates">What the flag gates<a class="headerlink" href="#what-the-flag-gates" title="Permanent link">&para;</a></h2>
+<p>Setting <code>enable_servicenow_integration = false</code> provisions no ServiceNow Lambdas, no SQS queues, no scheduler, no alarms, no UI section. SecOps can look at your tfvars and know exactly which surfaces exist. See <a href="../../administration/integration-gating/">Integration Gating</a>.</p>
+<h2 id="why-this-doesnt-require-soc-2-from-outcomeops">Why this doesn't require SOC 2 from OutcomeOps<a class="headerlink" href="#why-this-doesnt-require-soc-2-from-outcomeops" title="Permanent link">&para;</a></h2>
+<p>The platform runs entirely in your AWS account, and the ServiceNow OAuth app is registered on your ServiceNow instance. The Client Secret, refresh token, article contents, and article attachments never leave your control plane. There is no vendor-hosted control path in the ingest flow --- so your existing SOC 2 (or HIPAA, or FedRAMP) posture applies to the ServiceNow integration the same way it applies to the rest of your AWS estate. See the <a href="../../faq/">FAQ</a> for the full compliance-posture explanation.</p>
 
 
 
