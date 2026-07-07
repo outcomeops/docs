@@ -131,7 +131,3 @@ Workspace Settings → Integrations → ServiceNow connection card → **Disconn
 ## What the flag gates
 
 Setting `enable_servicenow_integration = false` provisions no ServiceNow Lambdas, no SQS queues, no scheduler, no alarms, no UI section, no SSM parameters. SecOps can look at your tfvars and know exactly which surfaces exist. See [Integration Gating](../administration/integration-gating.md).
-
-## Why this doesn't require SOC 2 from OutcomeOps
-
-The platform runs entirely in your AWS account, and the ServiceNow OAuth app is registered on your ServiceNow instance. The Client Secret, refresh token, article contents, and article attachments never leave your control plane. There is no vendor-hosted control path in the ingest flow --- so your existing SOC 2 (or HIPAA, or FedRAMP) posture applies to the ServiceNow integration the same way it applies to the rest of your AWS estate. See the [FAQ](../faq.md) for the full compliance-posture explanation.
