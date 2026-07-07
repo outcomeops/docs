@@ -15,6 +15,7 @@ OutcomeOps AI Assist connects to the systems your teams already use. Each integr
 | **Confluence** | Space pages | [Confluence setup](confluence.md) |
 | **Microsoft 365** | Outlook mail, Teams messages, SharePoint sites, OneDrive folders, OneNote notebooks | [Microsoft 365 setup](microsoft-365.md) |
 | **Database** | Schemas + tables (MSSQL, MySQL, PostgreSQL) | [Database setup](database.md) |
+| **ServiceNow** | Published Knowledge Base articles + attachments | [ServiceNow setup](servicenow.md) |
 
 ## How the gating works
 

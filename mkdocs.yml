@@ -111,6 +111,7 @@ nav:
       - Confluence: integrations/confluence.md
       - Microsoft 365: integrations/microsoft-365.md
       - Database: integrations/database.md
+      - ServiceNow: integrations/servicenow.md
   - Features:
       - features/index.md
       - Chat: features/chat.md
