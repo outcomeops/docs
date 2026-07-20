@@ -119,6 +119,7 @@ nav:
       - Workspaces: features/workspaces.md
       - MCP Servers: features/mcp-servers.md
       - Code Generation: features/code-generation.md
+      - PR Checks: features/pr-checks.md
   - Administration:
       - administration/index.md
       - Integration Gating: administration/integration-gating.md
