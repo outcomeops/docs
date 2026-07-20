@@ -25,6 +25,7 @@ Regulated customers, air-gapped deploys, and SecOps reviewers all benefit from t
 | `enable_azure_devops_boards_integration` | `false` | [Azure DevOps (Boards)](../integrations/azure-devops.md#enabling-boards-on-an-existing-repos-integration) --- work items ingestion |
 | `enable_github_integration` | `false` | [GitHub App](../integrations/github.md) --- integration Lambda + Function URL + sync + scheduler + SQS + DLQ + App-credential SSM parameters |
 | `enable_github_issue_integration` | `true` | Code-generation API Gateway v2 (public HTTP endpoint that receives GitHub webhooks) + Lambda trigger permission. Enables the GitHub-Issues code-generation trigger. |
+| `enable_gitlab_integration` | `false` | [GitLab](../integrations/gitlab.md) --- integration Lambda + Function URL + sync + scheduler + SQS + DLQ + client-secret SSM placeholder |
 | `enable_confluence_integration` | `false` | [Confluence](../integrations/confluence.md) --- integration Lambda + Function URL + sync + scheduler + SQS + DLQ + Confluence callback SSM |
 | `enable_jira_integration` | `false` | [Jira](../integrations/jira.md) --- workspace Jira Lambdas + Function URL + sync + scheduler + SQS + DLQ + Jira callback SSM + SSM Automation cross-account role + document |
 | `enable_outlook_integration` | `false` | [Outlook](../integrations/microsoft-365.md) --- integration Lambda + Function URL + sync + scheduler + SQS + DLQ + Outlook callback SSM |

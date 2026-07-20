@@ -11,6 +11,7 @@ OutcomeOps AI Assist connects to the systems your teams already use. Each integr
 | --- | --- | --- |
 | **GitHub** | Repository content, issues, PRs | [GitHub setup](github.md) |
 | **Azure DevOps** | Repo content, work items (Boards), PR checks | [Azure DevOps setup](azure-devops.md) |
+| **GitLab** | Repo content, MR checks | [GitLab setup](gitlab.md) |
 | **Jira** | Issues (chat context) + automation-triggered code generation | [Jira setup](jira.md) |
 | **Confluence** | Space pages | [Confluence setup](confluence.md) |
 | **Microsoft 365** | Outlook mail, Teams messages, SharePoint sites, OneDrive folders, OneNote notebooks | [Microsoft 365 setup](microsoft-365.md) |

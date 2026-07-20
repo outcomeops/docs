@@ -107,6 +107,7 @@ nav:
       - integrations/index.md
       - GitHub: integrations/github.md
       - Azure DevOps: integrations/azure-devops.md
+      - GitLab: integrations/gitlab.md
       - Jira: integrations/jira.md
       - Confluence: integrations/confluence.md
       - Microsoft 365: integrations/microsoft-365.md
