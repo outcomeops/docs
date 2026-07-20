@@ -542,6 +542,8 @@
       
         
       
+        
+      
     
     
       
@@ -620,6 +622,27 @@
   
   <span class="md-ellipsis">
     Azure DevOps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/gitlab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitLab
   </span>
   
 
@@ -1436,6 +1459,11 @@
 <td><code>enable_github_issue_integration</code></td>
 <td><code>true</code></td>
 <td>Code-generation API Gateway v2 (public HTTP endpoint that receives GitHub webhooks) + Lambda trigger permission. Enables the GitHub-Issues code-generation trigger.</td>
+</tr>
+<tr>
+<td><code>enable_gitlab_integration</code></td>
+<td><code>false</code></td>
+<td><a href="../../integrations/gitlab/">GitLab</a> --- integration Lambda + Function URL + sync + scheduler + SQS + DLQ + client-secret SSM placeholder</td>
 </tr>
 <tr>
 <td><code>enable_confluence_integration</code></td>
