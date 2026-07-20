@@ -6,34 +6,34 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Every workspace integration OutcomeOps AI Assist supports, with a setup guide for each.">
+        <meta name="description" content="Automated AI review checks on GitHub PRs, Azure DevOps PRs, and GitLab MRs, and how to trigger them from CI.">
       
       
         <meta name="author" content="OutcomeOps">
       
       
-        <link rel="canonical" href="https://docs.outcomeops.ai/integrations/">
+        <link rel="canonical" href="https://docs.outcomeops.ai/features/pr-checks/">
       
       
-        <link rel="prev" href="../getting-started/first-workspace/">
+        <link rel="prev" href="../code-generation/">
       
       
-        <link rel="next" href="github/">
+        <link rel="next" href="../../administration/">
       
       
-      <link rel="icon" href="../assets/logo.svg">
+      <link rel="icon" href="../../assets/logo.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
     
     
       
-        <title>Integrations - OutcomeOps AI Assist Docs</title>
+        <title>PR Checks - OutcomeOps AI Assist Docs</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,9 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/brand.css">
+      <link rel="stylesheet" href="../../stylesheets/brand.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#integrations" class="md-skip">
+        <a href="#pr-checks" class="md-skip">
           Skip to content
         </a>
       
@@ -96,9 +96,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="OutcomeOps AI Assist Docs" class="md-header__button md-logo" aria-label="OutcomeOps AI Assist Docs" data-md-component="logo">
+    <a href="../.." title="OutcomeOps AI Assist Docs" class="md-header__button md-logo" aria-label="OutcomeOps AI Assist Docs" data-md-component="logo">
       
-  <img src="../assets/logo.svg" alt="logo">
+  <img src="../../assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Integrations
+              PR Checks
             
           </span>
         </div>
@@ -223,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -242,12 +242,32 @@
     
     
       <li class="md-tabs__item">
-        <a href="../getting-started/" class="md-tabs__link">
+        <a href="../../getting-started/" class="md-tabs__link">
           
   
     
   
   Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../integrations/" class="md-tabs__link">
+          
+  
+    
+  
+  Integrations
 
         </a>
       </li>
@@ -264,27 +284,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
-          
-  
-    
-  
-  Integrations
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../features/" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
     
@@ -304,7 +304,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../administration/" class="md-tabs__link">
+        <a href="../../administration/" class="md-tabs__link">
           
   
     
@@ -322,7 +322,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../faq/" class="md-tabs__link">
+      <a href="../../faq/" class="md-tabs__link">
         
   
     
@@ -362,9 +362,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="OutcomeOps AI Assist Docs" class="md-nav__button md-logo" aria-label="OutcomeOps AI Assist Docs" data-md-component="logo">
+    <a href="../.." title="OutcomeOps AI Assist Docs" class="md-nav__button md-logo" aria-label="OutcomeOps AI Assist Docs" data-md-component="logo">
       
-  <img src="../assets/logo.svg" alt="logo">
+  <img src="../../assets/logo.svg" alt="logo">
 
     </a>
     OutcomeOps AI Assist Docs
@@ -391,7 +391,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -440,7 +440,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../getting-started/" class="md-nav__link ">
+            <a href="../../getting-started/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -473,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/deploy/" class="md-nav__link">
+      <a href="../../getting-started/deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -494,11 +494,260 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/first-workspace/" class="md-nav__link">
+      <a href="../../getting-started/first-workspace/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     First Workspace
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../integrations/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Integrations
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Integrations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/azure-devops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure DevOps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/gitlab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitLab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/jira/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jira
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/confluence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Confluence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/microsoft-365/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft 365
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/servicenow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ServiceNow
   </span>
   
 
@@ -528,12 +777,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
         
       
         
@@ -561,255 +804,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
-              
-  
-  <span class="md-ellipsis">
-    Integrations
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link md-nav__link--active" for="__nav_3" id="__nav_3_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Integrations
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="github/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    GitHub
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="azure-devops/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Azure DevOps
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="gitlab/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    GitLab
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="jira/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Jira
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="confluence/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Confluence
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="microsoft-365/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Microsoft 365
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="database/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Database
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="servicenow/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    ServiceNow
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../features/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -820,13 +820,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -842,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/chat/" class="md-nav__link">
+      <a href="../chat/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -863,7 +863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/workspaces/" class="md-nav__link">
+      <a href="../workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -884,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/mcp-servers/" class="md-nav__link">
+      <a href="../mcp-servers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -905,7 +905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/code-generation/" class="md-nav__link">
+      <a href="../code-generation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -923,10 +923,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../features/pr-checks/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    PR Checks
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -935,6 +955,104 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comment-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comment behavior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-trigger-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      The trigger contract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automating-from-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automating from CI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automating from CI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actions-oidc-no-stored-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Actions (OIDC, no stored keys)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitlab-ci-oidc-or-stored-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitLab CI (OIDC or stored keys)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-pipelines-service-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure Pipelines (service connection)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other environments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-visibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost visibility
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -993,7 +1111,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../administration/" class="md-nav__link ">
+            <a href="../../administration/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1026,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../administration/integration-gating/" class="md-nav__link">
+      <a href="../../administration/integration-gating/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1047,7 +1165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../administration/global-workspaces/" class="md-nav__link">
+      <a href="../../administration/global-workspaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1068,7 +1186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../administration/pii-redaction/" class="md-nav__link">
+      <a href="../../administration/pii-redaction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1089,7 +1207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../administration/model-selection/" class="md-nav__link">
+      <a href="../../administration/model-selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1110,7 +1228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../administration/high-availability/" class="md-nav__link">
+      <a href="../../administration/high-availability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1131,7 +1249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../administration/audit-stream-export/" class="md-nav__link">
+      <a href="../../administration/audit-stream-export/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1152,7 +1270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../administration/security-scanner/" class="md-nav__link">
+      <a href="../../administration/security-scanner/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1180,7 +1298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../faq/" class="md-nav__link">
+      <a href="../../faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1220,18 +1338,78 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-the-gating-works" class="md-nav__link">
+  <a href="#comment-behavior" class="md-nav__link">
     <span class="md-ellipsis">
-      How the gating works
+      Comment behavior
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pattern-for-every-integration-setup" class="md-nav__link">
+  <a href="#the-trigger-contract" class="md-nav__link">
     <span class="md-ellipsis">
-      Pattern for every integration setup
+      The trigger contract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automating-from-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automating from CI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automating from CI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actions-oidc-no-stored-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Actions (OIDC, no stored keys)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitlab-ci-oidc-or-stored-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitLab CI (OIDC or stored keys)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-pipelines-service-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure Pipelines (service connection)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other environments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-visibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost visibility
     </span>
   </a>
   
@@ -1252,7 +1430,7 @@
                   
 
   
-    <a href="https://github.com/outcomeops/docs/edit/main/docs/integrations/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/outcomeops/docs/edit/main/docs/features/pr-checks.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1260,73 +1438,103 @@
   
 
 
-<h1 id="integrations">Integrations<a class="headerlink" href="#integrations" title="Permanent link">&para;</a></h1>
-<p>OutcomeOps AI Assist connects to the systems your teams already use. Each integration is provisioned by a single Terraform flag; enable only what you need.</p>
+<h1 id="pr-checks">PR Checks<a class="headerlink" href="#pr-checks" title="Permanent link">&para;</a></h1>
+<p>Every enrolled code host gets the same automated review pipeline. When a check run is triggered for a pull request (GitHub, Azure DevOps) or merge request (GitLab), the platform analyzes the changed files and posts results back as comments on the PR/MR:</p>
 <table>
 <thead>
 <tr>
-<th>Integration</th>
-<th>What it ingests</th>
-<th>Setup guide</th>
+<th>Check</th>
+<th>What it looks at</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>GitHub</strong></td>
-<td>Repository content, issues, PRs</td>
-<td><a href="github/">GitHub setup</a></td>
+<td><strong>ADR Compliance</strong></td>
+<td>Lambda handlers + Terraform diffs against the ADRs ingested into your knowledge base</td>
 </tr>
 <tr>
-<td><strong>Azure DevOps</strong></td>
-<td>Repo content, work items (Boards), PR checks</td>
-<td><a href="azure-devops/">Azure DevOps setup</a></td>
+<td><strong>README Freshness</strong></td>
+<td>Whether code changes shipped without documentation updates</td>
 </tr>
 <tr>
-<td><strong>GitLab</strong></td>
-<td>Repo content, MR checks</td>
-<td><a href="gitlab/">GitLab setup</a></td>
+<td><strong>Test Coverage</strong></td>
+<td>New handler files without corresponding tests, honoring the repo's <code>.outcomeops.yaml</code> test patterns</td>
 </tr>
 <tr>
-<td><strong>Jira</strong></td>
-<td>Issues (chat context) + automation-triggered code generation</td>
-<td><a href="jira/">Jira setup</a></td>
+<td><strong>Breaking Changes</strong></td>
+<td>Modified/removed handlers with downstream dependents</td>
 </tr>
 <tr>
-<td><strong>Confluence</strong></td>
-<td>Space pages</td>
-<td><a href="confluence/">Confluence setup</a></td>
+<td><strong>Architectural Duplication</strong></td>
+<td>Similar functionality that already exists in other enrolled repos</td>
 </tr>
 <tr>
-<td><strong>Microsoft 365</strong></td>
-<td>Outlook mail, Teams messages, SharePoint sites, OneDrive folders, OneNote notebooks</td>
-<td><a href="microsoft-365/">Microsoft 365 setup</a></td>
-</tr>
-<tr>
-<td><strong>Database</strong></td>
-<td>Schemas + tables (MSSQL, MySQL, PostgreSQL)</td>
-<td><a href="database/">Database setup</a></td>
-</tr>
-<tr>
-<td><strong>ServiceNow</strong></td>
-<td>Published Knowledge Base articles + attachments</td>
-<td><a href="servicenow/">ServiceNow setup</a></td>
+<td><strong>License Compliance</strong></td>
+<td>Missing copyright headers, license policy, AI-generated-code detection via commit trailers</td>
 </tr>
 </tbody>
 </table>
-<h2 id="how-the-gating-works">How the gating works<a class="headerlink" href="#how-the-gating-works" title="Permanent link">&para;</a></h2>
-<p>Every integration is <strong>off by default</strong> in a fresh deploy. Each has its own tfvar --- <code>enable_github_integration</code>, <code>enable_azure_devops_integration</code>, etc. --- and setting the flag to <code>true</code> provisions the full backend surface (Lambdas, SQS, EventBridge, SSM parameters). Setting it to <code>false</code> (or leaving the default) provisions nothing.</p>
-<p>This is the SecOps story: <strong>nothing you don't enable exists in your AWS account.</strong> A reviewer can look at your tfvars and know exactly what surface has been provisioned. See <a href="../administration/integration-gating/">Integration Gating</a> for the full flag table.</p>
-<h2 id="pattern-for-every-integration-setup">Pattern for every integration setup<a class="headerlink" href="#pattern-for-every-integration-setup" title="Permanent link">&para;</a></h2>
-<p>The setup pages follow a consistent order:</p>
+<p>Which checks run is decided per-PR from the changed-file patterns --- a docs-only PR doesn't run test-coverage.</p>
+<h2 id="comment-behavior">Comment behavior<a class="headerlink" href="#comment-behavior" title="Permanent link">&para;</a></h2>
+<p>Two properties hold on all three providers:</p>
+<ul>
+<li><strong>Collapsed by default.</strong> Each comment is wrapped in a <code>&lt;details&gt;</code> block: reviewers see a one-line status (<code>⚠️ ADR COMPLIANCE: Found compliance issues...</code>) and expand only when they want the full findings.</li>
+<li><strong>Updated in place.</strong> Re-running checks on the same PR (e.g., after pushing a fix) updates the <em>existing</em> comments rather than stacking duplicates. One comment per check, always current.</li>
+</ul>
+<h2 id="the-trigger-contract">The trigger contract<a class="headerlink" href="#the-trigger-contract" title="Permanent link">&para;</a></h2>
+<p>Checks are triggered by invoking the <code>analyze-pr</code> Lambda. There is no public webhook endpoint for this --- the invoke runs inside your AWS account, authorized by IAM. The payload varies by provider:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">GitHub</label><label for="__tabbed_1_2">Azure DevOps</label><label for="__tabbed_1_3">GitLab</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><code>json
+{"pr_number": 123, "repository": "owner/repo"}</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>json
+{"pr_number": 42, "repository": "org/project/repo",
+ "provider": "azure_devops", "connection_id": "&lt;connection-id&gt;",
+ "ado_org": "org", "ado_project": "project", "ado_repo": "repo"}</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>json
+{"pr_number": 7, "repository": "group/subgroup/project",
+ "provider": "gitlab", "connection_id": "&lt;connection-id&gt;"}</code></p>
+</div>
+</div>
+</div>
+<p><code>pr_number</code> is the MR <code>iid</code> for GitLab. <code>connection_id</code> is shown in Workspace Settings → Integrations after connecting; it's opaque and not sensitive. AI-generated PRs (from the platform's own code-generation loop) trigger analysis automatically --- no CI wiring needed for those.</p>
+<h2 id="automating-from-ci">Automating from CI<a class="headerlink" href="#automating-from-ci" title="Permanent link">&para;</a></h2>
+<p>The common pattern for all three: give the pipeline an AWS identity with exactly one permission --- <code>lambda:InvokeFunction</code> on the <code>*-analyze-pr</code> function ARN --- and invoke on every PR/MR event. How the pipeline gets that identity depends on your environment:</p>
+<h3 id="github-actions-oidc-no-stored-keys">GitHub Actions (OIDC, no stored keys)<a class="headerlink" href="#github-actions-oidc-no-stored-keys" title="Permanent link">&para;</a></h3>
+<p>Best practice: federate GitHub's OIDC provider to an IAM role so no long-lived AWS keys live in GitHub secrets.</p>
 <ol>
-<li><strong>What this connects</strong> --- what content the integration ingests and what the platform does with it.</li>
-<li><strong>Prerequisites in the third-party system</strong> --- OAuth app, GitHub App, or Entra ID registration you configure before enabling the flag.</li>
-<li><strong>Handoff to the platform operator</strong> --- the tfvars they populate and the SSM SecureString they create.</li>
-<li><strong>Enable the flag and deploy</strong> --- Terraform apply.</li>
-<li><strong>Connect from the UI</strong> --- workspace admin walks the OAuth handshake and picks repos / projects / spaces / folders to include.</li>
-<li><strong>Common problems</strong> --- the errors people actually hit and how to resolve them.</li>
+<li>Create an IAM role with the invoke-only policy and a trust policy on <code>token.actions.githubusercontent.com</code> scoped to <code>repo:YOUR_ORG/YOUR_REPO:*</code>.</li>
+<li>Add a workflow triggered on <code>pull_request</code> that assumes the role via <code>aws-actions/configure-aws-credentials</code> and runs:</li>
 </ol>
-<p>Start with the integration you already have credentials for. Most customers begin with GitHub or Azure DevOps.</p>
+<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws-actions/configure-aws-credentials@v4</span>
+<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">role-to-assume</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_OIDC_ROLE_ARN }}</span>
+<span class="w">    </span><span class="nt">aws-region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-west-2</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">aws lambda invoke \</span>
+<span class="w">      </span><span class="no">--function-name prd-outcome-ops-ai-assist-analyze-pr \</span>
+<span class="w">      </span><span class="no">--cli-binary-format raw-in-base64-out \</span>
+<span class="w">      </span><span class="no">--payload &quot;{\&quot;pr_number\&quot;: ${{ github.event.pull_request.number }}, \&quot;repository\&quot;: \&quot;${{ github.repository }}\&quot;}&quot; \</span>
+<span class="w">      </span><span class="no">response.json &amp;&amp; cat response.json</span>
+</code></pre></div>
+
+<h3 id="gitlab-ci-oidc-or-stored-keys">GitLab CI (OIDC or stored keys)<a class="headerlink" href="#gitlab-ci-oidc-or-stored-keys" title="Permanent link">&para;</a></h3>
+<p>GitLab CI can also federate keylessly: declare an <code>id_tokens</code> block, create an IAM OIDC provider for <code>https://gitlab.com</code>, and trust <code>project_path:group/project:ref_type:branch</code>. Or use stored <code>AWS_ACCESS_KEY_ID</code>/<code>AWS_SECRET_ACCESS_KEY</code> CI variables with the invoke-only IAM user. The job itself is in the <a href="../../integrations/gitlab/#merge-request-analysis">GitLab setup guide</a>.</p>
+<h3 id="azure-pipelines-service-connection">Azure Pipelines (service connection)<a class="headerlink" href="#azure-pipelines-service-connection" title="Permanent link">&para;</a></h3>
+<p>Install the AWS Toolkit extension, create an AWS service connection backed by the invoke-only IAM identity, and add the <code>AWSShellScript@1</code> step from the <a href="../../integrations/azure-devops/#optional-post-pr-check-results-from-an-azure-pipeline">Azure DevOps setup guide</a>.</p>
+<h3 id="other-environments">Other environments<a class="headerlink" href="#other-environments" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Self-hosted runners inside AWS</strong> (EC2/ECS/EKS): skip credentials entirely --- attach the invoke-only policy to the runner's instance profile / task role.</li>
+<li><strong>CI in a different AWS account</strong> than the OutcomeOps deploy: put the invoke-only role in the deploy account with a trust policy on the CI account, and have the pipeline <code>sts:AssumeRole</code> across.</li>
+<li><strong>Manual / ad-hoc</strong>: anyone with the IAM permission can invoke from a terminal --- useful for retrying a check run without pushing a commit.</li>
+</ul>
+<h2 id="cost-visibility">Cost visibility<a class="headerlink" href="#cost-visibility" title="Permanent link">&para;</a></h2>
+<p>Each Claude-backed check appends its own usage to the comment (model, tokens, dollar cost), so per-PR review cost is visible right where the review lands. Pricing is env-var-driven for customers with negotiated Bedrock rates.</p>
 
 
 
@@ -1412,10 +1620,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.indexes", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.action.edit", "content.tabs.link"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.indexes", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.action.edit", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

@@ -741,15 +741,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#upgrading-the-scope-from-a-read-only-install" class="md-nav__link">
-    <span class="md-ellipsis">
-      Upgrading the scope from a read-only install
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#common-problems" class="md-nav__link">
     <span class="md-ellipsis">
       Common problems
@@ -909,6 +900,8 @@
       
         
       
+        
+      
     
     
       
@@ -1029,6 +1022,27 @@
   
   <span class="md-ellipsis">
     Code Generation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/pr-checks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PR Checks
   </span>
   
 
@@ -1372,15 +1386,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#upgrading-the-scope-from-a-read-only-install" class="md-nav__link">
-    <span class="md-ellipsis">
-      Upgrading the scope from a read-only install
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#common-problems" class="md-nav__link">
     <span class="md-ellipsis">
       Common problems
@@ -1446,7 +1451,7 @@
 <li><strong>Confidential:</strong> checked (the platform holds the secret server-side).</li>
 <li>
 <p><strong>Scopes: check <code>api</code>.</strong></p>
-<p>Why <code>api</code> and not a read-only scope: merge-request analysis posts and updates MR notes with the delegated token, and GitLab's OAuth scope catalog has no write scope narrower than <code>api</code> (<code>write_repository</code> covers git-protocol pushes, not the REST notes API). The token's effective reach is still capped by each connecting user's own GitLab permissions. If you enabled the integration before MR analysis existed, see <a href="#upgrading-the-scope-from-a-read-only-install">Upgrading the scope</a> below.</p>
+<p>Why <code>api</code> and not a read-only scope: merge-request analysis posts and updates MR notes with the delegated token, and GitLab's OAuth scope catalog has no write scope narrower than <code>api</code> (<code>write_repository</code> covers git-protocol pushes, not the REST notes API). The token's effective reach is still capped by each connecting user's own GitLab permissions.</p>
 </li>
 <li>
 <p>Click <strong>Save application</strong>, then copy the <strong>Application ID</strong> and <strong>Secret</strong>.</p>
@@ -1521,13 +1526,6 @@
 </code></pre></div>
 
 <p><code>OUTCOMEOPS_CONNECTION_ID</code> is the connection ID shown in Workspace Settings → Integrations after connecting. Opaque; not sensitive.</p>
-<h2 id="upgrading-the-scope-from-a-read-only-install">Upgrading the scope from a read-only install<a class="headerlink" href="#upgrading-the-scope-from-a-read-only-install" title="Permanent link">&para;</a></h2>
-<p>Deployments connected before MR analysis shipped used <code>read_api read_repository</code> scopes. Those tokens can ingest but cannot post MR notes (the API returns <code>403 Forbidden</code>). To upgrade:</p>
-<ol>
-<li>Edit the OAuth application in GitLab and check the <strong><code>api</code></strong> scope.</li>
-<li>Deploy the platform version that requests <code>api</code> (the authorize URL scope is baked into the code, not configurable).</li>
-<li>Each connected user clicks <strong>Reconnect GitLab</strong> in Workspace Settings once. Tokens minted under the old scopes stay read-only until re-authorized.</li>
-</ol>
 <h2 id="common-problems">Common problems<a class="headerlink" href="#common-problems" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1545,8 +1543,8 @@
 </tr>
 <tr>
 <td><code>403 Forbidden</code> posting MR notes</td>
-<td>Token minted under the old read-only scopes, or the connecting user lacks permission to comment on that project.</td>
-<td>Upgrade the scope (above) and reconnect; confirm the user can comment on the MR in the GitLab UI.</td>
+<td>The OAuth application was registered without the <code>api</code> scope, or the connecting user lacks permission to comment on that project.</td>
+<td>Add <code>api</code> to the application's scopes, then disconnect and reconnect the integration (a token keeps the scopes it was authorized with). Confirm the user can comment on the MR in the GitLab UI.</td>
 </tr>
 <tr>
 <td>Group missing from picker</td>
@@ -1556,7 +1554,7 @@
 <tr>
 <td><code>Connection lost: reconnect_required</code></td>
 <td>The stored refresh token was invalidated (e.g., the user revoked the authorization in GitLab).</td>
-<td>Any workspace admin clicks <strong>Reconnect GitLab</strong>.</td>
+<td>Disconnect the integration, then connect again. Note this removes and re-ingests the workspace's enrolled projects.</td>
 </tr>
 <tr>
 <td>Sync stuck after reconnect</td>
