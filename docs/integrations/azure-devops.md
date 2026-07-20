@@ -214,7 +214,7 @@ If you don't want to wire up Pipelines, users can trigger a PR check manually fr
 | `OAuth callback failed: redirect_uri mismatch` | The redirect URI on the Entra ID app doesn't match exactly. | Re-check the app registration's redirect URI. Match scheme (`https`), host, and path character-for-character. No trailing slash. |
 | `Approval required` / `Need admin approval` consent screen | Admin consent (Step 2.5) was not granted. | Go back to API permissions and click **Grant admin consent**. |
 | `invalid_resource` from Microsoft | Wrong API was added in Step 2. | Re-check API permissions --- should be **Azure DevOps**, not **Microsoft Graph**. |
-| `Connection lost: reconnect_required` | The user who connected hasn't used the integration in ~90 days; Entra ID expired the refresh token. | Any workspace admin clicks **Reconnect Azure DevOps** in Workspace Settings. |
+| `Connection lost: reconnect_required` | The user who connected hasn't used the integration in ~90 days; Entra ID expired the refresh token. | Disconnect the integration in Workspace Settings, then connect again. Note this removes and re-ingests the workspace's enrolled repos. |
 | `Pull request comment not posting` | The connected user lacks PR-comment permission in the target repo. | Verify the user has Contributor on the project, then have an ADO admin re-run admin consent. |
 | `Repo missing from picker` | The connected user lacks read access to that repo in ADO. | Grant the user read on the repo; the picker will see it on the next refresh. |
 | `Client secret authentication failed` | Secret expired, or was pasted with leading/trailing whitespace into SSM. | Regenerate per Step 3 and re-run the SSM `put-parameter` command. |

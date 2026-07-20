@@ -32,7 +32,7 @@ Time budget: **~15 minutes** for the app registration and handoff.
 4. **Confidential:** checked (the platform holds the secret server-side).
 5. **Scopes: check `api`.**
 
-    Why `api` and not a read-only scope: merge-request analysis posts and updates MR notes with the delegated token, and GitLab's OAuth scope catalog has no write scope narrower than `api` (`write_repository` covers git-protocol pushes, not the REST notes API). The token's effective reach is still capped by each connecting user's own GitLab permissions. If you enabled the integration before MR analysis existed, see [Upgrading the scope](#upgrading-the-scope-from-a-read-only-install) below.
+    Why `api` and not a read-only scope: merge-request analysis posts and updates MR notes with the delegated token, and GitLab's OAuth scope catalog has no write scope narrower than `api` (`write_repository` covers git-protocol pushes, not the REST notes API). The token's effective reach is still capped by each connecting user's own GitLab permissions.
 
 6. Click **Save application**, then copy the **Application ID** and **Secret**.
 
@@ -103,22 +103,14 @@ outcomeops-mr-check:
 
 `OUTCOMEOPS_CONNECTION_ID` is the connection ID shown in Workspace Settings → Integrations after connecting. Opaque; not sensitive.
 
-## Upgrading the scope from a read-only install
-
-Deployments connected before MR analysis shipped used `read_api read_repository` scopes. Those tokens can ingest but cannot post MR notes (the API returns `403 Forbidden`). To upgrade:
-
-1. Edit the OAuth application in GitLab and check the **`api`** scope.
-2. Deploy the platform version that requests `api` (the authorize URL scope is baked into the code, not configurable).
-3. Each connected user clicks **Reconnect GitLab** in Workspace Settings once. Tokens minted under the old scopes stay read-only until re-authorized.
-
 ## Common problems
 
 | Error | Cause | Fix |
 | --- | --- | --- |
 | `redirect_uri mismatch` on callback | Redirect URI on the application doesn't match exactly. | Match scheme, host, and path character-for-character; no trailing slash. |
-| `403 Forbidden` posting MR notes | Token minted under the old read-only scopes, or the connecting user lacks permission to comment on that project. | Upgrade the scope (above) and reconnect; confirm the user can comment on the MR in the GitLab UI. |
+| `403 Forbidden` posting MR notes | The OAuth application was registered without the `api` scope, or the connecting user lacks permission to comment on that project. | Add `api` to the application's scopes, then disconnect and reconnect the integration (a token keeps the scopes it was authorized with). Confirm the user can comment on the MR in the GitLab UI. |
 | Group missing from picker | The connecting user has less than Reporter access to the group. | Reporter or higher is the enrollment floor (read access to code). |
-| `Connection lost: reconnect_required` | The stored refresh token was invalidated (e.g., the user revoked the authorization in GitLab). | Any workspace admin clicks **Reconnect GitLab**. |
+| `Connection lost: reconnect_required` | The stored refresh token was invalidated (e.g., the user revoked the authorization in GitLab). | Disconnect the integration, then connect again. Note this removes and re-ingests the workspace's enrolled projects. |
 | Sync stuck after reconnect | GitLab rotates refresh tokens on every refresh; the platform serializes refreshes automatically. If a connection was poisoned by a pre-v1.1 deploy, disconnect and reconnect once. | Disconnect → Connect GitLab. |
 
 ## Disconnecting
