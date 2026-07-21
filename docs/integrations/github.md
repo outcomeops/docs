@@ -29,7 +29,8 @@ The GitHub App does **not**:
 
 ## Public GitHub vs. GitHub Enterprise
 
-Both are supported. The setup steps below reference `github.com` URLs; for GitHub Enterprise Server, substitute your instance's URL throughout (`https://ghe.your-company.com/organizations/...`), and set the corresponding tfvar so the platform's Lambdas talk to your GHES API instead of `api.github.com`.
+- **github.com (SaaS, including GitHub Enterprise Cloud)** is the certified target.
+- **GitHub Enterprise Server (self-hosted)** is configurable but not yet certified end-to-end. Set `github_base_url = "https://ghe.your-company.com"` in tfvars; the platform derives the REST API as `{base}/api/v3`, fetches raw content through the contents API (GHES has no `raw.githubusercontent.com` host), and builds clone URLs against your instance host. Two GHES-specific caveats: the GitHub App in Step 1 must be **registered on your GHES instance** (App IDs, private keys, and webhook secrets are per-instance, not shared with github.com), and the setup steps below reference `github.com` URLs — substitute your instance's URL throughout.
 
 ## Step 1: Create the GitHub App
 
