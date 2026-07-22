@@ -13,7 +13,8 @@ Time budget: **~15 minutes** for the app registration and handoff.
 
 ## What is and isn't supported
 
-- **gitlab.com (SaaS) is the certified target.** Self-managed GitLab is configurable via the `gitlab_base_url` tfvar but not yet certified end-to-end.
+- **gitlab.com (SaaS) is the certified target.** Self-managed GitLab is configurable and works via the same integration; formal end-to-end certification is in progress.
+- **Multiple GitLab instances at once.** One deployment can connect gitlab.com AND one or more self-managed GitLab servers simultaneously (via the `gitlab_instances` tfvar list) — for acquisitions, migrations, or a public/regulated split. Each instance needs its own OAuth application (on that instance) and its own client-secret parameter. One caveat: a project with the same final path segment (e.g. `.../api`) can't be enrolled into the *same workspace* from two different instances — put them in separate workspaces.
 - **Nested subgroups are fully supported.** Project paths of any depth (`group/subgroup/subsubgroup/project`) work everywhere --- enrollment, ingest, chat citations, and MR checks.
 - **Polling + manual triggers only.** Sync runs hourly, plus manual "Sync Now" from the UI. The platform does not subscribe to GitLab webhooks.
 - **Merge-request analysis** posts the same six AI checks as GitHub/ADO PRs, as collapsed MR notes that update in place on every push (no duplicate comments).
@@ -36,6 +37,8 @@ Time budget: **~15 minutes** for the app registration and handoff.
 
 6. Click **Save application**, then copy the **Application ID** and **Secret**.
 
+    (For a **multi-instance** deploy, repeat Step 1 on each GitLab instance — every instance has its own OAuth application, Application ID, and secret.)
+
 ## Step 2: Handoff to the platform operator
 
 | What | Goes into |
@@ -52,6 +55,20 @@ gitlab_client_id          = "<application-id>"
 # gitlab_base_url                = "https://gitlab.example.com"  # self-managed
 # gitlab_client_secret_ssm_param = "/custom/path"                # operator-managed secret path
 ```
+
+For **multiple instances**, use the list form instead of the single
+`gitlab_client_id`:
+
+```hcl
+enable_gitlab_integration = true
+gitlab_instances = [
+  { id = "saas",     display_name = "GitLab.com",        base_url = "https://gitlab.com",         client_id = "<saas-app-id>",     client_secret_ssm_param = "/prd/outcome-ops-ai-assist/gitlab/client-secret" },
+  { id = "internal", display_name = "GitLab (internal)", base_url = "https://gitlab.example.com", client_id = "<internal-app-id>", client_secret_ssm_param = "/prd/outcome-ops-ai-assist/gitlab/client-secret-internal" },
+]
+```
+
+The Integrations UI then shows a "Connect" button per instance, and each
+connection is labeled with its instance.
 
 By default terraform creates a **placeholder** SSM parameter at `/{env}/outcome-ops-ai-assist/gitlab/client-secret` and never overwrites its value; the operator sets the real secret after the first apply:
 
