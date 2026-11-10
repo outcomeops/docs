@@ -1579,8 +1579,8 @@
 <h2 id="step-2-put-the-client-secret-in-ssm">Step 2: Put the client secret in SSM<a class="headerlink" href="#step-2-put-the-client-secret-in-ssm" title="Permanent link">&para;</a></h2>
 <p>The platform reads the client_secret from SSM SecureString at cold start. Put it in there:</p>
 <div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/oauth/servicenow/client-secret&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;&lt;the client_secret from Step 1&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/oauth/servicenow/client-secret"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">"&lt;the client_secret from Step 1&gt;"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--type<span class="w"> </span>SecureString<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--overwrite<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--region<span class="w"> </span>us-west-2
@@ -1592,10 +1592,10 @@
 <div class="codehilite"><pre><span></span><code><span class="na">enable_servicenow_integration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
 
 <span class="c1"># Your ServiceNow instance URL (no trailing slash)</span>
-<span class="na">servicenow_instance_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://acme.service-now.com&quot;</span>
+<span class="na">servicenow_instance_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"https://acme.service-now.com"</span>
 
 <span class="c1"># The Client ID from Step 1 (public, not a secret)</span>
-<span class="na">servicenow_oauth_client_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="na">servicenow_oauth_client_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"..."</span>
 </code></pre></div>
 
 <h2 id="step-4-enable-and-deploy">Step 4: Enable and deploy<a class="headerlink" href="#step-4-enable-and-deploy" title="Permanent link">&para;</a></h2>

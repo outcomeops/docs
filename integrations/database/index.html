@@ -1653,7 +1653,7 @@
 <h2 id="step-1-create-a-read-only-database-user">Step 1: Create a read-only database user<a class="headerlink" href="#step-1-create-a-read-only-database-user" title="Permanent link">&para;</a></h2>
 <p>The platform reads schema metadata via a dedicated read-only user, never the database owner or a shared app user.</p>
 <h3 id="postgresql">PostgreSQL<a class="headerlink" href="#postgresql" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;&lt;strong-password&gt;&#39;</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">'&lt;strong-password&gt;'</span><span class="p">;</span>
 <span class="k">GRANT</span><span class="w"> </span><span class="k">CONNECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">your_db</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="p">;</span>
 
 <span class="c1">-- For each schema you want to expose:</span>
@@ -1666,14 +1666,14 @@
 </code></pre></div>
 
 <h3 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;outcomeops_reader&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;&lt;strong-password&gt;&#39;</span><span class="p">;</span>
-<span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">your_db</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;outcomeops_reader&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">'outcomeops_reader'</span><span class="o">@</span><span class="s1">'%'</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">'&lt;strong-password&gt;'</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">your_db</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">'outcomeops_reader'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
 <span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span>
 </code></pre></div>
 
 <h3 id="sql-server">SQL Server<a class="headerlink" href="#sql-server" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="n">USE</span><span class="w"> </span><span class="n">master</span><span class="p">;</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;strong-password&gt;&#39;</span><span class="p">;</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'&lt;strong-password&gt;'</span><span class="p">;</span>
 
 <span class="n">USE</span><span class="w"> </span><span class="n">your_db</span><span class="p">;</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">outcomeops_reader</span><span class="p">;</span>
@@ -1684,8 +1684,8 @@
 <h2 id="step-2-store-the-password-in-ssm">Step 2: Store the password in SSM<a class="headerlink" href="#step-2-store-the-password-in-ssm" title="Permanent link">&para;</a></h2>
 <p>The platform reads credentials from SSM at connect time. Put the password in a SecureString:</p>
 <div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/database/production-postgres-password&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;&lt;the password from Step 1&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/database/production-postgres-password"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">"&lt;the password from Step 1&gt;"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--type<span class="w"> </span>SecureString<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--key-id<span class="w"> </span>alias/aws/ssm<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--region<span class="w"> </span>us-west-2
@@ -1695,8 +1695,8 @@
 <h2 id="step-3-optional-upload-your-ca-bundle">Step 3: (Optional) Upload your CA bundle<a class="headerlink" href="#step-3-optional-upload-your-ca-bundle" title="Permanent link">&para;</a></h2>
 <p>If your database sits behind a private CA (typical for enterprise-managed RDS or Aurora deployments with internal certificate authorities), upload the CA bundle:</p>
 <div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/database/ca-bundle&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span>internal-ca-bundle.pem<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/database/ca-bundle"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>cat<span class="w"> </span>internal-ca-bundle.pem<span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--type<span class="w"> </span>String<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--region<span class="w"> </span>us-west-2
 </code></pre></div>
@@ -1706,7 +1706,7 @@
 <div class="codehilite"><pre><span></span><code><span class="na">enable_database_integration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
 
 <span class="c1"># Optional -- schema-drift SNS topic subscription</span>
-<span class="na">database_drift_notification_emails</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;dba-team@example.com&quot;</span><span class="p">]</span>
+<span class="na">database_drift_notification_emails</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"dba-team@example.com"</span><span class="p">]</span>
 </code></pre></div>
 
 <div class="codehilite"><pre><span></span><code>terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span class="o">=</span>prd.tfvars

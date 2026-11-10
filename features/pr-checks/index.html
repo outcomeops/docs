@@ -1462,7 +1462,7 @@
 </tr>
 <tr>
 <td><strong>Breaking Changes</strong></td>
-<td>Modified/removed handlers with downstream dependents</td>
+<td>A changed or removed symbol (function, method, class) whose callers are found in the code-map symbol graph --- including callers in <em>other</em> enrolled repositories. A signature change to a shared library flags the repos that consume it.</td>
 </tr>
 <tr>
 <td><strong>Architectural Duplication</strong></td>
@@ -1475,6 +1475,7 @@
 </tbody>
 </table>
 <p>Which checks run is decided per-PR from the changed-file patterns --- a docs-only PR doesn't run test-coverage.</p>
+<p><strong>Breaking Changes and Architectural Duplication are grounded in the code-map symbol graph, not keyword matching, and they reach across repository boundaries.</strong> A change to a shared library is analyzed against the symbol graph of every repo that consumes it --- including libraries shared across workspaces or published to a global workspace --- so the consuming repos are named on the PR that makes the change, before it reaches those teams. A library is discovered and indexed with no <code>.outcomeops.yaml</code> required. Cross-repo resolution covers Python, TypeScript, Java, C#, and Go.</p>
 <h2 id="comment-behavior">Comment behavior<a class="headerlink" href="#comment-behavior" title="Permanent link">&para;</a></h2>
 <p>Two properties hold on all three providers:</p>
 <ul>
@@ -1519,7 +1520,7 @@
 <span class="w">    </span><span class="no">aws lambda invoke \</span>
 <span class="w">      </span><span class="no">--function-name prd-outcome-ops-ai-assist-analyze-pr \</span>
 <span class="w">      </span><span class="no">--cli-binary-format raw-in-base64-out \</span>
-<span class="w">      </span><span class="no">--payload &quot;{\&quot;pr_number\&quot;: ${{ github.event.pull_request.number }}, \&quot;repository\&quot;: \&quot;${{ github.repository }}\&quot;}&quot; \</span>
+<span class="w">      </span><span class="no">--payload "{\"pr_number\": ${{ github.event.pull_request.number }}, \"repository\": \"${{ github.repository }}\"}" \</span>
 <span class="w">      </span><span class="no">response.json &amp;&amp; cat response.json</span>
 </code></pre></div>
 

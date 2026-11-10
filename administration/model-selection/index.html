@@ -1680,13 +1680,13 @@
 <h3 id="step-1-confirm-region-availability">Step 1: Confirm region availability<a class="headerlink" href="#step-1-confirm-region-availability" title="Permanent link">&para;</a></h3>
 <p>OpenAI on Bedrock is currently <strong>us-east-2 only</strong> at time of writing. Verify:</p>
 <div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>bedrock<span class="w"> </span>list-foundation-models<span class="w"> </span>--region<span class="w"> </span>us-east-2<span class="w"> </span>--by-provider<span class="w"> </span>openai<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;modelSummaries[].modelId&#39;</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">'modelSummaries[].modelId'</span>
 </code></pre></div>
 
 <p>You should see <code>openai.gpt-5.5</code> and <code>openai.gpt-5.4</code> in the output. If your deploy is in a different region and OpenAI isn't available there, either move the deploy or stay on Claude.</p>
 <h3 id="step-2-update-the-model-tfvars">Step 2: Update the model tfvars<a class="headerlink" href="#step-2-update-the-model-tfvars" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="na">bedrock_advanced_model_id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;openai.gpt-5.5&quot;</span>
-<span class="na">bedrock_basic_model_id</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;openai.gpt-5.4&quot;</span>
+<div class="codehilite"><pre><span></span><code><span class="na">bedrock_advanced_model_id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"openai.gpt-5.5"</span>
+<span class="na">bedrock_basic_model_id</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">"openai.gpt-5.4"</span>
 </code></pre></div>
 
 <h3 id="step-3-update-the-pricing-tfvars">Step 3: Update the pricing tfvars<a class="headerlink" href="#step-3-update-the-pricing-tfvars" title="Permanent link">&para;</a></h3>
@@ -1700,7 +1700,7 @@
 <p>Verify current rates at <a href="https://aws.amazon.com/bedrock/pricing/">aws.amazon.com/bedrock/pricing</a> --- Bedrock rates do change, and stale tfvars mean stale cost dashboards.</p>
 <h3 id="step-4-set-the-default-backend">Step 4: Set the default backend<a class="headerlink" href="#step-4-set-the-default-backend" title="Permanent link">&para;</a></h3>
 <p>OpenAI on Bedrock uses the <code>/v1/responses</code> API surface, not the Converse API that Claude uses. The shared model client abstraction picks a backend based on the model prefix, but you can pin it explicitly:</p>
-<div class="codehilite"><pre><span></span><code><span class="na">bedrock_default_backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;responses&quot;</span>
+<div class="codehilite"><pre><span></span><code><span class="na">bedrock_default_backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"responses"</span>
 </code></pre></div>
 
 <p>For Claude deployments, this stays <code>converse</code> (the default). For OpenAI, <code>responses</code> is required.</p>
@@ -1727,15 +1727,15 @@ terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span cla
 <h3 id="storing-it-in-ssm">Storing it in SSM<a class="headerlink" href="#storing-it-in-ssm" title="Permanent link">&para;</a></h3>
 <p>The operator creates the SSM SecureString:</p>
 <div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/mantle/api-key&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;&lt;the Mantle API key&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/mantle/api-key"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">"&lt;the Mantle API key&gt;"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--type<span class="w"> </span>SecureString<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--key-id<span class="w"> </span>alias/aws/ssm<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--region<span class="w"> </span>us-east-2
 </code></pre></div>
 
 <p>Tfvars reference the parameter name (not the value):</p>
-<div class="codehilite"><pre><span></span><code><span class="na">mantle_api_key_ssm_param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/mantle/api-key&quot;</span>
+<div class="codehilite"><pre><span></span><code><span class="na">mantle_api_key_ssm_param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/mantle/api-key"</span>
 </code></pre></div>
 
 <p>The Lambdas that call OpenAI-on-Bedrock read the key at cold start and cache it in memory.</p>
@@ -1764,9 +1764,9 @@ aws ssm put-parameter \
 <p>For some deployments, Bedrock accepts a long-lived API key directly (not going through Mantle). If your account is eligible, the same rotation procedure applies --- the SSM parameter path just holds a Bedrock API key instead of a Mantle key.</p>
 <h2 id="switching-back-to-claude">Switching back to Claude<a class="headerlink" href="#switching-back-to-claude" title="Permanent link">&para;</a></h2>
 <p>Reverse the tfvars:</p>
-<div class="codehilite"><pre><span></span><code><span class="na">bedrock_advanced_model_id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;us.anthropic.claude-sonnet-4-6&quot;</span>
-<span class="na">bedrock_basic_model_id</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;us.anthropic.claude-haiku-4-5-20251001-v1:0&quot;</span>
-<span class="na">bedrock_default_backend</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;converse&quot;</span>
+<div class="codehilite"><pre><span></span><code><span class="na">bedrock_advanced_model_id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"us.anthropic.claude-sonnet-4-6"</span>
+<span class="na">bedrock_basic_model_id</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">"us.anthropic.claude-haiku-4-5-20251001-v1:0"</span>
+<span class="na">bedrock_default_backend</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"converse"</span>
 
 <span class="na">bedrock_advanced_input_price</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nv">3.00</span>
 <span class="na">bedrock_advanced_output_price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">15.00</span>

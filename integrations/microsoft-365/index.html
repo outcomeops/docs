@@ -1616,7 +1616,7 @@
 <h2 id="step-5-handoff-to-the-platform-operator">Step 5: Handoff to the platform operator<a class="headerlink" href="#step-5-handoff-to-the-platform-operator" title="Permanent link">&para;</a></h2>
 <p>Tfvars:</p>
 <div class="codehilite"><pre><span></span><code><span class="c1"># Shared: apply to all five M365 surfaces</span>
-<span class="na">microsoft_oauth_client_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;Client ID from Step 1.7&gt;&quot;</span>
+<span class="na">microsoft_oauth_client_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;Client ID from Step 1.7&gt;"</span>
 
 <span class="c1"># Per-surface flags: enable only what you need</span>
 <span class="na">enable_outlook_integration</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
@@ -1628,8 +1628,8 @@
 
 <p>The tenant ID and client secret land in SSM:</p>
 <div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/oauth/microsoft/client-secret&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;&lt;the Client Secret from Step 4&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/oauth/microsoft/client-secret"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">"&lt;the Client Secret from Step 4&gt;"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--type<span class="w"> </span>SecureString<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--key-id<span class="w"> </span>alias/aws/ssm<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--region<span class="w"> </span>us-west-2

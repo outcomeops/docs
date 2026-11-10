@@ -1529,17 +1529,17 @@
 <p>Terraform stores its state in S3. Create the bucket manually before the first apply --- Terraform can't manage the bucket that stores its own state.</p>
 <p><strong>One bucket per app + region.</strong> Terraform workspaces (Step 4) namespace state within the bucket via <code>env:/dev/...</code> and <code>env:/prd/...</code> prefixes, so you don't need a separate bucket per environment.</p>
 <div class="codehilite"><pre><span></span><code><span class="nv">ACCOUNT_ID</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>sts<span class="w"> </span>get-caller-identity<span class="w"> </span>--query<span class="w"> </span>Account<span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
-<span class="nv">REGION</span><span class="o">=</span><span class="s2">&quot;us-west-2&quot;</span>
-<span class="nv">APP</span><span class="o">=</span><span class="s2">&quot;outcome-ops-ai-assist&quot;</span>
-<span class="nv">BUCKET</span><span class="o">=</span><span class="s2">&quot;terraform-state-</span><span class="si">${</span><span class="nv">ACCOUNT_ID</span><span class="si">}</span><span class="s2">-</span><span class="si">${</span><span class="nv">REGION</span><span class="si">}</span><span class="s2">-</span><span class="si">${</span><span class="nv">APP</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nv">REGION</span><span class="o">=</span><span class="s2">"us-west-2"</span>
+<span class="nv">APP</span><span class="o">=</span><span class="s2">"outcome-ops-ai-assist"</span>
+<span class="nv">BUCKET</span><span class="o">=</span><span class="s2">"terraform-state-</span><span class="si">${</span><span class="nv">ACCOUNT_ID</span><span class="si">}</span><span class="s2">-</span><span class="si">${</span><span class="nv">REGION</span><span class="si">}</span><span class="s2">-</span><span class="si">${</span><span class="nv">APP</span><span class="si">}</span><span class="s2">"</span>
 
-aws<span class="w"> </span>s3api<span class="w"> </span>create-bucket<span class="w"> </span>--bucket<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">BUCKET</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>--region<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">REGION</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--create-bucket-configuration<span class="w"> </span><span class="nv">LocationConstraint</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">REGION</span><span class="si">}</span><span class="s2">&quot;</span>
+aws<span class="w"> </span>s3api<span class="w"> </span>create-bucket<span class="w"> </span>--bucket<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">BUCKET</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--region<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">REGION</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--create-bucket-configuration<span class="w"> </span><span class="nv">LocationConstraint</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">REGION</span><span class="si">}</span><span class="s2">"</span>
 
-aws<span class="w"> </span>s3api<span class="w"> </span>put-bucket-versioning<span class="w"> </span>--bucket<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">BUCKET</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+aws<span class="w"> </span>s3api<span class="w"> </span>put-bucket-versioning<span class="w"> </span>--bucket<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">BUCKET</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--versioning-configuration<span class="w"> </span><span class="nv">Status</span><span class="o">=</span>Enabled
 
-aws<span class="w"> </span>s3api<span class="w"> </span>put-public-access-block<span class="w"> </span>--bucket<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">BUCKET</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+aws<span class="w"> </span>s3api<span class="w"> </span>put-public-access-block<span class="w"> </span>--bucket<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">BUCKET</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--public-access-block-configuration<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="nv">BlockPublicAcls</span><span class="o">=</span>true,IgnorePublicAcls<span class="o">=</span>true,BlockPublicPolicy<span class="o">=</span>true,RestrictPublicBuckets<span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
@@ -1547,41 +1547,41 @@ aws<span class="w"> </span>s3api<span class="w"> </span>put-public-access-block<
 <h2 id="step-2-store-the-license-key-in-ssm">Step 2: Store the license key in SSM<a class="headerlink" href="#step-2-store-the-license-key-in-ssm" title="Permanent link">&para;</a></h2>
 <p>The license key is sensitive. Put it in Systems Manager Parameter Store as a <code>SecureString</code>; Terraform reads only the parameter name, never the value.</p>
 <div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/license/key&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/license/key"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--type<span class="w"> </span>SecureString<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;&lt;paste the JWT here&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">"&lt;paste the JWT here&gt;"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--region<span class="w"> </span>us-west-2
 </code></pre></div>
 
 <h2 id="step-3-prepare-your-prdtfvars">Step 3: Prepare your <code>prd.tfvars</code><a class="headerlink" href="#step-3-prepare-your-prdtfvars" title="Permanent link">&para;</a></h2>
 <p>Copy <code>terraform/prd.tfvars.example</code> to <code>terraform/prd.tfvars</code> and fill it in. A minimal file looks like:</p>
-<div class="codehilite"><pre><span></span><code><span class="na">environment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;prd&quot;</span>
-<span class="na">aws_region</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;us-west-2&quot;</span>
+<div class="codehilite"><pre><span></span><code><span class="na">environment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"prd"</span>
+<span class="na">aws_region</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"us-west-2"</span>
 
 <span class="c1"># License</span>
-<span class="na">outcomeops_license_layer_arn</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;arn:aws:lambda:us-west-2:&lt;layer-account&gt;:layer:prd-outcomeops-license-validator-v2-0-0:4&quot;</span>
-<span class="na">outcomeops_license_ssm_param</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/license/key&quot;</span>
-<span class="na">outcomeops_license_server_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://license.outcomeops.ai&quot;</span>
+<span class="na">outcomeops_license_layer_arn</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"arn:aws:lambda:us-west-2:&lt;layer-account&gt;:layer:prd-outcomeops-license-validator-v2-0-0:4"</span>
+<span class="na">outcomeops_license_ssm_param</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/license/key"</span>
+<span class="na">outcomeops_license_server_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"https://license.outcomeops.ai"</span>
 
 <span class="c1"># Core</span>
 <span class="na">enable_workspaces</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
-<span class="na">initial_org_admin_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;you@yourdomain.com&quot;</span>
+<span class="na">initial_org_admin_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"you@yourdomain.com"</span>
 
 <span class="c1"># UI</span>
 <span class="na">deploy_ui</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
-<span class="na">ui_vpc_id</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;vpc-xxxxxxxxxxxxxxxxx&quot;</span>
+<span class="na">ui_vpc_id</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">"vpc-xxxxxxxxxxxxxxxxx"</span>
 <span class="na">ui_private_subnet_ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">  </span><span class="s2">&quot;subnet-xxxxxxxxxxxxxxxxx&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="s2">&quot;subnet-xxxxxxxxxxxxxxxxx&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="s2">&quot;subnet-xxxxxxxxxxxxxxxxx&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"subnet-xxxxxxxxxxxxxxxxx"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"subnet-xxxxxxxxxxxxxxxxx"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"subnet-xxxxxxxxxxxxxxxxx"</span><span class="p">,</span>
 <span class="p">]</span>
-<span class="na">ui_container_image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;account&gt;.dkr.ecr.us-west-2.amazonaws.com/prd-outcome-ops-ai-assist-chat-ui:latest&quot;</span>
+<span class="na">ui_container_image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;account&gt;.dkr.ecr.us-west-2.amazonaws.com/prd-outcome-ops-ai-assist-chat-ui:latest"</span>
 
 <span class="c1"># OIDC</span>
-<span class="na">domain</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;example.com&quot;</span>
+<span class="na">domain</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s2">"example.com"</span>
 <span class="na">oidc_enabled</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
-<span class="na">oidc_client_id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;Azure AD app client ID&gt;&quot;</span>
-<span class="na">oidc_tenant_id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;Azure AD tenant ID&gt;&quot;</span>
+<span class="na">oidc_client_id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;Azure AD app client ID&gt;"</span>
+<span class="na">oidc_tenant_id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;Azure AD tenant ID&gt;"</span>
 
 <span class="c1"># Integrations (all default false -- opt in only what you use)</span>
 <span class="na">enable_github_integration</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>

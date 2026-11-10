@@ -1661,11 +1661,11 @@
 <p><strong>No global tables.</strong> The topology avoids DynamoDB global tables intentionally --- global tables had a public outage in October 2025 that caused cross-region failures for many customers, and the failure mode surfaced only during failover. The current design uses per-region tables with EventBridge as the transport, so a region-level DDB outage stays contained.</p>
 <h2 id="enabling-ha">Enabling HA<a class="headerlink" href="#enabling-ha" title="Permanent link">&para;</a></h2>
 <p>Set the secondary region in your tfvars and re-apply Terraform. Everything else the platform needs (KMS replica keys, per-region SSM SecureStrings, AppConfig role flags) is provisioned as part of the same apply.</p>
-<div class="codehilite"><pre><span></span><code><span class="na">secondary_region</span><span class="w">                        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;us-east-2&quot;</span>
-<span class="na">outcomeops_license_layer_arn_secondary</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;arn:aws:lambda:us-east-2:&lt;layer-account&gt;:layer:prd-outcomeops-license-validator-v2-0-0:4&quot;</span>
-<span class="na">ui_vpc_id_secondary</span><span class="w">                     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;vpc-xxxxxxxxxxxxxxxxx&quot;</span>
-<span class="na">ui_private_subnet_ids_secondary</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;subnet-xxx&quot;, &quot;subnet-xxx&quot;, &quot;subnet-xxx&quot;</span><span class="p">]</span>
-<span class="na">ui_container_image_secondary</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;account&gt;.dkr.ecr.us-east-2.amazonaws.com/prd-outcome-ops-ai-assist-chat-ui:latest&quot;</span>
+<div class="codehilite"><pre><span></span><code><span class="na">secondary_region</span><span class="w">                        </span><span class="o">=</span><span class="w"> </span><span class="s2">"us-east-2"</span>
+<span class="na">outcomeops_license_layer_arn_secondary</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"arn:aws:lambda:us-east-2:&lt;layer-account&gt;:layer:prd-outcomeops-license-validator-v2-0-0:4"</span>
+<span class="na">ui_vpc_id_secondary</span><span class="w">                     </span><span class="o">=</span><span class="w"> </span><span class="s2">"vpc-xxxxxxxxxxxxxxxxx"</span>
+<span class="na">ui_private_subnet_ids_secondary</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"subnet-xxx", "subnet-xxx", "subnet-xxx"</span><span class="p">]</span>
+<span class="na">ui_container_image_secondary</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;account&gt;.dkr.ecr.us-east-2.amazonaws.com/prd-outcome-ops-ai-assist-chat-ui:latest"</span>
 </code></pre></div>
 
 <p>The <code>_secondary</code> variants of the OAuth SSM parameters (Atlassian client secret, Microsoft client secret, GitHub App private key, etc.) get their initial values via a one-time bootstrap script the operator runs after the first HA apply --- see the operator handoff kit for the exact commands.</p>
@@ -1698,9 +1698,9 @@
 <p><strong>AppConfig → Applications → <code>${env}-${app}-ha</code> → Environment <code>${env}</code> → Profile <code>active-region</code> → Create new hosted configuration version</strong></p>
 <p>Content:</p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;schema_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;active&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;activated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;current ISO 8601 timestamp&gt;&quot;</span>
+<span class="w">  </span><span class="nt">"schema_version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"activated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;current ISO 8601 timestamp&gt;"</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -1708,9 +1708,9 @@
 <h3 id="step-3-flip-the-primary-regions-appconfig-role-to-passive">Step 3: Flip the primary region's AppConfig role to <code>passive</code><a class="headerlink" href="#step-3-flip-the-primary-regions-appconfig-role-to-passive" title="Permanent link">&para;</a></h3>
 <p>Same procedure, but in the primary region's AppConfig:</p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;schema_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;passive&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;activated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;current ISO 8601 timestamp&gt;&quot;</span>
+<span class="w">  </span><span class="nt">"schema_version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passive"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"activated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;current ISO 8601 timestamp&gt;"</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -1764,7 +1764,7 @@ AWS_PROFILE=ops ENV=prd make ha-status</code></p>
 <div class="codehilite"><pre><span></span><code><span class="nv">AWS_PROFILE</span><span class="o">=</span>ops<span class="w"> </span><span class="nv">ENV</span><span class="o">=</span>prd<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="nv">REGION</span><span class="o">=</span>us-east-2<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="nv">QUEUE</span><span class="o">=</span>prd-outcome-ops-ai-assist-replication-applier-dlq<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="nv">ARGS</span><span class="o">=</span><span class="s2">&quot;--dry-run&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">ARGS</span><span class="o">=</span><span class="s2">"--dry-run"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>make<span class="w"> </span>ha-replay-dlq
 </code></pre></div>
 

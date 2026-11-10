@@ -1679,17 +1679,17 @@
 </table>
 <p>The operator populates the tfvars file (<code>prd.tfvars</code> for production, or the equivalent for your environment):</p>
 <div class="codehilite"><pre><span></span><code><span class="na">enable_azure_devops_integration</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
-<span class="na">azure_devops_tenant_id</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;tenant-id-uuid&gt;&quot;</span>
-<span class="na">azure_devops_client_id</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;client-id-uuid&gt;&quot;</span>
-<span class="na">azure_devops_client_secret_ssm_param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/azure-devops/client-secret&quot;</span>
-<span class="na">azure_devops_redirect_uri</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://&lt;your-app-fqdn&gt;/api/azure-devops/callback&quot;</span>
+<span class="na">azure_devops_tenant_id</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;tenant-id-uuid&gt;"</span>
+<span class="na">azure_devops_client_id</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;client-id-uuid&gt;"</span>
+<span class="na">azure_devops_client_secret_ssm_param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/azure-devops/client-secret"</span>
+<span class="na">azure_devops_redirect_uri</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">"https://&lt;your-app-fqdn&gt;/api/azure-devops/callback"</span>
 </code></pre></div>
 
 <p>The <code>enable_azure_devops_integration</code> flag gates the entire Azure DevOps Repos backend surface. See <a href="../../administration/integration-gating/">Integration Gating</a> for the full flag list.</p>
 <p>The SSM parameter name is the path that holds the client secret; the operator creates it manually. Terraform does not create or manage the secret value:</p>
 <div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/azure-devops/client-secret&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;&lt;the secret value you handed off&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/azure-devops/client-secret"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">"&lt;the secret value you handed off&gt;"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--type<span class="w"> </span>SecureString<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--key-id<span class="w"> </span>alias/aws/ssm<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--region<span class="w"> </span>us-west-2
@@ -1747,31 +1747,31 @@
 <h2 id="optional-post-pr-check-results-from-an-azure-pipeline">Optional: post PR-check results from an Azure Pipeline<a class="headerlink" href="#optional-post-pr-check-results-from-an-azure-pipeline" title="Permanent link">&para;</a></h2>
 <p>If your team uses Azure Pipelines and wants PR-check results to post automatically on every PR build, add this step to your <code>azure-pipelines.yml</code>. The step invokes the platform's <code>analyze-pr</code> Lambda directly via the AWS CLI:</p>
 <div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWSShellScript@1</span>
-<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Trigger</span><span class="nv"> </span><span class="s">OutcomeOps</span><span class="nv"> </span><span class="s">PR-check&#39;</span>
-<span class="w">  </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eq(variables[&#39;Build.Reason&#39;], &#39;PullRequest&#39;)</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">'Trigger</span><span class="nv"> </span><span class="s">OutcomeOps</span><span class="nv"> </span><span class="s">PR-check'</span>
+<span class="w">  </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eq(variables['Build.Reason'], 'PullRequest')</span>
 <span class="w">  </span><span class="nt">inputs</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">awsCredentials</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;OutcomeOps-PRCheck&#39;</span>
-<span class="w">    </span><span class="nt">regionName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;us-west-2&#39;</span>
-<span class="w">    </span><span class="nt">scriptType</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;inline&#39;</span>
+<span class="w">    </span><span class="nt">awsCredentials</span><span class="p">:</span><span class="w"> </span><span class="s">'OutcomeOps-PRCheck'</span>
+<span class="w">    </span><span class="nt">regionName</span><span class="p">:</span><span class="w"> </span><span class="s">'us-west-2'</span>
+<span class="w">    </span><span class="nt">scriptType</span><span class="p">:</span><span class="w"> </span><span class="s">'inline'</span>
 <span class="w">    </span><span class="nt">inlineScript</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">      </span><span class="no">PAYLOAD=$(jq -n \</span>
-<span class="w">        </span><span class="no">--argjson pr_number &quot;$(System.PullRequest.PullRequestId)&quot; \</span>
-<span class="w">        </span><span class="no">--arg org  &quot;$(OUTCOMEOPS_ADO_ORG)&quot; \</span>
-<span class="w">        </span><span class="no">--arg proj &quot;$(System.TeamProject)&quot; \</span>
-<span class="w">        </span><span class="no">--arg repo &quot;$(Build.Repository.Name)&quot; \</span>
-<span class="w">        </span><span class="no">--arg conn &quot;$(OUTCOMEOPS_CONNECTION_ID)&quot; \</span>
-<span class="w">        </span><span class="no">&#39;{</span>
+<span class="w">        </span><span class="no">--argjson pr_number "$(System.PullRequest.PullRequestId)" \</span>
+<span class="w">        </span><span class="no">--arg org  "$(OUTCOMEOPS_ADO_ORG)" \</span>
+<span class="w">        </span><span class="no">--arg proj "$(System.TeamProject)" \</span>
+<span class="w">        </span><span class="no">--arg repo "$(Build.Repository.Name)" \</span>
+<span class="w">        </span><span class="no">--arg conn "$(OUTCOMEOPS_CONNECTION_ID)" \</span>
+<span class="w">        </span><span class="no">'{</span>
 <span class="w">          </span><span class="no">pr_number: $pr_number,</span>
-<span class="w">          </span><span class="no">repository: ($org + &quot;/&quot; + $proj + &quot;/&quot; + $repo),</span>
-<span class="w">          </span><span class="no">provider: &quot;azure_devops&quot;,</span>
+<span class="w">          </span><span class="no">repository: ($org + "/" + $proj + "/" + $repo),</span>
+<span class="w">          </span><span class="no">provider: "azure_devops",</span>
 <span class="w">          </span><span class="no">connection_id: $conn,</span>
 <span class="w">          </span><span class="no">ado_org: $org,</span>
 <span class="w">          </span><span class="no">ado_project: $proj,</span>
 <span class="w">          </span><span class="no">ado_repo: $repo</span>
-<span class="w">        </span><span class="no">}&#39;)</span>
+<span class="w">        </span><span class="no">}')</span>
 <span class="w">      </span><span class="no">aws lambda invoke \</span>
 <span class="w">        </span><span class="no">--function-name prd-outcome-ops-ai-assist-analyze-pr \</span>
-<span class="w">        </span><span class="no">--payload &quot;$PAYLOAD&quot; \</span>
+<span class="w">        </span><span class="no">--payload "$PAYLOAD" \</span>
 <span class="w">        </span><span class="no">--cli-binary-format raw-in-base64-out \</span>
 <span class="w">        </span><span class="no">/tmp/response.json &gt; /dev/null</span>
 <span class="w">      </span><span class="no">cat /tmp/response.json | jq .</span>

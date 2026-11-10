@@ -1484,7 +1484,10 @@
 <li><strong><code>enable_github_integration = true</code></strong> in the tfvars for the deploy (see <a href="../../administration/integration-gating/">Integration Gating</a>).</li>
 </ul>
 <h2 id="public-github-vs-github-enterprise">Public GitHub vs. GitHub Enterprise<a class="headerlink" href="#public-github-vs-github-enterprise" title="Permanent link">&para;</a></h2>
-<p>Both are supported. The setup steps below reference <code>github.com</code> URLs; for GitHub Enterprise Server, substitute your instance's URL throughout (<code>https://ghe.your-company.com/organizations/...</code>), and set the corresponding tfvar so the platform's Lambdas talk to your GHES API instead of <code>api.github.com</code>.</p>
+<ul>
+<li><strong>github.com (SaaS, including GitHub Enterprise Cloud)</strong> is the certified target.</li>
+<li><strong>GitHub Enterprise Server (self-hosted)</strong> is configurable but not yet certified end-to-end. Set <code>github_base_url = "https://ghe.your-company.com"</code> in tfvars; the platform derives the REST API as <code>{base}/api/v3</code>, fetches raw content through the contents API (GHES has no <code>raw.githubusercontent.com</code> host), and builds clone URLs against your instance host. Two GHES-specific caveats: the GitHub App in Step 1 must be <strong>registered on your GHES instance</strong> (App IDs, private keys, and webhook secrets are per-instance, not shared with github.com), and the setup steps below reference <code>github.com</code> URLs — substitute your instance's URL throughout.</li>
+</ul>
 <h2 id="step-1-create-the-github-app">Step 1: Create the GitHub App<a class="headerlink" href="#step-1-create-the-github-app" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Sign in to GitHub as an organization owner.</li>
@@ -1555,22 +1558,22 @@
 </table>
 <p>Tfvars:</p>
 <div class="codehilite"><pre><span></span><code><span class="na">enable_github_integration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
-<span class="na">github_app_id</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1234567&quot;</span>
-<span class="na">github_app_slug</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;outcomeops-ai-assist-yourorg&quot;</span>
-<span class="na">github_client_id</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Iv23liXXXXXXXXXXXXXX&quot;</span>
+<span class="na">github_app_id</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="s2">"1234567"</span>
+<span class="na">github_app_slug</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">"outcomeops-ai-assist-yourorg"</span>
+<span class="na">github_client_id</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s2">"Iv23liXXXXXXXXXXXXXX"</span>
 </code></pre></div>
 
 <p>The operator creates two SSM SecureString parameters:</p>
 <div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/github/app-private-key&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span>outcomeops-ai-assist.private-key.pem<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/github/app-private-key"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>cat<span class="w"> </span>outcomeops-ai-assist.private-key.pem<span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--type<span class="w"> </span>SecureString<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--key-id<span class="w"> </span>alias/aws/ssm<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--region<span class="w"> </span>us-west-2
 
 aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/github/webhook-secret&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;&lt;the webhook secret from Step 1.3&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/github/webhook-secret"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">"&lt;the webhook secret from Step 1.3&gt;"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--type<span class="w"> </span>SecureString<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--key-id<span class="w"> </span>alias/aws/ssm<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--region<span class="w"> </span>us-west-2

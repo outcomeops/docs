@@ -1589,48 +1589,48 @@
 <h2 id="how-the-scanner-uses-the-endpoint">How the scanner uses the endpoint<a class="headerlink" href="#how-the-scanner-uses-the-endpoint" title="Permanent link">&para;</a></h2>
 <h3 id="step-1-the-scanner-reads-credentials-from-ssm">Step 1: The scanner reads credentials from SSM<a class="headerlink" href="#step-1-the-scanner-reads-credentials-from-ssm" title="Permanent link">&para;</a></h3>
 <p>Give your scanner an IAM role with <code>ssm:GetParameter</code> on the four scanner parameters, plus <code>kms:Decrypt</code> on the KMS key that encrypts them (usually <code>alias/aws/ssm</code>).</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Scanner&#39;s IAM policy needs:</span>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Scanner's IAM policy needs:</span>
 <span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;Effect&quot;</span>:<span class="w"> </span><span class="s2">&quot;Allow&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;Action&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;ssm:GetParameter&quot;</span><span class="o">]</span>,
-<span class="w">  </span><span class="s2">&quot;Resource&quot;</span>:<span class="w"> </span><span class="s2">&quot;arn:aws:ssm:*:*:parameter/prd/outcome-ops-ai-assist/security-scanner/*&quot;</span>
+<span class="w">  </span><span class="s2">"Effect"</span>:<span class="w"> </span><span class="s2">"Allow"</span>,
+<span class="w">  </span><span class="s2">"Action"</span>:<span class="w"> </span><span class="o">[</span><span class="s2">"ssm:GetParameter"</span><span class="o">]</span>,
+<span class="w">  </span><span class="s2">"Resource"</span>:<span class="w"> </span><span class="s2">"arn:aws:ssm:*:*:parameter/prd/outcome-ops-ai-assist/security-scanner/*"</span>
 <span class="o">}</span>,
 <span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;Effect&quot;</span>:<span class="w"> </span><span class="s2">&quot;Allow&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;Action&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;kms:Decrypt&quot;</span><span class="o">]</span>,
-<span class="w">  </span><span class="s2">&quot;Resource&quot;</span>:<span class="w"> </span><span class="s2">&quot;arn:aws:kms:*:*:alias/aws/ssm&quot;</span>
+<span class="w">  </span><span class="s2">"Effect"</span>:<span class="w"> </span><span class="s2">"Allow"</span>,
+<span class="w">  </span><span class="s2">"Action"</span>:<span class="w"> </span><span class="o">[</span><span class="s2">"kms:Decrypt"</span><span class="o">]</span>,
+<span class="w">  </span><span class="s2">"Resource"</span>:<span class="w"> </span><span class="s2">"arn:aws:kms:*:*:alias/aws/ssm"</span>
 <span class="o">}</span>
 </code></pre></div>
 
 <p>The scanner runs:</p>
 <div class="codehilite"><pre><span></span><code><span class="c1"># Fetch the path, password, and header key from SSM</span>
 <span class="nv">SCANNER_PATH</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ssm<span class="w"> </span>get-parameter<span class="w"> </span>--with-decryption<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/security-scanner/path&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Parameter.Value&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/security-scanner/path"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">'Parameter.Value'</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
 
 <span class="nv">SCANNER_PASSWORD</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ssm<span class="w"> </span>get-parameter<span class="w"> </span>--with-decryption<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/security-scanner/password&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Parameter.Value&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/security-scanner/password"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">'Parameter.Value'</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
 
 <span class="nv">SCANNER_HEADER_KEY</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ssm<span class="w"> </span>get-parameter<span class="w"> </span>--with-decryption<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/security-scanner/header-key&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Parameter.Value&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/security-scanner/header-key"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">'Parameter.Value'</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
 </code></pre></div>
 
 <h3 id="step-2-the-scanner-posts-to-the-login-endpoint">Step 2: The scanner POSTs to the login endpoint<a class="headerlink" href="#step-2-the-scanner-posts-to-the-login-endpoint" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="nv">COOKIE</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-c<span class="w"> </span>-<span class="w"> </span><span class="s2">&quot;https://&lt;your-app-fqdn&gt;/</span><span class="si">${</span><span class="nv">SCANNER_PATH</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<div class="codehilite"><pre><span></span><code><span class="nv">COOKIE</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-c<span class="w"> </span>-<span class="w"> </span><span class="s2">"https://&lt;your-app-fqdn&gt;/</span><span class="si">${</span><span class="nv">SCANNER_PATH</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;X-Scanner-Auth: </span><span class="si">${</span><span class="nv">SCANNER_HEADER_KEY</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;password=</span><span class="si">${</span><span class="nv">SCANNER_PASSWORD</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>session_token<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $7}&#39;</span><span class="k">)</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">"X-Scanner-Auth: </span><span class="si">${</span><span class="nv">SCANNER_HEADER_KEY</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s2">"password=</span><span class="si">${</span><span class="nv">SCANNER_PASSWORD</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>session_token<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $7}'</span><span class="k">)</span>
 </code></pre></div>
 
 <p>The endpoint validates the password + custom header, mints a JWT signed with the SSM-stored secret, and returns it as a cookie.</p>
 <h3 id="step-3-the-scanner-uses-the-cookie-on-subsequent-requests">Step 3: The scanner uses the cookie on subsequent requests<a class="headerlink" href="#step-3-the-scanner-uses-the-cookie-on-subsequent-requests" title="Permanent link">&para;</a></h3>
 <p>Every request to the platform includes the cookie:</p>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Cookie: session_token=</span><span class="si">${</span><span class="nv">COOKIE</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">     </span>-H<span class="w"> </span><span class="s2">&quot;X-Scanner-Auth: </span><span class="si">${</span><span class="nv">SCANNER_HEADER_KEY</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">     </span><span class="s2">&quot;https://&lt;your-app-fqdn&gt;/api/workspaces&quot;</span>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Cookie: session_token=</span><span class="si">${</span><span class="nv">COOKIE</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>-H<span class="w"> </span><span class="s2">"X-Scanner-Auth: </span><span class="si">${</span><span class="nv">SCANNER_HEADER_KEY</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span><span class="s2">"https://&lt;your-app-fqdn&gt;/api/workspaces"</span>
 </code></pre></div>
 
 <p>The Express proxy accepts the JWT cookie as an authenticated session. The user identity in the session is <code>scanner@internal</code> --- audit rows attributed to the scanner get tagged with this synthetic user so SecOps can filter for scanner activity separately from real user activity.</p>

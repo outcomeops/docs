@@ -1668,7 +1668,7 @@ terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span cla
 </code></pre></div>
 
 <p>Copy the IAM role ARN from the output:</p>
-<div class="codehilite"><pre><span></span><code>jira_automation_role_arn = &quot;arn:aws:iam::123456789012:role/atlassian-automation-prd-outcome-ops-ai-assist&quot;
+<div class="codehilite"><pre><span></span><code>jira_automation_role_arn = "arn:aws:iam::123456789012:role/atlassian-automation-prd-outcome-ops-ai-assist"
 </code></pre></div>
 
 <h2 id="step-4-configure-the-aws-connector-in-jira-automation">Step 4: Configure the AWS connector in Jira Automation<a class="headerlink" href="#step-4-configure-the-aws-connector-in-jira-automation" title="Permanent link">&para;</a></h2>
@@ -1684,7 +1684,7 @@ terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span cla
 <h2 id="step-5-deploy-terraform-phase-2">Step 5: Deploy Terraform (Phase 2)<a class="headerlink" href="#step-5-deploy-terraform-phase-2" title="Permanent link">&para;</a></h2>
 <p>Update your tfvars with the External ID and re-apply:</p>
 <div class="codehilite"><pre><span></span><code><span class="na">enable_jira_integration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
-<span class="na">jira_external_id</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;automation-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;</span>
+<span class="na">jira_external_id</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">"automation-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span>
 </code></pre></div>
 
 <div class="codehilite"><pre><span></span><code>terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span class="o">=</span>prd.tfvars

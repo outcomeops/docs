@@ -1411,6 +1411,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#which-programming-languages-are-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      Which programming languages are supported?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#what-does-the-platform-do-with-generated-code" class="md-nav__link">
     <span class="md-ellipsis">
       What does the platform do with generated code?
@@ -1718,6 +1727,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#which-programming-languages-are-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      Which programming languages are supported?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#what-does-the-platform-do-with-generated-code" class="md-nav__link">
     <span class="md-ellipsis">
       What does the platform do with generated code?
@@ -1853,8 +1871,8 @@
 <h3 id="which-bedrock-models-are-supported">Which Bedrock models are supported?<a class="headerlink" href="#which-bedrock-models-are-supported" title="Permanent link">&para;</a></h3>
 <p>The current defaults:</p>
 <ul>
-<li><strong>Advanced:</strong> Claude Sonnet 4.6 (synthesis, PR-check analysis, code generation)</li>
-<li><strong>Basic:</strong> Claude Haiku 4.5 (query rewriting, summarization, code-map extraction)</li>
+<li><strong>Advanced:</strong> Claude Sonnet 5.5 (synthesis, PR-check analysis, code generation)</li>
+<li><strong>Basic:</strong> Claude Haiku 5.5 (query rewriting, summarization, code-map extraction)</li>
 <li><strong>Embedding:</strong> Titan Embed Text v2 (vectors)</li>
 <li><strong>Rerank:</strong> Cohere Rerank v3.5 (dual-channel retrieval reranking; optional)</li>
 </ul>
@@ -1876,6 +1894,9 @@
 <h2 id="content-integrations">Content + Integrations<a class="headerlink" href="#content-integrations" title="Permanent link">&para;</a></h2>
 <h3 id="can-i-add-an-integration-outcomeops-doesnt-natively-support">Can I add an integration OutcomeOps doesn't natively support?<a class="headerlink" href="#can-i-add-an-integration-outcomeops-doesnt-natively-support" title="Permanent link">&para;</a></h3>
 <p>Yes, via <a href="../features/mcp-servers/">MCP servers</a>. If the external system speaks the Model Context Protocol, you point the platform at its endpoint and users can invoke its tools from chat. Common pattern: wrap a REST API in a thin MCP shim you self-host, and add it as a workspace-scoped MCP.</p>
+<h3 id="which-programming-languages-are-supported">Which programming languages are supported?<a class="headerlink" href="#which-programming-languages-are-supported" title="Permanent link">&para;</a></h3>
+<p>Code maps and the symbol graph --- the structural "who calls X", "what implements Y", and cross-repo breaking-change detection --- cover <strong>Python, TypeScript/JavaScript, Java, C#/.NET, and Go</strong>. A plain library repo is discovered and indexed automatically, with no <code>.outcomeops.yaml</code> required. ABAP/SAP is supported for code-map extraction (read-only), without cross-repo binding. Breaking-change and architectural-duplication analysis reach across repository boundaries for all five of the first group.</p>
+<p>Code <em>generation</em> (the optional Jira-ticket-to-PR pipeline) ships backends for Python, Java, TypeScript, and React; the other languages are for understanding and review, not generation.</p>
 <h3 id="what-does-the-platform-do-with-generated-code">What does the platform do with generated code?<a class="headerlink" href="#what-does-the-platform-do-with-generated-code" title="Permanent link">&para;</a></h3>
 <p>It opens a pull request. The PR is authored by the OutcomeOps GitHub App, attributed to AI generation, and shows up in your normal PR review flow. You approve, request changes, or close --- same as any other PR. The platform doesn't merge on its own.</p>
 <h3 id="how-fast-does-content-become-queryable-after-ingest">How fast does content become queryable after ingest?<a class="headerlink" href="#how-fast-does-content-become-queryable-after-ingest" title="Permanent link">&para;</a></h3>

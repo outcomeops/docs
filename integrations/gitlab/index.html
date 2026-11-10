@@ -1432,7 +1432,8 @@
 <p>Time budget: <strong>~15 minutes</strong> for the app registration and handoff.</p>
 <h2 id="what-is-and-isnt-supported">What is and isn't supported<a class="headerlink" href="#what-is-and-isnt-supported" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>gitlab.com (SaaS) is the certified target.</strong> Self-managed GitLab is configurable via the <code>gitlab_base_url</code> tfvar but not yet certified end-to-end.</li>
+<li><strong>gitlab.com (SaaS) is the certified target.</strong> Self-managed GitLab is configurable and works via the same integration; formal end-to-end certification is in progress.</li>
+<li><strong>Multiple GitLab instances at once.</strong> One deployment can connect gitlab.com AND one or more self-managed GitLab servers simultaneously (via the <code>gitlab_instances</code> tfvar list) — for acquisitions, migrations, or a public/regulated split. Each instance needs its own OAuth application (on that instance) and its own client-secret parameter. One caveat: a project with the same final path segment (e.g. <code>.../api</code>) can't be enrolled into the <em>same workspace</em> from two different instances — put them in separate workspaces.</li>
 <li><strong>Nested subgroups are fully supported.</strong> Project paths of any depth (<code>group/subgroup/subsubgroup/project</code>) work everywhere --- enrollment, ingest, chat citations, and MR checks.</li>
 <li><strong>Polling + manual triggers only.</strong> Sync runs hourly, plus manual "Sync Now" from the UI. The platform does not subscribe to GitLab webhooks.</li>
 <li><strong>Merge-request analysis</strong> posts the same six AI checks as GitHub/ADO PRs, as collapsed MR notes that update in place on every push (no duplicate comments).</li>
@@ -1455,6 +1456,7 @@
 </li>
 <li>
 <p>Click <strong>Save application</strong>, then copy the <strong>Application ID</strong> and <strong>Secret</strong>.</p>
+<p>(For a <strong>multi-instance</strong> deploy, repeat Step 1 on each GitLab instance — every instance has its own OAuth application, Application ID, and secret.)</p>
 </li>
 </ol>
 <h2 id="step-2-handoff-to-the-platform-operator">Step 2: Handoff to the platform operator<a class="headerlink" href="#step-2-handoff-to-the-platform-operator" title="Permanent link">&para;</a></h2>
@@ -1478,16 +1480,27 @@
 </table>
 <p>The operator populates tfvars:</p>
 <div class="codehilite"><pre><span></span><code><span class="na">enable_gitlab_integration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
-<span class="na">gitlab_client_id</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;application-id&gt;&quot;</span>
+<span class="na">gitlab_client_id</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;application-id&gt;"</span>
 <span class="c1"># Optional overrides:</span>
-<span class="c1"># gitlab_base_url                = &quot;https://gitlab.example.com&quot;  # self-managed</span>
-<span class="c1"># gitlab_client_secret_ssm_param = &quot;/custom/path&quot;                # operator-managed secret path</span>
+<span class="c1"># gitlab_base_url                = "https://gitlab.example.com"  # self-managed</span>
+<span class="c1"># gitlab_client_secret_ssm_param = "/custom/path"                # operator-managed secret path</span>
 </code></pre></div>
 
+<p>For <strong>multiple instances</strong>, use the list form instead of the single
+<code>gitlab_client_id</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="na">enable_gitlab_integration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+<span class="na">gitlab_instances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"saas",     display_name = "GitLab.com",        base_url = "https://gitlab.com",         client_id = "&lt;saas-app-id&gt;",     client_secret_ssm_param = "/prd/outcome-ops-ai-assist/gitlab/client-secret"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"internal", display_name = "GitLab (internal)", base_url = "https://gitlab.example.com", client_id = "&lt;internal-app-id&gt;", client_secret_ssm_param = "/prd/outcome-ops-ai-assist/gitlab/client-secret-internal"</span><span class="w"> </span><span class="p">},</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<p>The Integrations UI then shows a "Connect" button per instance, and each
+connection is labeled with its instance.</p>
 <p>By default terraform creates a <strong>placeholder</strong> SSM parameter at <code>/{env}/outcome-ops-ai-assist/gitlab/client-secret</code> and never overwrites its value; the operator sets the real secret after the first apply:</p>
 <div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ssm<span class="w"> </span>put-parameter<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;/prd/outcome-ops-ai-assist/gitlab/client-secret&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--value<span class="w"> </span><span class="s2">&quot;&lt;the application secret&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">"/prd/outcome-ops-ai-assist/gitlab/client-secret"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--value<span class="w"> </span><span class="s2">"&lt;the application secret&gt;"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--type<span class="w"> </span>SecureString<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--overwrite<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--region<span class="w"> </span>us-west-2
@@ -1508,18 +1521,18 @@
 <div class="codehilite"><pre><span></span><code><span class="nt">outcomeops-mr-check</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
 <span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CI_PIPELINE_SOURCE == &quot;merge_request_event&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CI_PIPELINE_SOURCE == "merge_request_event"</span>
 <span class="w">  </span><span class="nt">script</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">      </span><span class="no">PAYLOAD=$(jq -n \</span>
-<span class="w">        </span><span class="no">--argjson pr_number &quot;$CI_MERGE_REQUEST_IID&quot; \</span>
-<span class="w">        </span><span class="no">--arg repo &quot;$CI_PROJECT_PATH&quot; \</span>
-<span class="w">        </span><span class="no">--arg conn &quot;$OUTCOMEOPS_CONNECTION_ID&quot; \</span>
-<span class="w">        </span><span class="no">&#39;{pr_number: $pr_number, repository: $repo,</span>
-<span class="w">          </span><span class="no">provider: &quot;gitlab&quot;, connection_id: $conn}&#39;)</span>
+<span class="w">        </span><span class="no">--argjson pr_number "$CI_MERGE_REQUEST_IID" \</span>
+<span class="w">        </span><span class="no">--arg repo "$CI_PROJECT_PATH" \</span>
+<span class="w">        </span><span class="no">--arg conn "$OUTCOMEOPS_CONNECTION_ID" \</span>
+<span class="w">        </span><span class="no">'{pr_number: $pr_number, repository: $repo,</span>
+<span class="w">          </span><span class="no">provider: "gitlab", connection_id: $conn}')</span>
 <span class="w">      </span><span class="no">aws lambda invoke \</span>
 <span class="w">        </span><span class="no">--function-name prd-outcome-ops-ai-assist-analyze-pr \</span>
-<span class="w">        </span><span class="no">--payload &quot;$PAYLOAD&quot; \</span>
+<span class="w">        </span><span class="no">--payload "$PAYLOAD" \</span>
 <span class="w">        </span><span class="no">--cli-binary-format raw-in-base64-out \</span>
 <span class="w">        </span><span class="no">/tmp/response.json</span>
 <span class="w">      </span><span class="no">cat /tmp/response.json</span>

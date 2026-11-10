@@ -1476,7 +1476,7 @@
 <p>Each detected span gets replaced with a type marker (<code>[EMAIL]</code>, <code>[NAME]</code>, <code>[SSN]</code>) at ingest.</p>
 <h2 id="skip-types">Skip types<a class="headerlink" href="#skip-types" title="Permanent link">&para;</a></h2>
 <p>Some entity types are false-positive-prone for developer content --- <code>URL</code> matches every link in a README, <code>IP_ADDRESS</code> matches the example IPs in a networking doc, <code>DATE_TIME</code> matches the copyright year in every LICENSE file. You skip these via a tfvar:</p>
-<div class="codehilite"><pre><span></span><code><span class="na">pii_redaction_skip_types</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;URL&quot;, &quot;IP_ADDRESS&quot;, &quot;MAC_ADDRESS&quot;, &quot;DATE_TIME&quot;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><code><span class="na">pii_redaction_skip_types</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"URL", "IP_ADDRESS", "MAC_ADDRESS", "DATE_TIME"</span><span class="p">]</span>
 </code></pre></div>
 
 <p>Skipped types pass through unredacted even when redaction is enabled. The default skip list above is tuned for developer knowledge bases; adjust it for your content.</p>
