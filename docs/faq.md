@@ -51,8 +51,8 @@ Disable integrations you don't use and the footprint drops proportionally. See [
 
 The current defaults:
 
-- **Advanced:** Claude Sonnet 4.6 (synthesis, PR-check analysis, code generation)
-- **Basic:** Claude Haiku 4.5 (query rewriting, summarization, code-map extraction)
+- **Advanced:** Claude Sonnet 5.5 (synthesis, PR-check analysis, code generation)
+- **Basic:** Claude Haiku 5.5 (query rewriting, summarization, code-map extraction)
 - **Embedding:** Titan Embed Text v2 (vectors)
 - **Rerank:** Cohere Rerank v3.5 (dual-channel retrieval reranking; optional)
 
@@ -91,6 +91,12 @@ Yes, via the audit stream export feature. Set `audit_stream_export_enabled = tru
 ### Can I add an integration OutcomeOps doesn't natively support?
 
 Yes, via [MCP servers](features/mcp-servers.md). If the external system speaks the Model Context Protocol, you point the platform at its endpoint and users can invoke its tools from chat. Common pattern: wrap a REST API in a thin MCP shim you self-host, and add it as a workspace-scoped MCP.
+
+### Which programming languages are supported?
+
+Code maps and the symbol graph --- the structural "who calls X", "what implements Y", and cross-repo breaking-change detection --- cover **Python, TypeScript/JavaScript, Java, C#/.NET, and Go**. A plain library repo is discovered and indexed automatically, with no `.outcomeops.yaml` required. ABAP/SAP is supported for code-map extraction (read-only), without cross-repo binding. Breaking-change and architectural-duplication analysis reach across repository boundaries for all five of the first group.
+
+Code *generation* (the optional Jira-ticket-to-PR pipeline) ships backends for Python, Java, TypeScript, and React; the other languages are for understanding and review, not generation.
 
 ### What does the platform do with generated code?
 

@@ -12,11 +12,13 @@ Every enrolled code host gets the same automated review pipeline. When a check r
 | **ADR Compliance** | Lambda handlers + Terraform diffs against the ADRs ingested into your knowledge base |
 | **README Freshness** | Whether code changes shipped without documentation updates |
 | **Test Coverage** | New handler files without corresponding tests, honoring the repo's `.outcomeops.yaml` test patterns |
-| **Breaking Changes** | Modified/removed handlers with downstream dependents |
+| **Breaking Changes** | A changed or removed symbol (function, method, class) whose callers are found in the code-map symbol graph --- including callers in *other* enrolled repositories. A signature change to a shared library flags the repos that consume it. |
 | **Architectural Duplication** | Similar functionality that already exists in other enrolled repos |
 | **License Compliance** | Missing copyright headers, license policy, AI-generated-code detection via commit trailers |
 
 Which checks run is decided per-PR from the changed-file patterns --- a docs-only PR doesn't run test-coverage.
+
+**Breaking Changes and Architectural Duplication are grounded in the code-map symbol graph, not keyword matching, and they reach across repository boundaries.** A change to a shared library is analyzed against the symbol graph of every repo that consumes it --- including libraries shared across workspaces or published to a global workspace --- so the consuming repos are named on the PR that makes the change, before it reaches those teams. A library is discovered and indexed with no `.outcomeops.yaml` required. Cross-repo resolution covers Python, TypeScript, Java, C#, and Go.
 
 ## Comment behavior
 
