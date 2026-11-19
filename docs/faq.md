@@ -13,19 +13,15 @@ Nowhere. OutcomeOps AI Assist runs entirely in your AWS account. Content ingeste
 
 ### Does OutcomeOps have any access to my data?
 
-No. The deploy runs under your IAM. There is no cross-account role that grants OutcomeOps access to anything in your account. OutcomeOps ships you Terraform modules and container images; you run them.
-
-### What does the license server see?
-
-Two things: (1) the license JWT you provide, which the license server validates; (2) a repo-count snapshot the platform sends periodically (how many repos are connected across all workspaces). No source code, no chat content, no user emails. The snapshot exists so OutcomeOps can enforce license terms; contact us if you need to see the exact payload.
+No. The deploy runs under your IAM. There is no cross-account role that grants OutcomeOps access to anything in your account. The [source](https://github.com/bcarpio/outcome-ops-ai-assist) is open under Apache 2.0; you build the images and run the Terraform yourself.
 
 ### Do I need to open outbound firewall rules?
 
-For non-air-gapped tiers: yes, one --- to `license.outcomeops.ai` for license validation and (optionally) help-content updates. For air-gapped enterprise tiers: no --- licensing is baked into the deploy artifact and help content ships as an immutable snapshot per release.
+Not for OutcomeOps --- the platform never calls home. Outbound traffic goes to AWS service endpoints (Bedrock, S3, DynamoDB, and so on) and to the integrations you enable (GitHub, Atlassian, Microsoft Graph, your databases). Allow those and nothing else.
 
 ### How do I upgrade?
 
-Bump the Terraform module version in your tfvars, run `make pre-deploy` to rebuild layers + images, then `terraform apply`. Release notes ship at `outcomeops.ai/releases` (or via your account team for regulated deploys).
+Pull the version you want from the [repository](https://github.com/bcarpio/outcome-ops-ai-assist) (`git pull`), run `make pre-deploy` to rebuild layers + images, then `terraform apply`. What changed is in the commit history.
 
 ### Which AWS regions are supported?
 
@@ -36,12 +32,12 @@ Any region where Bedrock supports the models you configure. Claude Sonnet + Haik
 Ballpark for a full-enable deploy (every integration flag `true`):
 
 - ~40 Lambda functions (shared core + one integration + one sync + one scheduler per enabled integration)
-- ~15 DynamoDB tables (workspaces, audit, analytics, symbol graph, code maps, license snapshot, etc.)
+- ~15 DynamoDB tables (workspaces, audit, analytics, symbol graph, code maps, etc.)
 - ~10 SQS queues + 10 DLQs (one pair per integration)
 - ~5 KMS keys (encryption at rest across the stack)
 - 2 Fargate services (chat UI + MCP catalog)
 - 1 Application Load Balancer (UI)
-- ~30 SSM SecureString parameters (integration credentials + license)
+- ~30 SSM SecureString parameters (integration credentials)
 
 Disable integrations you don't use and the footprint drops proportionally. See [Integration Gating](administration/integration-gating.md).
 
@@ -76,7 +72,7 @@ Yes. Your tfvars are the source of truth --- each `enable_*_integration` flag ma
 
 ### Does OutcomeOps AI Assist meet SOC 2 / HIPAA / FedRAMP?
 
-Compliance is a property of the **deploy**, not the software. OutcomeOps AI Assist deploys into your AWS account, using your KMS keys, under your IAM. The platform's design supports compliance postures --- audit trails, KMS-encrypted everything, no cross-account access, in-account processing --- but certification is on your side. Ask your account team about the deploy checklist for your compliance regime.
+Compliance is a property of the **deploy**, not the software. OutcomeOps AI Assist deploys into your AWS account, using your KMS keys, under your IAM. The platform's design supports compliance postures --- audit trails, KMS-encrypted everything, no cross-account access, in-account processing --- but certification is on your side, scoped to your deploy.
 
 ### How do I audit what users did?
 
@@ -114,18 +110,18 @@ Continuous. Every integration has an hourly scheduler that fires the sync worker
 
 ### Where do I file bugs or feature requests?
 
-For product issues (deployment problems, bugs, feature requests): open a ticket at the [OutcomeOps Support Portal](https://outcomeops.atlassian.net/servicedesk/customer/portal/1). Your account team triages from there.
+For product issues (deployment problems, bugs, feature requests): open an issue on [GitHub](https://github.com/bcarpio/outcome-ops-ai-assist/issues).
 
-For documentation issues (typos, wrong details, missing content): [open an issue in the docs repo](https://github.com/outcomeops/docs/issues/new). Include the page URL and what's confusing.
+For documentation issues (typos, wrong details, missing content): [open an issue in the docs repo](https://github.com/outcomeops/docs/issues/new), or fix it yourself with a pull request. Include the page URL and what's confusing.
 
 ### Can I contribute to the docs?
 
-Issues yes, pull requests no. See the [docs repo README](https://github.com/outcomeops/docs) for the contribution policy. If you have suggested wording for a fix, include it in your issue --- we'll lift it into the source when it fits.
+Yes. Issues and pull requests are both welcome on the [docs repo](https://github.com/outcomeops/docs); every page also has an edit link that opens the source file on GitHub. See the [docs repo README](https://github.com/outcomeops/docs) for how to build the site locally.
 
 ### Is there a Slack / Discord community?
 
-Not currently. OutcomeOps AI Assist is early-stage; support flows through your account team. As adoption grows we may open a broader community channel.
+Not currently. Questions, bugs, and feature requests go through [GitHub Issues](https://github.com/bcarpio/outcome-ops-ai-assist/issues).
 
 ### What SLA does OutcomeOps offer?
 
-OutcomeOps ships software; the SLA is what your AWS account provides. The platform is multi-AZ by default and supports multi-region HA (active/passive with per-region KMS keys). Configure your AWS account for the availability posture you need; the platform inherits it.
+None. OutcomeOps AI Assist is open-source software with community support and no paid support plan; the availability you get is what your AWS deploy provides. The platform is multi-AZ by default and supports multi-region HA (active/passive with per-region KMS keys). Configure your AWS account for the availability posture you need; the platform inherits it.

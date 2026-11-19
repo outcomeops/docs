@@ -158,7 +158,7 @@ Set `security_scanner_enabled = false` and re-apply Terraform. The Lambda, ALB l
 ## What this does NOT do
 
 - **Not a replacement for OIDC** for human users. Anyone with the scanner credentials can act as `scanner@internal` --- there's no user attribution beyond that identity. Reserve for machine access only.
-- **Not multi-scanner.** All scanners share the same credentials in v1. If you need per-scanner attribution, contact your account team --- the design can be extended to multiple named scanner identities.
+- **Not multi-scanner.** All scanners share the same credentials in v1. If you need per-scanner attribution, [open an issue](https://github.com/bcarpio/outcome-ops-ai-assist/issues) --- the design can be extended to multiple named scanner identities.
 - **Not integrated with your identity provider.** The scanner is intentionally out-of-band from OIDC / SSO. That's the point --- SSO can't do headless auth.
 
 ## Related

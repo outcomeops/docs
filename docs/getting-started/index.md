@@ -21,7 +21,7 @@ You'll need:
 - AWS CLI authenticated to the target account
 - Docker on the machine that builds the layers and container images
 - Bedrock model access in your target region (Claude Sonnet + Haiku by default, or your compliance-approved substitutes)
-- A license key from OutcomeOps ([procure via outcomeops.ai](https://outcomeops.ai))
+- A clone of the source: [github.com/bcarpio/outcome-ops-ai-assist](https://github.com/bcarpio/outcome-ops-ai-assist) (Apache 2.0)
 - An Azure AD tenant for OIDC authentication on the UI
 - A domain name you control for the UI subdomain
 

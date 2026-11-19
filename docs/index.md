@@ -7,7 +7,7 @@ description: Self-hosted, regulated-grade AI code assistant. Deploys entirely in
 
 **Self-hosted, regulated-grade AI code assistant.** Runs entirely in your AWS account. Integrates with GitHub, Azure DevOps, Jira, Confluence, Microsoft 365, and your databases.
 
-Your data never leaves your AWS account. Your KMS keys encrypt everything. Your IAM controls access. Your Bedrock models power the LLM calls. OutcomeOps ships you Terraform modules; you run them.
+Your data never leaves your AWS account. Your KMS keys encrypt everything. Your IAM controls access. Your Bedrock models power the LLM calls. The source is open under Apache 2.0; you deploy and run it yourself.
 
 ## Where to start
 
@@ -67,5 +67,5 @@ Every integration ships behind a `enable_<name>_integration` tfvar, default `fal
 ## Get help
 
 - **Documentation questions:** you're in the right place. Use the search in the top bar, or start with [Getting Started](getting-started/index.md).
-- **Product support (deployment issues, bugs, feature requests):** open a ticket at the [OutcomeOps Support Portal](https://outcomeops.atlassian.net/servicedesk/customer/portal/1). Your account team is on the other side.
-- **Documentation errors:** [file an issue](https://github.com/outcomeops/docs/issues/new). Include the page URL and what's confusing.
+- **Product issues (deployment problems, bugs, feature requests):** open an issue on [GitHub](https://github.com/bcarpio/outcome-ops-ai-assist/issues). Support is community support; there is no paid support plan.
+- **Documentation errors:** [file an issue](https://github.com/outcomeops/docs/issues/new) or open a pull request on the [docs repo](https://github.com/outcomeops/docs). Include the page URL and what's confusing.

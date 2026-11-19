@@ -6,7 +6,9 @@ This repository is the source for **[docs.outcomeops.ai](https://docs.outcomeops
 
 ## About OutcomeOps
 
-[OutcomeOps.ai](https://outcomeops.ai) is a self-hosted, regulated-grade AI code assistant that runs entirely in your own AWS account.
+[OutcomeOps.ai](https://outcomeops.ai) is a self-hosted, regulated-grade AI code assistant that runs entirely in your own AWS account. The platform is open source under Apache 2.0: [bcarpio/outcome-ops-ai-assist](https://github.com/bcarpio/outcome-ops-ai-assist).
+
+Product bugs and feature requests go to the [product repo's issues](https://github.com/bcarpio/outcome-ops-ai-assist/issues); this repo is only for the documentation.
 
 ## Reporting a doc issue
 
@@ -14,13 +16,11 @@ Typos, broken links, unclear explanations, missing content --- please [open an i
 
 ## Contributing
 
-**Pull requests are not accepted at this time.** OutcomeOps maintains editorial control over the documentation to keep voice, framing, and technical accuracy consistent.
+Pull requests are welcome. Fix a typo, correct a wrong detail, or fill in a missing section: edit the Markdown under `docs/`, check it renders with `mkdocs serve` (see below), and open a PR. Every page on the site also has an edit link that takes you straight to its source file.
 
-If something is wrong or missing, [open an issue](https://github.com/outcomeops/docs/issues/new) and someone from the team will edit the source and ship the fix. Issues are triaged weekly.
+For larger changes (a new page, a restructured section), open an issue first so we can agree on the shape before you write it.
 
-If you feel strongly about a change, include suggested wording in the issue --- we'll happily lift good language when it fits.
-
-## Building locally (maintainers)
+## Building locally
 
 ```bash
 pip install -r requirements-docs.txt

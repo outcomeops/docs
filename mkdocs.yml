@@ -87,14 +87,14 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/outcomeops
-      name: OutcomeOps on GitHub
+      link: https://github.com/bcarpio/outcome-ops-ai-assist
+      name: OutcomeOps AI Assist on GitHub
     - icon: fontawesome/solid/globe
       link: https://outcomeops.ai
       name: outcomeops.ai
     - icon: fontawesome/solid/life-ring
-      link: https://outcomeops.atlassian.net/servicedesk/customer/portal/1
-      name: Support Portal
+      link: https://github.com/bcarpio/outcome-ops-ai-assist/issues
+      name: Issues
 
 # Navigation. Add pages under docs/ then reference here.
 nav:

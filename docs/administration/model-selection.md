@@ -14,8 +14,8 @@ Defaults:
 
 | Slot | Default | Provider |
 | --- | --- | --- |
-| Advanced | Claude Sonnet 4.6 | Anthropic on Bedrock |
-| Basic | Claude Haiku 4.5 | Anthropic on Bedrock |
+| Advanced | Claude Sonnet 5.5 | Anthropic on Bedrock |
+| Basic | Claude Haiku 5.5 | Anthropic on Bedrock |
 | Embedding | Titan Embed Text v2 | Amazon on Bedrock |
 | Rerank | Cohere Rerank v3.5 (optional) | Cohere on Bedrock |
 
@@ -154,17 +154,15 @@ For some deployments, Bedrock accepts a long-lived API key directly (not going t
 
 ## Switching back to Claude
 
-Reverse the tfvars:
+Reverse the tfvars. The simplest route is to delete the model ID and price overrides you added, so the Claude defaults in `terraform/variables.tf` apply again. If you prefer to set them explicitly:
 
 ```hcl
-bedrock_advanced_model_id  = "us.anthropic.claude-sonnet-4-6"
-bedrock_basic_model_id     = "us.anthropic.claude-haiku-4-5-20251001-v1:0"
+bedrock_advanced_model_id  = "us.anthropic.claude-sonnet-5-5"
+bedrock_basic_model_id     = "us.anthropic.claude-haiku-5-5"
 bedrock_default_backend    = "converse"
 
-bedrock_advanced_input_price  = 3.00
-bedrock_advanced_output_price = 15.00
-bedrock_basic_input_price     = 1.25
-bedrock_basic_output_price    = 2.50
+# Set the four bedrock_*_price tfvars to the current Bedrock rates for these
+# models (aws.amazon.com/bedrock/pricing).
 
 bedrock_rerank_enabled = true   # if your region supports Cohere Rerank
 ```

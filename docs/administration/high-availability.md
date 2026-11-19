@@ -30,13 +30,12 @@ Set the secondary region in your tfvars and re-apply Terraform. Everything else 
 
 ```hcl
 secondary_region                        = "us-east-2"
-outcomeops_license_layer_arn_secondary  = "arn:aws:lambda:us-east-2:<layer-account>:layer:prd-outcomeops-license-validator-v2-0-0:4"
 ui_vpc_id_secondary                     = "vpc-xxxxxxxxxxxxxxxxx"
 ui_private_subnet_ids_secondary         = ["subnet-xxx", "subnet-xxx", "subnet-xxx"]
 ui_container_image_secondary            = "<account>.dkr.ecr.us-east-2.amazonaws.com/prd-outcome-ops-ai-assist-chat-ui:latest"
 ```
 
-The `_secondary` variants of the OAuth SSM parameters (Atlassian client secret, Microsoft client secret, GitHub App private key, etc.) get their initial values via a one-time bootstrap script the operator runs after the first HA apply --- see the operator handoff kit for the exact commands.
+The `_secondary` variants of the OAuth SSM parameters (Atlassian client secret, Microsoft client secret, GitHub App private key, etc.) get their initial values via a one-time bootstrap the operator runs after the first HA apply (`make ha-bootstrap`) --- see [`docs/HA.md`](https://github.com/bcarpio/outcome-ops-ai-assist/blob/main/docs/HA.md) in the repository for the exact commands.
 
 ## Day-to-day operation
 
