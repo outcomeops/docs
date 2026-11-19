@@ -1249,15 +1249,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-does-the-license-server-see" class="md-nav__link">
-    <span class="md-ellipsis">
-      What does the license server see?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#do-i-need-to-open-outbound-firewall-rules" class="md-nav__link">
     <span class="md-ellipsis">
       Do I need to open outbound firewall rules?
@@ -1565,15 +1556,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-does-the-license-server-see" class="md-nav__link">
-    <span class="md-ellipsis">
-      What does the license server see?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#do-i-need-to-open-outbound-firewall-rules" class="md-nav__link">
     <span class="md-ellipsis">
       Do I need to open outbound firewall rules?
@@ -1846,25 +1828,23 @@
 <h3 id="where-does-my-data-go">Where does my data go?<a class="headerlink" href="#where-does-my-data-go" title="Permanent link">&para;</a></h3>
 <p>Nowhere. OutcomeOps AI Assist runs entirely in your AWS account. Content ingested from your integrations lands in your S3 buckets, your DynamoDB tables, your S3 Vectors index. LLM calls go to your Bedrock endpoints. Chat conversations save to your DynamoDB. Nothing leaves your account.</p>
 <h3 id="does-outcomeops-have-any-access-to-my-data">Does OutcomeOps have any access to my data?<a class="headerlink" href="#does-outcomeops-have-any-access-to-my-data" title="Permanent link">&para;</a></h3>
-<p>No. The deploy runs under your IAM. There is no cross-account role that grants OutcomeOps access to anything in your account. OutcomeOps ships you Terraform modules and container images; you run them.</p>
-<h3 id="what-does-the-license-server-see">What does the license server see?<a class="headerlink" href="#what-does-the-license-server-see" title="Permanent link">&para;</a></h3>
-<p>Two things: (1) the license JWT you provide, which the license server validates; (2) a repo-count snapshot the platform sends periodically (how many repos are connected across all workspaces). No source code, no chat content, no user emails. The snapshot exists so OutcomeOps can enforce license terms; contact us if you need to see the exact payload.</p>
+<p>No. The deploy runs under your IAM. There is no cross-account role that grants OutcomeOps access to anything in your account. The <a href="https://github.com/bcarpio/outcome-ops-ai-assist">source</a> is open under Apache 2.0; you build the images and run the Terraform yourself.</p>
 <h3 id="do-i-need-to-open-outbound-firewall-rules">Do I need to open outbound firewall rules?<a class="headerlink" href="#do-i-need-to-open-outbound-firewall-rules" title="Permanent link">&para;</a></h3>
-<p>For non-air-gapped tiers: yes, one --- to <code>license.outcomeops.ai</code> for license validation and (optionally) help-content updates. For air-gapped enterprise tiers: no --- licensing is baked into the deploy artifact and help content ships as an immutable snapshot per release.</p>
+<p>Not for OutcomeOps --- the platform never calls home. Outbound traffic goes to AWS service endpoints (Bedrock, S3, DynamoDB, and so on) and to the integrations you enable (GitHub, Atlassian, Microsoft Graph, your databases). Allow those and nothing else.</p>
 <h3 id="how-do-i-upgrade">How do I upgrade?<a class="headerlink" href="#how-do-i-upgrade" title="Permanent link">&para;</a></h3>
-<p>Bump the Terraform module version in your tfvars, run <code>make pre-deploy</code> to rebuild layers + images, then <code>terraform apply</code>. Release notes ship at <code>outcomeops.ai/releases</code> (or via your account team for regulated deploys).</p>
+<p>Pull the version you want from the <a href="https://github.com/bcarpio/outcome-ops-ai-assist">repository</a> (<code>git pull</code>), run <code>make pre-deploy</code> to rebuild layers + images, then <code>terraform apply</code>. What changed is in the commit history.</p>
 <h3 id="which-aws-regions-are-supported">Which AWS regions are supported?<a class="headerlink" href="#which-aws-regions-are-supported" title="Permanent link">&para;</a></h3>
 <p>Any region where Bedrock supports the models you configure. Claude Sonnet + Haiku (defaults) are broadly available. OpenAI on Bedrock (GPT-5.5) is us-east-2 only at time of writing. Verify the model IDs in your tfvars against your target region before applying.</p>
 <h3 id="whats-the-deploy-footprint">What's the deploy footprint?<a class="headerlink" href="#whats-the-deploy-footprint" title="Permanent link">&para;</a></h3>
 <p>Ballpark for a full-enable deploy (every integration flag <code>true</code>):</p>
 <ul>
 <li>~40 Lambda functions (shared core + one integration + one sync + one scheduler per enabled integration)</li>
-<li>~15 DynamoDB tables (workspaces, audit, analytics, symbol graph, code maps, license snapshot, etc.)</li>
+<li>~15 DynamoDB tables (workspaces, audit, analytics, symbol graph, code maps, etc.)</li>
 <li>~10 SQS queues + 10 DLQs (one pair per integration)</li>
 <li>~5 KMS keys (encryption at rest across the stack)</li>
 <li>2 Fargate services (chat UI + MCP catalog)</li>
 <li>1 Application Load Balancer (UI)</li>
-<li>~30 SSM SecureString parameters (integration credentials + license)</li>
+<li>~30 SSM SecureString parameters (integration credentials)</li>
 </ul>
 <p>Disable integrations you don't use and the footprint drops proportionally. See <a href="../administration/integration-gating/">Integration Gating</a>.</p>
 <h2 id="models">Models<a class="headerlink" href="#models" title="Permanent link">&para;</a></h2>
@@ -1886,7 +1866,7 @@
 <h3 id="can-secops-review-what-my-deploy-provisions">Can SecOps review what my deploy provisions?<a class="headerlink" href="#can-secops-review-what-my-deploy-provisions" title="Permanent link">&para;</a></h3>
 <p>Yes. Your tfvars are the source of truth --- each <code>enable_*_integration</code> flag maps to a documented set of resources (see <a href="../administration/integration-gating/">Integration Gating</a>). The unauthenticated <code>/api/config/integrations</code> endpoint returns the live manifest so SecOps can verify the deploy state matches the tfvars.</p>
 <h3 id="does-outcomeops-ai-assist-meet-soc-2-hipaa-fedramp">Does OutcomeOps AI Assist meet SOC 2 / HIPAA / FedRAMP?<a class="headerlink" href="#does-outcomeops-ai-assist-meet-soc-2-hipaa-fedramp" title="Permanent link">&para;</a></h3>
-<p>Compliance is a property of the <strong>deploy</strong>, not the software. OutcomeOps AI Assist deploys into your AWS account, using your KMS keys, under your IAM. The platform's design supports compliance postures --- audit trails, KMS-encrypted everything, no cross-account access, in-account processing --- but certification is on your side. Ask your account team about the deploy checklist for your compliance regime.</p>
+<p>Compliance is a property of the <strong>deploy</strong>, not the software. OutcomeOps AI Assist deploys into your AWS account, using your KMS keys, under your IAM. The platform's design supports compliance postures --- audit trails, KMS-encrypted everything, no cross-account access, in-account processing --- but certification is on your side, scoped to your deploy.</p>
 <h3 id="how-do-i-audit-what-users-did">How do I audit what users did?<a class="headerlink" href="#how-do-i-audit-what-users-did" title="Permanent link">&para;</a></h3>
 <p>Every mutation writes an audit row to DynamoDB with the user's email, source IP, user agent, action, and workspace. Read-only chat queries are logged separately in the chat audit table (with input, output, retrieval sources, tool calls, and token counts). Both are queryable from the Admin → Audit dashboard, or via CloudWatch Logs Insights if you want raw access.</p>
 <h3 id="can-i-stream-audit-events-to-my-siem">Can I stream audit events to my SIEM?<a class="headerlink" href="#can-i-stream-audit-events-to-my-siem" title="Permanent link">&para;</a></h3>
@@ -1905,14 +1885,14 @@
 <p>Continuous. Every integration has an hourly scheduler that fires the sync worker; each worker looks at what's changed since last time and updates only the delta. If you add a new file to an ingested repo, it becomes queryable within the next hour. If you don't want a specific repo synced, remove it from the workspace.</p>
 <h2 id="support-contribution">Support + Contribution<a class="headerlink" href="#support-contribution" title="Permanent link">&para;</a></h2>
 <h3 id="where-do-i-file-bugs-or-feature-requests">Where do I file bugs or feature requests?<a class="headerlink" href="#where-do-i-file-bugs-or-feature-requests" title="Permanent link">&para;</a></h3>
-<p>For product issues (deployment problems, bugs, feature requests): open a ticket at the <a href="https://outcomeops.atlassian.net/servicedesk/customer/portal/1">OutcomeOps Support Portal</a>. Your account team triages from there.</p>
-<p>For documentation issues (typos, wrong details, missing content): <a href="https://github.com/outcomeops/docs/issues/new">open an issue in the docs repo</a>. Include the page URL and what's confusing.</p>
+<p>For product issues (deployment problems, bugs, feature requests): open an issue on <a href="https://github.com/bcarpio/outcome-ops-ai-assist/issues">GitHub</a>.</p>
+<p>For documentation issues (typos, wrong details, missing content): <a href="https://github.com/outcomeops/docs/issues/new">open an issue in the docs repo</a>, or fix it yourself with a pull request. Include the page URL and what's confusing.</p>
 <h3 id="can-i-contribute-to-the-docs">Can I contribute to the docs?<a class="headerlink" href="#can-i-contribute-to-the-docs" title="Permanent link">&para;</a></h3>
-<p>Issues yes, pull requests no. See the <a href="https://github.com/outcomeops/docs">docs repo README</a> for the contribution policy. If you have suggested wording for a fix, include it in your issue --- we'll lift it into the source when it fits.</p>
+<p>Yes. Issues and pull requests are both welcome on the <a href="https://github.com/outcomeops/docs">docs repo</a>; every page also has an edit link that opens the source file on GitHub. See the <a href="https://github.com/outcomeops/docs">docs repo README</a> for how to build the site locally.</p>
 <h3 id="is-there-a-slack-discord-community">Is there a Slack / Discord community?<a class="headerlink" href="#is-there-a-slack-discord-community" title="Permanent link">&para;</a></h3>
-<p>Not currently. OutcomeOps AI Assist is early-stage; support flows through your account team. As adoption grows we may open a broader community channel.</p>
+<p>Not currently. Questions, bugs, and feature requests go through <a href="https://github.com/bcarpio/outcome-ops-ai-assist/issues">GitHub Issues</a>.</p>
 <h3 id="what-sla-does-outcomeops-offer">What SLA does OutcomeOps offer?<a class="headerlink" href="#what-sla-does-outcomeops-offer" title="Permanent link">&para;</a></h3>
-<p>OutcomeOps ships software; the SLA is what your AWS account provides. The platform is multi-AZ by default and supports multi-region HA (active/passive with per-region KMS keys). Configure your AWS account for the availability posture you need; the platform inherits it.</p>
+<p>None. OutcomeOps AI Assist is open-source software with community support and no paid support plan; the availability you get is what your AWS deploy provides. The platform is multi-AZ by default and supports multi-region HA (active/passive with per-region KMS keys). Configure your AWS account for the availability posture you need; the platform inherits it.</p>
 
 
 
@@ -1966,7 +1946,7 @@
     
     
     
-    <a href="https://github.com/outcomeops" target="_blank" rel="noopener" title="OutcomeOps on GitHub" class="md-social__link">
+    <a href="https://github.com/bcarpio/outcome-ops-ai-assist" target="_blank" rel="noopener" title="OutcomeOps AI Assist on GitHub" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
@@ -1982,7 +1962,7 @@
     
     
     
-    <a href="https://outcomeops.atlassian.net/servicedesk/customer/portal/1" target="_blank" rel="noopener" title="Support Portal" class="md-social__link">
+    <a href="https://github.com/bcarpio/outcome-ops-ai-assist/issues" target="_blank" rel="noopener" title="Issues" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7.8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5M157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1-96 0"/></svg>
     </a>
   
